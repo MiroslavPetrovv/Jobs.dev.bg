@@ -17,5 +17,7 @@ namespace JobApplications.Data
             
         }
         public DbSet<Job> Jobs { get; set; } = null!;
+
+        public DbSet<Company> Companies { get; set; } = null!;
     }
 }

@@ -2,6 +2,7 @@
 using JobApplications.Data.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
 
 namespace JobApplications.Controllers
 {
@@ -14,10 +15,7 @@ namespace JobApplications.Controllers
             data = context;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        
 
         public Job Get()
         {
@@ -36,21 +34,18 @@ namespace JobApplications.Controllers
         [HttpPost]
         public IActionResult Add(Job job)
         {
-            if (String.IsNullOrEmpty(job.Title))
+            if (String.IsNullOrEmpty(job.Title) || String.IsNullOrEmpty(job.Salary.ToString()) || )
             {
                 
             }
-            if (String.IsNullOrEmpty(job.Salary.ToString()))
+            if (job.Title.Length<=5 || job.Salary.ToString().Length <=2)
             {
 
             }
-            if (String.IsNullOrEmpty(job.Company))
-            {
-
-            }
+            //make a drop down menu for the company
             data.Add(job);
             data.SaveChanges();
-            return View();
+            return RedirectToAction("GetAll");
         }
 
         public IActionResult Delete(int id)
@@ -58,34 +53,31 @@ namespace JobApplications.Controllers
             Job jobToDelete = data.Jobs.FirstOrDefault(x => x.Id == id);
             data.Jobs.Remove(jobToDelete);
             data.SaveChanges();
-            return View(this.data.Jobs.ToList());
+            return RedirectToAction("GetAll");
         }
-        //[HttpGet]
-        //public IActionResult Edit(Job job)
-        //{
-        //    Job jobToUpdate = data.Jobs.FirstOrDefault(x => x.Id == job.Id);
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            Job jobToUpdate = data.Jobs.FirstOrDefault(x => x.Id == id);
 
 
-        //    return View(job);
-        //}
-        //[HttpPost]
-        //public IActionResult Edit(Job job)
-        //{
-        //    if (String.IsNullOrEmpty(job.Title))
-        //    {
+            return View(jobToUpdate);
+        }
+        [HttpPost]
+        public IActionResult Edit(Job job)
+        {
+            if (String.IsNullOrEmpty(job.Title))
+            {
 
-        //    }
-        //    if (String.IsNullOrEmpty(job.Salary.ToString()))
-        //    {
+            }
+            if (String.IsNullOrEmpty(job.Salary.ToString()))
+            {
 
-        //    }
-        //    if (String.IsNullOrEmpty(job.Company))
-        //    {
-
-        //    }
-
-        //    data.SaveChanges();
-        //    return View();
-        //}
+            }
+            
+            data.Jobs.Update(job);
+            data.SaveChanges();
+            return RedirectToAction("GetAll");
+        }
     }
 }

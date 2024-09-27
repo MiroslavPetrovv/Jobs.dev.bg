@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JobApplications.Data.Models
 {
     public class Job
     {
+        
         [Key]
         public int Id { get; set; }
 
@@ -13,7 +15,15 @@ namespace JobApplications.Data.Models
         [Required]
         public decimal Salary { get; set; }
 
-        [Required]
-        public string Company { get; set; } = null!;
+        public int CompanyId { get; set; }
+
+        [ForeignKey(nameof(CompanyId))]
+        public Company Company { get; set; } = null!;
+
+        
+
+
+
+
     }
 }
