@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gg8/8sVJ8QI=",
+  "dgSpecHash": "400+KaOuELM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Miroslav\\source\\repos\\JobApplications\\JobApplications.csproj",
+  "projectFilePath": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\JobApplications.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Miroslav\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Miroslav\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

@@ -11259,11 +11259,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Miroslav\\source\\repos\\JobApplications\\JobApplications.csproj",
+      "projectUniqueName": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\JobApplications.csproj",
       "projectName": "JobApplications",
-      "projectPath": "C:\\Users\\Miroslav\\source\\repos\\JobApplications\\JobApplications.csproj",
+      "projectPath": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\JobApplications.csproj",
       "packagesPath": "C:\\Users\\Miroslav\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Miroslav\\source\\repos\\JobApplications\\obj\\",
+      "outputPath": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Miroslav\\AppData\\Roaming\\NuGet\\NuGet.Config",
