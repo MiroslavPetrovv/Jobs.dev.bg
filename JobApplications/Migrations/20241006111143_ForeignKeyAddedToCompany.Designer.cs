@@ -4,6 +4,7 @@ using JobApplications.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JobApplications.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241006111143_ForeignKeyAddedToCompany")]
+    partial class ForeignKeyAddedToCompany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,74 +77,6 @@ namespace JobApplications.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Industries");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Industry focused on technology and innovation",
-                            Name = "Technology"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Industry focused on health services and products",
-                            Name = "Healthcare"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Industry involved in production and manufacturing",
-                            Name = "Manufacturing"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Industry dealing with finance and investment",
-                            Name = "Finance"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Description = "Industry related to education and training",
-                            Name = "Education"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Description = "Industry focused on selling goods and services",
-                            Name = "Retail"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Description = "Industry related to building and construction",
-                            Name = "Construction"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Description = "Industry involving the movement of goods and people",
-                            Name = "Transportation"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            Description = "Industry related to services in hotels, restaurants, and tourism",
-                            Name = "Hospitality"
-                        },
-                        new
-                        {
-                            Id = 10,
-                            Description = "Industry related to farming and food production",
-                            Name = "Agriculture"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            Description = "Industry focused on sustainability and environmental protection",
-                            Name = "Environmental Services"
-                        });
                 });
 
             modelBuilder.Entity("JobApplications.Data.Models.Job", b =>

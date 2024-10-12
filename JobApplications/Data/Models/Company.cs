@@ -18,11 +18,11 @@ namespace JobApplications.Data.Models
 
         public int NumbersOfEmployes { get; set; }
 
-       
-
         public string DateOfCreation { get; set; } = null!;
 
-
+        // guid
+        public string IdentityUserId { get; set; }
+        public IdentityUser IdentityUser { get; set; }
 
         public List<Job> PostedJobs { get; set; } = new List<Job>();
     }

@@ -1,5 +1,8 @@
-﻿using JobApplications.Data;
+﻿using AutoMapper;
+using JobApplications.Data;
 using JobApplications.Data.Models;
+using JobApplications.DTOs;
+using JobApplications.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -8,10 +11,12 @@ namespace JobApplications.Controllers
     public class CompanyController : Controller
     {
         private ApplicationDbContext data;
+        private IMapper mapper;
 
-        public CompanyController(ApplicationDbContext context)
+        public CompanyController(ApplicationDbContext context,IMapper mappingProfile)
         {
             data = context;
+            mapper = mappingProfile;
         }
 
         public Company Get()
@@ -20,16 +25,32 @@ namespace JobApplications.Controllers
         }
         [HttpGet]
         public IActionResult Add()
-        {
-            Company company = new Company();
-            return View(company);
+        {            
+            if (string.IsNullOrEmpty(User.GetId()))
+            {
+                //to return error
+            }   
+
+            CompanyFormDTO companyDto = new CompanyFormDTO();
+
+            FilledDropdowns(companyDto);
+
+            return View(companyDto);
         }
 
         [HttpPost]
-        public IActionResult Add(Company company)
+        public IActionResult Add(CompanyFormDTO companyDto)
         {
-            
-            //make a drop down menu for the company
+
+            if (string.IsNullOrEmpty(User.GetId()))
+            {
+                //to return error
+            }   
+
+            // fk to identity user 
+
+            companyDto.IdentityUserId = User.GetId();
+            var company = mapper.Map<Company>(companyDto);
             data.Add(company);
             data.SaveChanges();
             return RedirectToAction("GetAll");
@@ -58,6 +79,14 @@ namespace JobApplications.Controllers
             data.Companies.Update(company);
             data.SaveChanges();
             return RedirectToAction("GetAll");
+        }
+
+        private void FilledDropdowns(CompanyFormDTO dto)
+        {
+            List<Industry> industries = data.Industries.ToList();
+
+            dto.Industries = industries;
+
         }
     }
 }

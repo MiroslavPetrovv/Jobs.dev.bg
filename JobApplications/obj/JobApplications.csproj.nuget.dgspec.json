@@ -46,6 +46,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.30, )"
@@ -71,6 +75,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.33, )"
+            },
+            "Microsoft.VisualStudio.LiveShare": {
+              "target": "Package",
+              "version": "[1.1.57, )"
+            },
+            "Microsoft.VisualStudio.LiveShare.LanguageServices": {
+              "target": "Package",
+              "version": "[2.0.1, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",

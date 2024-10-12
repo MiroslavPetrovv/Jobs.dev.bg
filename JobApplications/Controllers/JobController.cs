@@ -34,6 +34,7 @@ namespace JobApplications.Controllers
         [HttpPost]
         public IActionResult Add(Job job)
         {
+            
             if (String.IsNullOrEmpty(job.Title) || String.IsNullOrEmpty(job.Salary.ToString()))
             {
                 

@@ -8,16 +8,30 @@
     ".NETCoreApp,Version=v6.0": {
       "JobApplications/1.0.0": {
         "dependencies": {
+          "AutoMapper": "13.0.1",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.30",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.33",
           "Microsoft.AspNetCore.Identity.UI": "6.0.33",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.33",
           "Microsoft.EntityFrameworkCore.Sqlite": "6.0.33",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.33",
+          "Microsoft.VisualStudio.LiveShare": "1.1.57",
+          "Microsoft.VisualStudio.LiveShare.LanguageServices": "2.0.1",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.17"
         },
         "runtime": {
           "JobApplications.dll": {}
+        }
+      },
+      "AutoMapper/13.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.Options": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/AutoMapper.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.0"
+          }
         }
       },
       "Humanizer/2.14.1": {
@@ -1015,7 +1029,7 @@
           "Humanizer.Core": "2.14.1",
           "Microsoft.Bcl.AsyncInterfaces": "5.0.0",
           "Microsoft.CodeAnalysis.Common": "4.0.0",
-          "System.Composition": "1.0.31",
+          "System.Composition": "1.1.0",
           "System.IO.Pipelines": "5.0.1"
         },
         "runtime": {
@@ -1429,6 +1443,17 @@
       },
       "Microsoft.NETCore.Platforms/3.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.VisualStudio.CoreUtility/15.6.27413": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Threading": "15.4.4"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.CoreUtility.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.6.309.2271"
+          }
+        }
+      },
       "Microsoft.VisualStudio.Debugger.Contracts/17.2.0": {
         "dependencies": {
           "MessagePack": "2.1.152",
@@ -1440,6 +1465,236 @@
           "lib/netstandard2.0/Microsoft.VisualStudio.Debugger.Contracts.dll": {
             "assemblyVersion": "16.0.0.0",
             "fileVersion": "17.200.21.51202"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.Editor/15.6.27413": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Text.UI.Wpf": "15.6.27413",
+          "Microsoft.VisualStudio.TextManager.Interop.8.0": "8.0.50728"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Editor.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.6.309.2271"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.LiveShare/1.1.57": {
+        "dependencies": {
+          "System.Composition": "1.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.LiveShare.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.57.57616"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.LiveShare.LanguageServices/2.0.1": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Editor": "15.6.27413",
+          "Microsoft.VisualStudio.LiveShare": "1.1.57",
+          "Newtonsoft.Json": "13.0.3",
+          "System.Composition": "1.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.VisualStudio.LiveShare.LanguageServices.16.3.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.1.57616"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.OLE.Interop/7.10.6071": {
+        "runtime": {
+          "lib/Microsoft.VisualStudio.OLE.Interop.dll": {
+            "assemblyVersion": "7.1.40304.0",
+            "fileVersion": "7.10.6070.0"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.Shell.Interop/7.10.6072": {
+        "dependencies": {
+          "Microsoft.VisualStudio.TextManager.Interop": "7.10.6071"
+        },
+        "runtime": {
+          "lib/net11/Microsoft.VisualStudio.Shell.Interop.dll": {
+            "assemblyVersion": "7.1.40304.0",
+            "fileVersion": "7.10.6071.0"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.Text.Data/15.6.27413": {
+        "dependencies": {
+          "Microsoft.VisualStudio.CoreUtility": "15.6.27413"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Text.Data.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.6.309.2271"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.Text.Logic/15.6.27413": {
+        "dependencies": {
+          "Microsoft.VisualStudio.CoreUtility": "15.6.27413",
+          "Microsoft.VisualStudio.Text.Data": "15.6.27413"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Text.Logic.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.6.309.2271"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.Text.UI/15.6.27413": {
+        "dependencies": {
+          "Microsoft.VisualStudio.CoreUtility": "15.6.27413",
+          "Microsoft.VisualStudio.Text.Data": "15.6.27413",
+          "Microsoft.VisualStudio.Text.Logic": "15.6.27413"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Text.UI.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.6.309.2271"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.Text.UI.Wpf/15.6.27413": {
+        "dependencies": {
+          "Microsoft.VisualStudio.CoreUtility": "15.6.27413",
+          "Microsoft.VisualStudio.Text.Data": "15.6.27413",
+          "Microsoft.VisualStudio.Text.Logic": "15.6.27413",
+          "Microsoft.VisualStudio.Text.UI": "15.6.27413"
+        },
+        "runtime": {
+          "lib/net45/Microsoft.VisualStudio.Text.UI.Wpf.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.6.309.2271"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.TextManager.Interop/7.10.6071": {
+        "dependencies": {
+          "Microsoft.VisualStudio.OLE.Interop": "7.10.6071"
+        },
+        "runtime": {
+          "lib/net11/Microsoft.VisualStudio.TextManager.Interop.dll": {
+            "assemblyVersion": "7.1.40304.0",
+            "fileVersion": "7.10.6070.0"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.TextManager.Interop.8.0/8.0.50728": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Shell.Interop": "7.10.6072"
+        },
+        "runtime": {
+          "lib/net11/Microsoft.VisualStudio.TextManager.Interop.8.0.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.50727.932"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.Threading/15.4.4": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Validation": "15.3.15",
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.1/Microsoft.VisualStudio.Threading.dll": {
+            "assemblyVersion": "15.3.0.0",
+            "fileVersion": "15.4.4.3546"
+          }
+        },
+        "resources": {
+          "lib/netstandard1.1/cs/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/netstandard1.1/de/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "de"
+          },
+          "lib/netstandard1.1/es/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard1.1/fr/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netstandard1.1/it/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netstandard1.1/ja/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netstandard1.1/ko/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/netstandard1.1/pl/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/netstandard1.1/pt-BR/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard1.1/ru/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netstandard1.1/tr/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/netstandard1.1/zh-Hans/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/netstandard1.1/zh-Hant/Microsoft.VisualStudio.Threading.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.VisualStudio.Validation/15.3.15": {
+        "runtime": {
+          "lib/netstandard1.0/Microsoft.VisualStudio.Validation.dll": {
+            "assemblyVersion": "15.3.0.0",
+            "fileVersion": "15.3.15.16354"
+          }
+        },
+        "resources": {
+          "lib/netstandard1.0/cs/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/netstandard1.0/de/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "de"
+          },
+          "lib/netstandard1.0/es/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard1.0/fr/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netstandard1.0/it/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netstandard1.0/ja/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netstandard1.0/ko/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/netstandard1.0/pl/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/netstandard1.0/pt-BR/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard1.0/ru/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netstandard1.0/tr/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/netstandard1.0/zh-Hans/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/netstandard1.0/zh-Hant/Microsoft.VisualStudio.Validation.resources.dll": {
+            "locale": "zh-Hant"
           }
         }
       },
@@ -1947,111 +2202,63 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
-      "System.Composition/1.0.31": {
+      "System.Composition/1.1.0": {
         "dependencies": {
-          "System.Composition.AttributedModel": "1.0.31",
-          "System.Composition.Convention": "1.0.31",
-          "System.Composition.Hosting": "1.0.31",
-          "System.Composition.Runtime": "1.0.31",
-          "System.Composition.TypedParts": "1.0.31"
+          "System.Composition.AttributedModel": "1.1.0",
+          "System.Composition.Convention": "1.1.0",
+          "System.Composition.Hosting": "1.1.0",
+          "System.Composition.Runtime": "1.1.0",
+          "System.Composition.TypedParts": "1.1.0"
         }
       },
-      "System.Composition.AttributedModel/1.0.31": {
-        "dependencies": {
-          "System.Reflection": "4.3.0",
-          "System.Runtime": "4.3.0"
-        },
+      "System.Composition.AttributedModel/1.1.0": {
         "runtime": {
-          "lib/netstandard1.0/System.Composition.AttributedModel.dll": {
-            "assemblyVersion": "1.0.31.0",
-            "fileVersion": "4.6.24705.1"
+          "lib/netstandard2.0/System.Composition.AttributedModel.dll": {
+            "assemblyVersion": "1.0.32.0",
+            "fileVersion": "4.6.25519.3"
           }
         }
       },
-      "System.Composition.Convention/1.0.31": {
+      "System.Composition.Convention/1.1.0": {
         "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Composition.AttributedModel": "1.0.31",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.Tools": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Threading": "4.3.0"
+          "System.Composition.AttributedModel": "1.1.0"
         },
         "runtime": {
-          "lib/netstandard1.0/System.Composition.Convention.dll": {
-            "assemblyVersion": "1.0.31.0",
-            "fileVersion": "4.6.24705.1"
+          "lib/netstandard2.0/System.Composition.Convention.dll": {
+            "assemblyVersion": "1.0.32.0",
+            "fileVersion": "4.6.25519.3"
           }
         }
       },
-      "System.Composition.Hosting/1.0.31": {
+      "System.Composition.Hosting/1.1.0": {
         "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Composition.Runtime": "1.0.31",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.Tools": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.ObjectModel": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Threading": "4.3.0"
+          "System.Composition.Runtime": "1.1.0"
         },
         "runtime": {
-          "lib/netstandard1.0/System.Composition.Hosting.dll": {
-            "assemblyVersion": "1.0.31.0",
-            "fileVersion": "4.6.24705.1"
+          "lib/netstandard2.0/System.Composition.Hosting.dll": {
+            "assemblyVersion": "1.0.32.0",
+            "fileVersion": "4.6.25519.3"
           }
         }
       },
-      "System.Composition.Runtime/1.0.31": {
-        "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.Tools": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0"
-        },
+      "System.Composition.Runtime/1.1.0": {
         "runtime": {
-          "lib/netstandard1.0/System.Composition.Runtime.dll": {
-            "assemblyVersion": "1.0.31.0",
-            "fileVersion": "4.6.24705.1"
+          "lib/netstandard2.0/System.Composition.Runtime.dll": {
+            "assemblyVersion": "1.0.32.0",
+            "fileVersion": "4.6.25519.3"
           }
         }
       },
-      "System.Composition.TypedParts/1.0.31": {
+      "System.Composition.TypedParts/1.1.0": {
         "dependencies": {
-          "System.Collections": "4.3.0",
-          "System.Composition.AttributedModel": "1.0.31",
-          "System.Composition.Hosting": "1.0.31",
-          "System.Composition.Runtime": "1.0.31",
-          "System.Diagnostics.Debug": "4.3.0",
-          "System.Diagnostics.Tools": "4.3.0",
-          "System.Globalization": "4.3.0",
-          "System.Linq": "4.3.0",
-          "System.Linq.Expressions": "4.3.0",
-          "System.Reflection": "4.3.0",
-          "System.Reflection.Extensions": "4.3.0",
-          "System.Resources.ResourceManager": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Extensions": "4.3.0"
+          "System.Composition.AttributedModel": "1.1.0",
+          "System.Composition.Hosting": "1.1.0",
+          "System.Composition.Runtime": "1.1.0"
         },
         "runtime": {
-          "lib/netstandard1.0/System.Composition.TypedParts.dll": {
-            "assemblyVersion": "1.0.31.0",
-            "fileVersion": "4.6.24705.1"
+          "lib/netstandard2.0/System.Composition.TypedParts.dll": {
+            "assemblyVersion": "1.0.32.0",
+            "fileVersion": "4.6.25519.3"
           }
         }
       },
@@ -2718,6 +2925,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
+      "path": "automapper/13.0.1",
+      "hashPath": "automapper.13.0.1.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",
@@ -3468,12 +3682,110 @@
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
     },
+    "Microsoft.VisualStudio.CoreUtility/15.6.27413": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e8G9fhJ0efMANFunawJvBy+9htxeVt/zvtEsRXyakfFkrUHKgQe/hJyU8aeq45/qaZhS5ATEX2OqVTs4mYummw==",
+      "path": "microsoft.visualstudio.coreutility/15.6.27413",
+      "hashPath": "microsoft.visualstudio.coreutility.15.6.27413.nupkg.sha512"
+    },
     "Microsoft.VisualStudio.Debugger.Contracts/17.2.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-br/qV/aHqLqVlqtcMKglCC8MHMMLey0yMkKSplnMl58F5gKjwnh7wjs8+g0j/vf4T6h4KK7JWrC0+oN70pbugg==",
       "path": "microsoft.visualstudio.debugger.contracts/17.2.0",
       "hashPath": "microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Editor/15.6.27413": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z+Gq0dPRK23upFTHC5wz+bfoe7OleC9CV7LEpNek0GC629P/clgOK9GzzKFXgUcNvkvteWIuvw4xKjXYrkDH4Q==",
+      "path": "microsoft.visualstudio.editor/15.6.27413",
+      "hashPath": "microsoft.visualstudio.editor.15.6.27413.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.LiveShare/1.1.57": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Xb4KTz8sMmrjgIhzCa7Tmb39XmXi0M7n0FE9cKR0QpMGr0aj3ZhWrnMGYEGqBPJM7y0DdwCWujB+2fPsLB48vA==",
+      "path": "microsoft.visualstudio.liveshare/1.1.57",
+      "hashPath": "microsoft.visualstudio.liveshare.1.1.57.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.LiveShare.LanguageServices/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YQVJUAIXT7ci8YX6OD33fRiCnE67xNIz57M9Vwgf606XzReG47ISopCp7/AxX2wHSOahrP3NStg+5uonoZiEkA==",
+      "path": "microsoft.visualstudio.liveshare.languageservices/2.0.1",
+      "hashPath": "microsoft.visualstudio.liveshare.languageservices.2.0.1.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.OLE.Interop/7.10.6071": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PuINhJH41DbKfkNU+qcyC4Wlt/z0DgI/ViZv6gjUclylnFbUIpCdqm4fK+PKJDfiarHTKnGWkxjKuOIS1Bqs5Q==",
+      "path": "microsoft.visualstudio.ole.interop/7.10.6071",
+      "hashPath": "microsoft.visualstudio.ole.interop.7.10.6071.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Shell.Interop/7.10.6072": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+7MhWXWaSYnTh56NVhMSMqDu7f1Xf7/yCPrM16QcBPyCTEV/l3/QPQG3xeVR9et81YeemlWFtAjA1hnskOkvVw==",
+      "path": "microsoft.visualstudio.shell.interop/7.10.6072",
+      "hashPath": "microsoft.visualstudio.shell.interop.7.10.6072.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Text.Data/15.6.27413": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wclgYfr9uF/I7fwBFGPQx07o4pbO/ARoDRAljIJOd5WRHPlDC1DEzFOljtrhPWYnrH5n4IKFFGgyjlI5iYzfAw==",
+      "path": "microsoft.visualstudio.text.data/15.6.27413",
+      "hashPath": "microsoft.visualstudio.text.data.15.6.27413.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Text.Logic/15.6.27413": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GZqW7ozZaV0L5ZnVc+ZpKe1qy3fiNb4yeOLJmv+jaDqPTWeUIy6eDZrvQay/nZSVu790w3KXWyqji2NrKBQ82w==",
+      "path": "microsoft.visualstudio.text.logic/15.6.27413",
+      "hashPath": "microsoft.visualstudio.text.logic.15.6.27413.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Text.UI/15.6.27413": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HC1lfcRmQt904Pq+2r7L9xgiy52CI58n0dfFSZw3B6pj0XkB1UcrhXS2QwN8qIBo1gtVclrRcVFzYNkF1t3OfQ==",
+      "path": "microsoft.visualstudio.text.ui/15.6.27413",
+      "hashPath": "microsoft.visualstudio.text.ui.15.6.27413.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Text.UI.Wpf/15.6.27413": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wO2phnqPW/CgEMeVFb2lY4qMbS5VBwZmaQJ72Uy5QI7owsb/alqospA3YfklunA2WAT+WGwB2Sw85+ESMNdk7Q==",
+      "path": "microsoft.visualstudio.text.ui.wpf/15.6.27413",
+      "hashPath": "microsoft.visualstudio.text.ui.wpf.15.6.27413.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.TextManager.Interop/7.10.6071": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2g+TsUdrY3ygz0j4NgPMWZWQGfFqoNYBU2RjWHQtyRxiruA6d3hsDXufY55PfvLI02gFplC5d1lG1r7JCMHQeA==",
+      "path": "microsoft.visualstudio.textmanager.interop/7.10.6071",
+      "hashPath": "microsoft.visualstudio.textmanager.interop.7.10.6071.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.TextManager.Interop.8.0/8.0.50728": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PmnaaYeARYBn3oJGG0w8jy6ICXKoqQMZ6xEJOiY9kMiHq28inhH0vqy1zK3U+YzgojHiGB4X2U0VJUaMKVtUaA==",
+      "path": "microsoft.visualstudio.textmanager.interop.8.0/8.0.50728",
+      "hashPath": "microsoft.visualstudio.textmanager.interop.8.0.8.0.50728.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Threading/15.4.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DLr3mAGIwMEM3Kt7aVZHkF3K35ulOawmgkF2Uh8bzjRpNChKsh9ocswaqrPHtwTHJpkj+Pim7GtIN7MAn5Ov/A==",
+      "path": "microsoft.visualstudio.threading/15.4.4",
+      "hashPath": "microsoft.visualstudio.threading.15.4.4.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Validation/15.3.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bvJIwuCLqu7YKXcZqY85VJy0ljtm9QSRkq4CD2bpO/GHynsm72uZxjBDa050VY7kElXS8mb7VW5JNUfg4D/UBA==",
+      "path": "microsoft.visualstudio.validation/15.3.15",
+      "hashPath": "microsoft.visualstudio.validation.15.3.15.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/6.0.17": {
       "type": "package",
@@ -3797,47 +4109,47 @@
       "path": "system.collections.immutable/6.0.0",
       "hashPath": "system.collections.immutable.6.0.0.nupkg.sha512"
     },
-    "System.Composition/1.0.31": {
+    "System.Composition/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-I+D26qpYdoklyAVUdqwUBrEIckMNjAYnuPJy/h9dsQItpQwVREkDFs4b4tkBza0kT2Yk48Lcfsv2QQ9hWsh9Iw==",
-      "path": "system.composition/1.0.31",
-      "hashPath": "system.composition.1.0.31.nupkg.sha512"
+      "sha512": "sha512-rLsB/X6sp4cLPPlyPVuTBQbtG2IdSdKc6tFImxopz9s5po4Og5sQ8rA7GPxpTsrQ5UXS1IxdaqFwxtse4eLolw==",
+      "path": "system.composition/1.1.0",
+      "hashPath": "system.composition.1.1.0.nupkg.sha512"
     },
-    "System.Composition.AttributedModel/1.0.31": {
+    "System.Composition.AttributedModel/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-NHWhkM3ZkspmA0XJEsKdtTt1ViDYuojgSND3yHhTzwxepiwqZf+BCWuvCbjUt4fe0NxxQhUDGJ5km6sLjo9qnQ==",
-      "path": "system.composition.attributedmodel/1.0.31",
-      "hashPath": "system.composition.attributedmodel.1.0.31.nupkg.sha512"
+      "sha512": "sha512-S7Ybny/58VGS+5uanotm7f2k7Iv3ufdv0eDA8adZ345pE27zr+9bxhHw/rXXMVltRdoUuyB1O4YpYT1lVwkM0w==",
+      "path": "system.composition.attributedmodel/1.1.0",
+      "hashPath": "system.composition.attributedmodel.1.1.0.nupkg.sha512"
     },
-    "System.Composition.Convention/1.0.31": {
+    "System.Composition.Convention/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-GLjh2Ju71k6C0qxMMtl4efHa68NmWeIUYh4fkUI8xbjQrEBvFmRwMDFcylT8/PR9SQbeeL48IkFxU/+gd0nYEQ==",
-      "path": "system.composition.convention/1.0.31",
-      "hashPath": "system.composition.convention.1.0.31.nupkg.sha512"
+      "sha512": "sha512-lqiuITNCKJ/JlXzmum0mr+1HDCJ6mN/+1C4ouXpvLKpUA+zal7EsRvfHxy+kVVPrPMaFU9dLQkBxV/GFVnJoXA==",
+      "path": "system.composition.convention/1.1.0",
+      "hashPath": "system.composition.convention.1.1.0.nupkg.sha512"
     },
-    "System.Composition.Hosting/1.0.31": {
+    "System.Composition.Hosting/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fN1bT4RX4vUqjbgoyuJFVUizAl2mYF5VAb+bVIxIYZSSc0BdnX+yGAxcavxJuDDCQ1K+/mdpgyEFc8e9ikjvrg==",
-      "path": "system.composition.hosting/1.0.31",
-      "hashPath": "system.composition.hosting.1.0.31.nupkg.sha512"
+      "sha512": "sha512-D5M3oBOxCeHe4WVNtqKnFA3UMt53uIdUMGgustecwh7kmzE7k+Co+CFPLpQVPdyBhmB8WxicaESa41QLZ0ZlgA==",
+      "path": "system.composition.hosting/1.1.0",
+      "hashPath": "system.composition.hosting.1.1.0.nupkg.sha512"
     },
-    "System.Composition.Runtime/1.0.31": {
+    "System.Composition.Runtime/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0LEJN+2NVM89CE4SekDrrk5tHV5LeATltkp+9WNYrR+Huiyt0vaCqHbbHtVAjPyeLWIc8dOz/3kthRBj32wGQg==",
-      "path": "system.composition.runtime/1.0.31",
-      "hashPath": "system.composition.runtime.1.0.31.nupkg.sha512"
+      "sha512": "sha512-dLbtnVmOiD4k1/YA4LfV2nEZX4jdgizvSzvVIffOp3AXU468n5IsDbwwbCHSUmnfqoJ5unYR+hEmN1U3gBmDRg==",
+      "path": "system.composition.runtime/1.1.0",
+      "hashPath": "system.composition.runtime.1.1.0.nupkg.sha512"
     },
-    "System.Composition.TypedParts/1.0.31": {
+    "System.Composition.TypedParts/1.1.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0Zae/FtzeFgDBBuILeIbC/T9HMYbW4olAmi8XqqAGosSOWvXfiQLfARZEhiGd0LVXaYgXr0NhxiU1LldRP1fpQ==",
-      "path": "system.composition.typedparts/1.0.31",
-      "hashPath": "system.composition.typedparts.1.0.31.nupkg.sha512"
+      "sha512": "sha512-SlACsoBPQpeL8dAjQXttv9d5Y/790UmxnlP2yk1w94T2vMcHOa7i9XGUKCB81BGMWstR2FF9ZEftm8rIdhMEvg==",
+      "path": "system.composition.typedparts/1.1.0",
+      "hashPath": "system.composition.typedparts.1.1.0.nupkg.sha512"
     },
     "System.Configuration.ConfigurationManager/4.7.0": {
       "type": "package",
