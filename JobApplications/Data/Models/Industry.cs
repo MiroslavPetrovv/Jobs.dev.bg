@@ -4,6 +4,8 @@ namespace JobApplications.Data.Models
 {
     public class Industry
     {
+                // ADD ATRIBUTES FOR STRING LENGTH 
+
         [Key]
         public int Id { get; set; }
         [Required]

@@ -28,14 +28,25 @@ namespace JobApplications.Data
                 new Industry { Id = 9, Name = "Hospitality", Description = "Industry related to services in hotels, restaurants, and tourism" },
                 new Industry { Id = 10, Name = "Agriculture", Description = "Industry related to farming and food production" },
                 // Add remaining entries here...
-                new Industry { Id = 30, Name = "Environmental Services", Description = "Industry focused on sustainability and environmental protection" }
-    );
+                new Industry { Id = 30, Name = "Environmental Services", Description = "Industry focused on sustainability and environmental protection" });
+
+                builder.Entity<Status>().HasData(
+                    new Status { Id = 1, ApplicationStatus = "Pending" },
+                    new Status { Id = 2, ApplicationStatus = "Reviewed" },
+                    new Status { Id = 3, ApplicationStatus = "Accepted" },
+                    new Status { Id = 4, ApplicationStatus = "Rejected" });
             base.OnModelCreating(builder);
         }
-        public DbSet<Job> Jobs { get; set; } = null!;
+        public DbSet<Job> Jobs { get; set; }
 
-        public DbSet<Company> Companies { get; set; } = null!;
+        public DbSet<Company> Companies { get; set; }
 
         public DbSet<Industry> Industries { get; set; }
+
+        public DbSet<Status> Statuses { get; set; }
+
+        public DbSet<Application> Applications { get; set; }
+
+        public DbSet<SavedJob> SavedJobs { get; set; }
     }
 }

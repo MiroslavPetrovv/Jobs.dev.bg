@@ -1,6 +1,12 @@
 ﻿using JobApplications.Data;
 using JobApplications.Data.Models;
+using JobApplications.DTOs;
+using JobApplications.Extensions;
+using JobApplications.Services;
+using JobApplications.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 
@@ -8,11 +14,15 @@ namespace JobApplications.Controllers
 {
     public class JobController : Controller
     {
+        private readonly IJobService jobService;
+        private readonly ICompanyService companyService; 
         private ApplicationDbContext data;
 
-        public JobController(ApplicationDbContext context)
+        public JobController(ApplicationDbContext context,ICompanyService companyService, IJobService jobService)
         {
             data = context;
+            this.jobService = jobService;
+            this.companyService = companyService;
         }
 
         
@@ -22,30 +32,33 @@ namespace JobApplications.Controllers
             return this.data.Jobs.FirstOrDefault();
         }
 
-        public IActionResult GetAll() => View(this.data.Jobs.ToList());
+        public IActionResult GetAll() => View(this.data.Jobs.Include(x=> x.Company).ToList());
 
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
-            Job job = new Job();
+
+            int companyId = await companyService.GetByUserID(User.GetId());
+            if(companyId == 0){
+                // tempadata exception -> login 
+            }
+            JobFormDto job = new JobFormDto();
+            job.CompanyId = companyId;
+
             return View(job);
         }
 
         [HttpPost]
-        public IActionResult Add(Job job)
+        public async Task<IActionResult> Add(JobFormDto job)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+                //throw new ArgumentException("Invalid Data");
+            }
+            await jobService.Add(job);
             
-            if (String.IsNullOrEmpty(job.Title) || String.IsNullOrEmpty(job.Salary.ToString()))
-            {
-                
-            }
-            if (job.Title.Length<=5 || job.Salary.ToString().Length <=2)
-            {
 
-            }
-            //make a drop down menu for the company
-            data.Add(job);
-            data.SaveChanges();
             return RedirectToAction("GetAll");
         }
 
@@ -56,6 +69,7 @@ namespace JobApplications.Controllers
             data.SaveChanges();
             return RedirectToAction("GetAll");
         }
+       [Authorize]
         [HttpGet]
         public IActionResult Edit(int id)
         {

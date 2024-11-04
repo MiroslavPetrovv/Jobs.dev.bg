@@ -5,7 +5,8 @@ namespace JobApplications.Data.Models
 {
     public class Job
     {
-        
+        // ADD ATRIBUTES FOR STRING LENGTH 
+
         [Key]
         public int Id { get; set; }
 
@@ -20,8 +21,12 @@ namespace JobApplications.Data.Models
         [ForeignKey(nameof(CompanyId))]
         public Company Company { get; set; } = null!;
 
-        
+        [Required]
+        public string Description { get; set; } = null!;
 
+        public IList<Application> Applications { get; set; } = new List<Application>();
+
+        public bool IsAvaliable { get; set; }
 
 
 

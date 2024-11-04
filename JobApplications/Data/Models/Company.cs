@@ -6,6 +6,8 @@ namespace JobApplications.Data.Models
 {
     public class Company 
     {
+                // ADD ATRIBUTES FOR STRING LENGTH 
+
         [Key]
         public int Id { get; set; }
         public string CompanyName { get; set; } = null!;

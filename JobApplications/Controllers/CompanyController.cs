@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿    using AutoMapper;
 using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.DTOs;
@@ -10,6 +10,7 @@ namespace JobApplications.Controllers
 {
     public class CompanyController : Controller
     {
+        // REMOVE DATABASE - ADD SERVICES
         private ApplicationDbContext data;
         private IMapper mapper;
 
@@ -18,17 +19,22 @@ namespace JobApplications.Controllers
             data = context;
             mapper = mappingProfile;
         }
+// ADD HTTP GET OR POST        [HttpGet]
 
         public Company Get()
         {
             return this.data.Companies.FirstOrDefault();
         }
+
         [HttpGet]
         public IActionResult Add()
         {            
             if (string.IsNullOrEmpty(User.GetId()))
             {
                 //to return error
+                TempData["ErrorNotAuth"] = "You should log in in your profile first!";
+
+                return RedirectToAction( "Index" ,"Home"); // Login
             }   
 
             CompanyFormDTO companyDto = new CompanyFormDTO();
@@ -41,14 +47,14 @@ namespace JobApplications.Controllers
         [HttpPost]
         public IActionResult Add(CompanyFormDTO companyDto)
         {
-
+            // ADD MULTIPLE VALIDATIONS FOR THE DATABASE INSERT
             if (string.IsNullOrEmpty(User.GetId()))
             {
                 //to return error
             }   
 
             // fk to identity user 
-
+            // INSERT HTIS CODE INTO THE SERVICE   
             companyDto.IdentityUserId = User.GetId();
             var company = mapper.Map<Company>(companyDto);
             data.Add(company);
@@ -66,6 +72,7 @@ namespace JobApplications.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            // DTO
             Company company = data.Companies.FirstOrDefault(x => x.Id == id);
 
 
@@ -75,7 +82,7 @@ namespace JobApplications.Controllers
         public IActionResult Edit(Company company)
         {
             //Add if statements
-
+// VALIDATIONS + DTO 
             data.Companies.Update(company);
             data.SaveChanges();
             return RedirectToAction("GetAll");
@@ -86,7 +93,6 @@ namespace JobApplications.Controllers
             List<Industry> industries = data.Industries.ToList();
 
             dto.Industries = industries;
-
         }
     }
 }
