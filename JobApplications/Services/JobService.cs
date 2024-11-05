@@ -2,7 +2,7 @@
 using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.DTOs;
-using JobApplications.DTOs.ViewModel;
+using JobApplications.DTOs.ViewModel.JobViewModels;
 using JobApplications.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,19 +12,26 @@ namespace JobApplications.Services
     {
         private readonly ApplicationDbContext  dbContext;
         private readonly IMapper mapper;
+        private readonly ICompanyService companyService;
 
-        public JobService(ApplicationDbContext dbContext,IMapper mapper)
+        public JobService(ApplicationDbContext dbContext,IMapper mapper,ICompanyService companyService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
+            this.companyService = companyService;
         }
 
         public async Task Add(JobFormDto job)
         {
+            
             //make a minimal wage variable
             if (string.IsNullOrEmpty(job.Title) && job.Salary < 1000)
             {
                 throw new ArgumentException("Invalid data");
+            }
+            if (job.CompanyId < 1)
+            {
+                throw new ArgumentException("Invalid company");
             }
             Job data = mapper.Map<Job>(job);
             data.IsAvaliable = true;
@@ -32,31 +39,31 @@ namespace JobApplications.Services
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(int id,string userId)
         {
-            Job jobToDelete =
+            
+            if (string.IsNullOrEmpty(userId))
+            {
+                throw new ArgumentException("User was lost");
+            }
+            Job? jobToDelete =
                 await dbContext.Jobs.FirstOrDefaultAsync(x => x.Id == id);
-            if (jobToDelete != null)
+            if (jobToDelete == null)
             {
                 throw new InvalidOperationException("Job not finded");
             }
-            else
-            {
+
                 dbContext.Jobs.Remove(jobToDelete);
                 await this.dbContext.SaveChangesAsync();
-            }
+            
             
         }
 
-        public async Task Edit(JobEditViewModel job)
+        public async Task Edit(JobFormDto job)
         {
 
             
-            Job? editedJob = await this.dbContext.Jobs.FindAsync(job.Id);
-            if (editedJob == null)
-            {
-                throw new InvalidOperationException("Invalid job offer created");
-            }
+            
             if (job.Salary <= 1000)
             {
                 throw new ArgumentException("Salary cannot be under minimal wage");
@@ -76,6 +83,12 @@ namespace JobApplications.Services
                 throw new ArgumentException("Under minimal working hours");
             }
 
+            Job? editedJob = await this.dbContext.Jobs.FindAsync(job.Id);
+            if (editedJob == null)
+            {
+                throw new InvalidOperationException("Invalid job offer created");
+            }
+
             editedJob.Id = job.Id;
             editedJob.CompanyId = job.CompanyId;
             editedJob.Description = job.Description;
@@ -85,6 +98,7 @@ namespace JobApplications.Services
             editedJob.IsAvaliable = job.IsAvaliable;
 
             await this.dbContext.SaveChangesAsync();
+
         }
     }
 }

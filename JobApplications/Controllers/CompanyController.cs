@@ -1,8 +1,9 @@
-﻿    using AutoMapper;
+﻿using AutoMapper;
 using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.DTOs;
 using JobApplications.Extensions;
+using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -11,15 +12,16 @@ namespace JobApplications.Controllers
     public class CompanyController : Controller
     {
         // REMOVE DATABASE - ADD SERVICES
-        private ApplicationDbContext data;
-        private IMapper mapper;
+        private  ApplicationDbContext data;
+        private  IMapper mapper;
+        private readonly ICompanyService companyService;
 
         public CompanyController(ApplicationDbContext context,IMapper mappingProfile)
         {
             data = context;
             mapper = mappingProfile;
         }
-// ADD HTTP GET OR POST        [HttpGet]
+        // ADD HTTP GET OR POST        [HttpGet]
 
         public Company Get()
         {
@@ -48,17 +50,18 @@ namespace JobApplications.Controllers
         public IActionResult Add(CompanyFormDTO companyDto)
         {
             // ADD MULTIPLE VALIDATIONS FOR THE DATABASE INSERT
-            if (string.IsNullOrEmpty(User.GetId()))
+            if (!ModelState.IsValid)
             {
-                //to return error
-            }   
+                return View();
+            }
+            companyService.Add(companyDto, User.GetId());
+              
 
             // fk to identity user 
-            // INSERT HTIS CODE INTO THE SERVICE   
-            companyDto.IdentityUserId = User.GetId();
-            var company = mapper.Map<Company>(companyDto);
-            data.Add(company);
-            data.SaveChanges();
+            // INSERT HTIS CODE INTO THE SERVICE
+            // 
+            //companyDto.IdentityUserId = User.GetId();
+            
             return RedirectToAction("GetAll");
         }
 

@@ -11,7 +11,7 @@ namespace JobApplications.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-
+            
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -27,7 +27,6 @@ namespace JobApplications.Data
                 new Industry { Id = 8, Name = "Transportation", Description = "Industry involving the movement of goods and people" },
                 new Industry { Id = 9, Name = "Hospitality", Description = "Industry related to services in hotels, restaurants, and tourism" },
                 new Industry { Id = 10, Name = "Agriculture", Description = "Industry related to farming and food production" },
-                // Add remaining entries here...
                 new Industry { Id = 30, Name = "Environmental Services", Description = "Industry focused on sustainability and environmental protection" });
 
                 builder.Entity<Status>().HasData(

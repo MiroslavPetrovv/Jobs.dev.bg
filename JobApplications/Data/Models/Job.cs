@@ -38,7 +38,7 @@ namespace JobApplications.Data.Models
         public IList<Application> Applications { get; set; } = new List<Application>();
 
         [Required]
-        public bool IsAvaliable { get; set; }
+        public bool IsAvaliable { get; set; } = true;
 
         [Required]
         public int WorkingHours { get; set; }

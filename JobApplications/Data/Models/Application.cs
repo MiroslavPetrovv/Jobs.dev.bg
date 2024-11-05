@@ -16,14 +16,16 @@ namespace JobApplications.Data.Models
         [ForeignKey(nameof(JobId))]
         public Job Job { get; set; }
 
-        
-        public string IdentityUserId { get; set; }
+        [Required]
+        public string IdentityUserId { get; set; } = null!;
 
         [ForeignKey(nameof(IdentityUserId))]
         public IdentityUser IdentityUser { get; set; }
 
+        [Required]
         public DateTime ApplyedDate { get; set; }
 
+        [Required]
         public int StatusId { get; set; }
 
         [ForeignKey(nameof(StatusId))]

@@ -1,0 +1,37 @@
+@using JobApplications.DTOs
+@model JobFormDto
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <h2 class="heading-margin text-center">@ViewBag.Title</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" placeholder="Software Developer,DevOps etc...">
+                <span asp-validation-for="Title" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary"></label>
+                <input asp-for="Salary" class="form-control" placeholder="12000,8000, etc...">
+                <span asp-validation-for="Salary" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WorkingHours"></label>
+                <input asp-for="WorkingHours" class="form-control"placeholder="20,40,60"> </input>
+                <span asp-validation-for="WorkingHours" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" rows="4" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="small text-danger"></span>
+            </div>
+            
+            
+
+
+
+            <input class="btn btn-primary mt-3" type="submit" value="Save" />
+        </form>
+    </div>
+</div>

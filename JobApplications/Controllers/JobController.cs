@@ -1,8 +1,8 @@
-﻿using Humanizer;
+﻿
 using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.DTOs;
-using JobApplications.DTOs.ViewModel;
+using JobApplications.DTOs.ViewModel.JobViewModels;
 using JobApplications.Extensions;
 using JobApplications.Services;
 using JobApplications.Services.Interfaces;
@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.Operations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.Design;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 
@@ -47,7 +48,7 @@ namespace JobApplications.Controllers
                 // tempadata exception -> login 
             }
             JobFormDto job = new JobFormDto();
-            job.CompanyId = companyId;
+            
 
             return View(job);
         }
@@ -60,26 +61,35 @@ namespace JobApplications.Controllers
                 return BadRequest(ModelState);
                 //throw new ArgumentException("Invalid Data");
             }
+            int companyId = await companyService.GetByUserID(User.GetId());
+            if(companyId == 0)
+            {
+                throw new ArgumentException("User was lost");
+            }
+            job.CompanyId = companyId;
+
             await jobService.Add(job);
+
             return RedirectToAction("GetAll");
         }
         [Authorize]
         public async Task <IActionResult> Delete(int id)
         {
-            await jobService.Delete(id);
+            await jobService.Delete(id, User.GetId());
             return RedirectToAction("GetAll");
         }
-       [Authorize]
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             //MAKE VALIDATION AND USE MAPPING!!!
-            Job jobToUpdate =await data.Jobs.FirstOrDefaultAsync(x => x.Id == id);
+            Job? jobToUpdate =await data.Jobs.FirstOrDefaultAsync(x => x.Id == id);
             if (jobToUpdate == null)
             {
                 throw new InvalidOperationException("Job not founded");
             }
-            JobEditViewModel jobEdit = new JobEditViewModel()
+
+            JobFormDto jobEdit = new JobFormDto()
             { 
                 Id = jobToUpdate.Id,
                 CompanyId = jobToUpdate.CompanyId,
@@ -92,54 +102,16 @@ namespace JobApplications.Controllers
             
 
 
-            return View(jobToUpdate);
+            return View(jobEdit);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(JobEditViewModel job)
+        public async Task<IActionResult> Edit(JobFormDto job)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            Job? editedJob = await this.data.Jobs.FindAsync(job.Id);
-            if (editedJob == null)
-            {
-                throw new InvalidOperationException("Invalid job offer created");
-            }
-            if (job.Salary <= 1000)
-            {
-                throw new ArgumentException("Salary cannot be under minimal wage");
-            }
-            //make a data validation for string length
-            if (string.IsNullOrEmpty(job.Title) ||job.Title.Count() >= 100)
-            {
-                throw new ArgumentException("Invalid Title");
-            }
-            //make a limit for the description lenght
-            if (!string.IsNullOrEmpty(job.Description))
-            {
-                throw new ArgumentException("Description cannot be empty");
-            }
-            if (job.WorkingHours <= 0)
-            {
-                throw new ArgumentException("Under minimal working hours");
-            }
-
-
-
-
-            editedJob.Id = job.Id;
-            editedJob.CompanyId = job.CompanyId;
-            editedJob.Description = job.Description;
-            editedJob.Title = job.Title;
-            editedJob.WorkingHours = job.WorkingHours;
-            editedJob.Salary = job.Salary;
-            editedJob.IsAvaliable = job.IsAvaliable;
-            
-            
-            
-            
-            await this.data.SaveChangesAsync();
+            await jobService.Edit(job);
             return RedirectToAction("GetAll");
         }
     }
