@@ -28,6 +28,8 @@ namespace JobApplications.Data.Models
 
         public bool IsAvaliable { get; set; }
 
+        public int WorkingHours { get; set; }
+
 
 
     }

@@ -7,7 +7,7 @@ namespace JobApplications.Services.Interfaces
     {
         Task Add(JobFormDto job);
 
-        Task Edit(JobFormDto job);
+        Task Edit(int id);
 
         Task Delete(int id);
 
