@@ -6,6 +6,7 @@ using JobApplications.Services;
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Operations;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
@@ -57,38 +58,32 @@ namespace JobApplications.Controllers
                 //throw new ArgumentException("Invalid Data");
             }
             await jobService.Add(job);
-            
-
             return RedirectToAction("GetAll");
         }
-
-        public IActionResult Delete(int id)
+        [Authorize]
+        public async Task <IActionResult> Delete(int id)
         {
-            Job jobToDelete = data.Jobs.FirstOrDefault(x => x.Id == id);
-            data.Jobs.Remove(jobToDelete);
-            data.SaveChanges();
+            await jobService.Delete(id);
             return RedirectToAction("GetAll");
         }
        [Authorize]
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            Job jobToUpdate = data.Jobs.FirstOrDefault(x => x.Id == id);
+            Job jobToUpdate =await data.Jobs.FirstOrDefaultAsync(x => x.Id == id);
+            if (jobToUpdate == null)
+            {
+                throw new InvalidOperationException("Job not founded");
+            }
+
 
 
             return View(jobToUpdate);
         }
         [HttpPost]
-        public IActionResult Edit(Job job)
+        public async Task<IActionResult> Edit(Job job)
         {
-            if (String.IsNullOrEmpty(job.Title))
-            {
-
-            }
-            if (String.IsNullOrEmpty(job.Salary.ToString()))
-            {
-
-            }
+            
             
             data.Jobs.Update(job);
             data.SaveChanges();
