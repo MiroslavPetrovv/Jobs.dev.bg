@@ -4,6 +4,7 @@ using JobApplications.Data.Models;
 using JobApplications.DTOs;
 using JobApplications.Extensions;
 using JobApplications.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
@@ -21,7 +22,7 @@ namespace JobApplications.Controllers
             data = context;
             mapper = mappingProfile;
         }
-        // ADD HTTP GET OR POST        [HttpGet]
+        
 
         public Company Get()
         {
@@ -47,25 +48,25 @@ namespace JobApplications.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(CompanyFormDTO companyDto)
+        public async Task<IActionResult> Add(CompanyFormDTO companyDto)
         {
             // ADD MULTIPLE VALIDATIONS FOR THE DATABASE INSERT
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            companyService.Add(companyDto, User.GetId());
+            if (string.IsNullOrEmpty(User.GetId()))
+            {
+                TempData["UserLost"] = "Login again";
+            }
+            await companyService.Add(companyDto, User.GetId());
               
-
-            // fk to identity user 
-            // INSERT HTIS CODE INTO THE SERVICE
-            // 
-            //companyDto.IdentityUserId = User.GetId();
             
+           
             return RedirectToAction("GetAll");
         }
-
-        public IActionResult Delete(int id)
+        [Authorize]
+        public async Task<IActionResult> Delete(int id)
         {
             Company company = data.Companies.FirstOrDefault(x => x.Id == id);
             data.Companies.Remove(company);
@@ -73,6 +74,7 @@ namespace JobApplications.Controllers
             return RedirectToAction("GetAll");
         }
         [HttpGet]
+        [Authorize]
         public IActionResult Edit(int id)
         {
             // DTO

@@ -32,9 +32,9 @@ namespace JobApplications.Controllers
 
         
 
-        public Job Get()
+        public async Task<Job> Get()
         {
-            return this.data.Jobs.FirstOrDefault();
+            return await this.data.Jobs.FirstOrDefaultAsync();
         }
 
         public IActionResult GetAll() => View(this.data.Jobs.Include(x=> x.Company).ToList());
@@ -42,10 +42,12 @@ namespace JobApplications.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
         {
-
+          
             int companyId = await companyService.GetByUserID(User.GetId());
             if(companyId == 0){
-                // tempadata exception -> login 
+                TempData["ErrorNotAuth"] = "You should log in in your profile first!";
+
+                return RedirectToAction("Index", "Home"); // Login
             }
             JobFormDto job = new JobFormDto();
             
