@@ -21,6 +21,8 @@
                 <textarea asp-for="DateOfCreation" rows="1" class="form-control" placeholder="Amazon,Google,Microsoft, etc..."></textarea>
                 <span asp-validation-for="DateOfCreation" class="small text-danger"></span>
             </div>
+            <input type="hidden" asp-for="IdentityUserId" />
+            @* This fixes the identity user null("The lost of data") *@
             
 
             <div class="form-group">

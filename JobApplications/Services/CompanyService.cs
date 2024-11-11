@@ -20,21 +20,16 @@ namespace JobApplications.Services
             this.mapper = mapper;
         }
 
-        public async Task Add(CompanyFormDTO companyDto,string UserId)
+        public async Task Add(CompanyFormDTO companyDto)
         {
 
-            companyDto.IdentityUserId = UserId;
-            if (companyDto.IndustryId == 0)
-            {
-                throw new ArgumentException("no user with this Id");
-            }
             var company =mapper.Map<Company>(companyDto);
             if(company == null)
             {
                 throw new InvalidCastException("Invalid Copmany");
             }
             //finish the dataConstraits for company
-            if (string.IsNullOrEmpty(companyDto.CompanyName) ) //companyDto.CompanyName<=)
+            if (string.IsNullOrEmpty(companyDto.CompanyName)) //companyDto.CompanyName<=)
             {
                 throw new ArgumentException("Invalid companyName");
             }
@@ -46,7 +41,20 @@ namespace JobApplications.Services
 
         public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            if (id ==0)
+            {
+                throw new ArgumentException("Invalid user id");
+            }
+
+            Company company = await dbContext.Companies.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (company == null)
+            {
+                throw new InvalidOperationException("Company Not Found");
+            }
+            dbContext.Companies.Remove(company);
+            dbContext.SaveChangesAsync();
+            
         }
 
         public async Task Edit(CompanyEditViewModel CompanyEditViewModel)

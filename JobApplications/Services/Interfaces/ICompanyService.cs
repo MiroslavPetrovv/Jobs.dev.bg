@@ -7,7 +7,7 @@ namespace JobApplications.Services.Interfaces
     {
         Task<int> GetByUserID(string userId);
 
-        Task Add(CompanyFormDTO job,string UserId);
+        Task Add(CompanyFormDTO job);
 
         Task Edit(CompanyEditViewModel CompanyEditViewModel);
 

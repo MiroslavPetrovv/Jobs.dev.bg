@@ -6,6 +6,7 @@ using JobApplications.Extensions;
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace JobApplications.Controllers
@@ -17,16 +18,17 @@ namespace JobApplications.Controllers
         private  IMapper mapper;
         private readonly ICompanyService companyService;
 
-        public CompanyController(ApplicationDbContext context,IMapper mappingProfile)
+        public CompanyController(ApplicationDbContext context,IMapper mappingProfile,ICompanyService companyService)
         {
             data = context;
             mapper = mappingProfile;
+            this.companyService = companyService;
         }
         
 
-        public Company Get()
+        public async Task<Company> Get()
         {
-            return this.data.Companies.FirstOrDefault();
+            return await this.data.Companies.FirstOrDefaultAsync();
         }
 
         [HttpGet]
@@ -38,9 +40,13 @@ namespace JobApplications.Controllers
                 TempData["ErrorNotAuth"] = "You should log in in your profile first!";
 
                 return RedirectToAction( "Index" ,"Home"); // Login
-            }   
+            }
 
-            CompanyFormDTO companyDto = new CompanyFormDTO();
+            var companyDto = new CompanyFormDTO
+            {
+                IdentityUserId = User.GetId()
+            };
+            
 
             FilledDropdowns(companyDto);
 
@@ -50,7 +56,8 @@ namespace JobApplications.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(CompanyFormDTO companyDto)
         {
-            // ADD MULTIPLE VALIDATIONS FOR THE DATABASE INSERT
+
+            
             if (!ModelState.IsValid)
             {
                 return View();
@@ -59,7 +66,7 @@ namespace JobApplications.Controllers
             {
                 TempData["UserLost"] = "Login again";
             }
-            await companyService.Add(companyDto, User.GetId());
+            await companyService.Add(companyDto);
               
             
            
@@ -68,9 +75,20 @@ namespace JobApplications.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
-            Company company = data.Companies.FirstOrDefault(x => x.Id == id);
-            data.Companies.Remove(company);
-            data.SaveChanges();
+            if (id == 0)
+            {
+                //TempData[""]
+                return RedirectToAction("GetAll");
+            }
+            string userId = User.GetId();
+            var comapny = companyService.GetByUserID(userId);
+            if (comapny == null)
+            {
+                TempData["ErrorNotAuth"] = "You are not authorized";
+                return RedirectToAction("GetAll");
+            }
+            
+            await companyService.Delete(id);
             return RedirectToAction("GetAll");
         }
         [HttpGet]

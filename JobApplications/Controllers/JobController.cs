@@ -77,6 +77,7 @@ namespace JobApplications.Controllers
         [Authorize]
         public async Task <IActionResult> Delete(int id)
         {
+            //add if statements
             await jobService.Delete(id, User.GetId());
             return RedirectToAction("GetAll");
         }
