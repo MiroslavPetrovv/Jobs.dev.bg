@@ -12,6 +12,7 @@
     <div>
         @foreach (var item in Model)
         {
+            
             <p class="bg-info">@item.Company - @item.Title - for salary: @item.Salary</p>
             @if (userid == item.Company.IdentityUserId)
             {
@@ -23,26 +24,6 @@
     </div>
 }
 
-@* <!-- @using JobApplications.Data.Models
-@model List<Job>
 
-@{
-    // job ->
-    var userid = user.getid();
-}
-@if (Model.Count > 0)
-{
-    <div>
-        @foreach (var item in Model)
-        {
-            <p class="bg-info">@item.Company - @item.Title - for salary: @item.Salary</p>
-            @userid == item.userid
-            {
-            <a asp-controller="Job" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
-            }
 
-            <a asp-controller="Job" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-info">Delete</a>
-            <a asp-controller="Job" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
-        }
-    </div>
-} --> *@
+

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JobApplications.Data.Models
 {
+    using static JobApplications.Data.DataValidation.CompanyConstants;
     public class Company 
     {
                 // ADD ATRIBUTES FOR STRING LENGTH 
@@ -11,6 +12,10 @@ namespace JobApplications.Data.Models
         [Key]
         public int Id { get; set; }
         [Required]
+        [StringLength(
+            CompanyNameMaxLength,
+            MinimumLength = CompanyNameMinLength,
+            ErrorMessage = "The field Brand must be minumum {0} length and maximum {1} length! ")]
         public string CompanyName { get; set; } = null!;
 
         [Required]

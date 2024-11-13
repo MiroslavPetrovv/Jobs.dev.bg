@@ -1,4 +1,15 @@
-﻿<!DOCTYPE html>
+﻿@using JobApplications.Data.Models
+@using JobApplications.Extensions
+@using JobApplications.Services.Interfaces
+@inject ICompanyService companyService
+
+
+@{
+    int companyForCurrentUser = await this.companyService.GetByUserID(User?.GetId());
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -22,18 +33,33 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="Add">Become Company</a>
-                        </li
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="Add">Job</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="GetAll">All Jobs</a>
-                        </li>
+
+                        @if (companyForCurrentUser != 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="Add">Add Job</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="GetAllJobs" asp-route-id="@companyForCurrentUser">Our Jobs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="Edit" asp-route-id="@companyForCurrentUser">Edit My Company</a>
+                            </li>
+
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="Add">Become Company</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="GetAll">All Jobs</a>
+                            </li>
+                            //saved Jobs
+                        }
+
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -42,7 +68,7 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-           @RenderBody() 
+            @RenderBody()
         </main>
     </div>
 

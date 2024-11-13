@@ -1,6 +1,5 @@
-﻿using JobApplications.DTOs.ViewModel;
+﻿
 using JobApplications.DTOs;
-using JobApplications.DTOs.ViewModel.CompanyViewModels;
 namespace JobApplications.Services.Interfaces
 {
     public interface ICompanyService
@@ -9,8 +8,10 @@ namespace JobApplications.Services.Interfaces
 
         Task Add(CompanyFormDTO job);
 
-        Task Edit(CompanyEditViewModel CompanyEditViewModel);
+        Task Edit(CompanyFormDTO CompanyEditViewModel);
 
         Task Delete(int id);
+
+        Task<List<JobFormDto>> GetAllJobs(int companyId);
     }
 }

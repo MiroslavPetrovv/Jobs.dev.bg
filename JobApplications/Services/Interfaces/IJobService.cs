@@ -1,5 +1,5 @@
 ﻿using JobApplications.DTOs;
-using JobApplications.DTOs.ViewModel.JobViewModels;
+
 
 namespace JobApplications.Services.Interfaces
 
@@ -11,8 +11,9 @@ namespace JobApplications.Services.Interfaces
         Task Edit(JobFormDto job);
 
         Task Delete(int id,string userId);
-
-
+    
         
+
+
     }
 }

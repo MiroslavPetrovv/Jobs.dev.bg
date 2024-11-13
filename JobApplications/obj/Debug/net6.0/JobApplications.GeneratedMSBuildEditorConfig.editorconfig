@@ -50,12 +50,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/CompanyFormPartialView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxDb21wYW55Rm9ybVBhcnRpYWxWaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/GetAll.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxHZXRBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/GetAllJobs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxHZXRBbGxKb2JzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Home/Index.cshtml]

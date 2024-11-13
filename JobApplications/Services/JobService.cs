@@ -2,7 +2,6 @@
 using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.DTOs;
-using JobApplications.DTOs.ViewModel.JobViewModels;
 using JobApplications.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,11 +9,11 @@ namespace JobApplications.Services
 {
     public class JobService : IJobService
     {
-        private readonly ApplicationDbContext  dbContext;
+        private readonly ApplicationDbContext dbContext;
         private readonly IMapper mapper;
         private readonly ICompanyService companyService;
 
-        public JobService(ApplicationDbContext dbContext,IMapper mapper,ICompanyService companyService)
+        public JobService(ApplicationDbContext dbContext, IMapper mapper, ICompanyService companyService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
@@ -23,12 +22,13 @@ namespace JobApplications.Services
 
         public async Task Add(JobFormDto job)
         {
-            
+
             //make a minimal wage variable
             if (string.IsNullOrEmpty(job.Title) && job.Salary < 1000)
             {
                 throw new ArgumentException("Invalid data");
             }
+            // check if there is compnany with the id
             if (job.CompanyId < 1)
             {
                 throw new ArgumentException("Invalid company");
@@ -39,9 +39,9 @@ namespace JobApplications.Services
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task Delete(int id,string userId)
+        public async Task Delete(int id, string userId)
         {
-            
+
             if (string.IsNullOrEmpty(userId))
             {
                 throw new ArgumentException("User was lost");
@@ -53,17 +53,23 @@ namespace JobApplications.Services
                 throw new InvalidOperationException("Job not finded");
             }
 
-                dbContext.Jobs.Remove(jobToDelete);
-                await this.dbContext.SaveChangesAsync();
-            
-            
+            // check if there is an company with this user is
+            var compId = await companyService.GetByUserID(userId);
+
+            if (compId == 0)
+            {
+                // throw correct error
+                throw new InvalidOperationException("");
+
+            }
+            dbContext.Jobs.Remove(jobToDelete);
+            await this.dbContext.SaveChangesAsync();
+
+
         }
 
         public async Task Edit(JobFormDto job)
         {
-
-            
-            
             if (job.Salary <= 1000)
             {
                 throw new ArgumentException("Salary cannot be under minimal wage");
@@ -74,7 +80,7 @@ namespace JobApplications.Services
                 throw new ArgumentException("Invalid Title");
             }
             //make a limit for the description lenght
-            if (!string.IsNullOrEmpty(job.Description))
+            if (string.IsNullOrEmpty(job.Description))
             {
                 throw new ArgumentException("Description cannot be empty");
             }
@@ -96,9 +102,15 @@ namespace JobApplications.Services
             editedJob.WorkingHours = job.WorkingHours;
             editedJob.Salary = job.Salary;
             editedJob.IsAvaliable = job.IsAvaliable;
-
+            editedJob.Banner = job.Banner;
+            this.dbContext.Update(editedJob);
             await this.dbContext.SaveChangesAsync();
 
+        }
+
+        public async Task<List<Job>> GetAllForCompany(int companyId)
+        {
+            return await this.dbContext.Jobs.Where(x => x.CompanyId == companyId).ToListAsync();
         }
     }
 }

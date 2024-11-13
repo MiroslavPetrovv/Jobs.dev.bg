@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace JobApplications.Data.Models
 {
-    using static JobApplications.Data.DataValidation.Job;
+    using static JobApplications.Data.DataValidation.JobConstants;
     public class Job
     {
         // ADD ATRIBUTES FOR STRING LENGTH 
@@ -47,6 +47,7 @@ namespace JobApplications.Data.Models
         public DateTime PostedDate { get; set; }
 
 
+        public string? Banner { get; set; }
 
     }
 }
