@@ -2,18 +2,11 @@
 using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.DTOs;
-using JobApplications.DTOs.ViewModel.JobViewModels;
 using JobApplications.Extensions;
-using JobApplications.Services;
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.Operations;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.Design;
-using System.Runtime.InteropServices;
-using System.Text.Json.Serialization;
 
 namespace JobApplications.Controllers
 {
@@ -100,7 +93,9 @@ namespace JobApplications.Controllers
                 Title = jobToUpdate.Title,
                 IsAvaliable = jobToUpdate.IsAvaliable,
                 Salary = jobToUpdate.Salary,
-                WorkingHours = jobToUpdate.WorkingHours
+                WorkingHours = jobToUpdate.WorkingHours,
+                Banner = jobToUpdate.Banner,
+                
             };
             
 
@@ -117,5 +112,7 @@ namespace JobApplications.Controllers
             await jobService.Edit(job);
             return RedirectToAction("GetAll");
         }
+
+       
     }
 }
