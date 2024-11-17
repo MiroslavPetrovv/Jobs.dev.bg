@@ -10,6 +10,7 @@ namespace JobApplications.Services
     using static JobApplications.Data.DataValidation.CompanyConstants;
     using System.Collections.Generic;
     using System.Globalization;
+    using System.Reflection.Metadata.Ecma335;
 
     public class CompanyService : ICompanyService
     {
@@ -110,17 +111,41 @@ namespace JobApplications.Services
 
         public async Task<int> GetByUserID(string userId)
         {
-            if (string.IsNullOrEmpty(userId))
+            try
             {
-                throw new ArgumentException("Invalid user id");
-            }
-            var companyId = await this.dbContext.Companies
-                .Where(c => c.IdentityUserId == userId)
-                .Select(c => c.Id)
-                .FirstOrDefaultAsync();
+                if (string.IsNullOrEmpty(userId))
+                {
+                    throw new ArgumentException("Invalid user id");
+                }
+                var companyId = await this.dbContext.Companies
+                    .Where(c => c.IdentityUserId == userId)
+                    .Select(c => c.Id)
+                    .FirstOrDefaultAsync();
 
-            return companyId == 0 ? 0 : companyId;
+                return companyId == 0 ? 0 : companyId;
+            }
+            catch (ArgumentException)
+            {
+
+                return 0;
+            }
+            
         }
+
+        public async Task<Company> GetCompanyByIdAsync(int id)
+        {
+            if (id == 0)
+            {
+                throw new ArgumentException("Invalid Job Id");
+            }
+            var company = await dbContext.Companies.FindAsync(id);
+            if (company == null)
+            {
+                throw new ArgumentException("No existing Job");
+            }
+            return company;
+        }
+
         private bool IsValidCompany(CompanyFormDTO companyDto, out string errorMessage)
         {
             errorMessage = string.Empty;
