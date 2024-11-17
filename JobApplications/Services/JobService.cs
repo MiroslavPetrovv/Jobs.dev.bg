@@ -23,76 +23,45 @@ namespace JobApplications.Services
         public async Task Add(JobFormDto job)
         {
 
-            //make a minimal wage variable
-            if (string.IsNullOrEmpty(job.Title) && job.Salary < 1000)
-            {
-                throw new ArgumentException("Invalid data");
-            }
-            // check if there is compnany with the id
-            if (job.CompanyId < 1)
-            {
-                throw new ArgumentException("Invalid company");
-            }
+            ValidateJob(job);
+
             Job data = mapper.Map<Job>(job);
             data.IsAvaliable = true;
-            await this.dbContext.AddAsync(data);
-            await this.dbContext.SaveChangesAsync();
+            await dbContext.AddAsync(data);
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task Delete(int id, string userId)
         {
 
-            if (string.IsNullOrEmpty(userId))
-            {
-                throw new ArgumentException("User was lost");
-            }
-            Job? jobToDelete =
-                await dbContext.Jobs.FirstOrDefaultAsync(x => x.Id == id);
+            ValidateUser(userId);
+
+            Job? jobToDelete = await dbContext.Jobs.FirstOrDefaultAsync(x => x.Id == id);
             if (jobToDelete == null)
             {
-                throw new InvalidOperationException("Job not finded");
+                throw new InvalidOperationException("Job not found");
             }
 
-            // check if there is an company with this user is
             var compId = await companyService.GetByUserID(userId);
-
             if (compId == 0)
             {
-                // throw correct error
-                throw new InvalidOperationException("");
-
+                throw new InvalidOperationException("Company associated with the user not found");
             }
+
             dbContext.Jobs.Remove(jobToDelete);
-            await this.dbContext.SaveChangesAsync();
+            await dbContext.SaveChangesAsync();
 
 
         }
 
         public async Task Edit(JobFormDto job)
         {
-            if (job.Salary <= 1000)
-            {
-                throw new ArgumentException("Salary cannot be under minimal wage");
-            }
-            //make a data validation for string length
-            if (string.IsNullOrEmpty(job.Title) || job.Title.Count() >= 100)
-            {
-                throw new ArgumentException("Invalid Title");
-            }
-            //make a limit for the description lenght
-            if (string.IsNullOrEmpty(job.Description))
-            {
-                throw new ArgumentException("Description cannot be empty");
-            }
-            if (job.WorkingHours <= 0)
-            {
-                throw new ArgumentException("Under minimal working hours");
-            }
+            ValidateJob(job);
 
-            Job? editedJob = await this.dbContext.Jobs.FindAsync(job.Id);
+            Job? editedJob = await dbContext.Jobs.FindAsync(job.Id);
             if (editedJob == null)
             {
-                throw new InvalidOperationException("Invalid job offer created");
+                throw new InvalidOperationException("Job offer not found");
             }
 
             editedJob.Id = job.Id;
@@ -103,6 +72,7 @@ namespace JobApplications.Services
             editedJob.Salary = job.Salary;
             editedJob.IsAvaliable = job.IsAvaliable;
             editedJob.Banner = job.Banner;
+
             this.dbContext.Update(editedJob);
             await this.dbContext.SaveChangesAsync();
 
@@ -112,5 +82,42 @@ namespace JobApplications.Services
         {
             return await this.dbContext.Jobs.Where(x => x.CompanyId == companyId).ToListAsync();
         }
+        public void ValidateJob(JobFormDto job)
+        {
+            const decimal MinimalWage = 1000;
+
+            if (string.IsNullOrEmpty(job.Title) || job.Title.Length >= 100)
+            {
+                throw new ArgumentException("Invalid Title: Title cannot be null or exceed 100 characters");
+            }
+
+            if (job.Salary < MinimalWage)
+            {
+                throw new ArgumentException("Salary cannot be below the minimal wage");
+            }
+
+            if (string.IsNullOrEmpty(job.Description))
+            {
+                throw new ArgumentException("Description cannot be empty");
+            }
+
+            if (job.WorkingHours <= 0)
+            {
+                throw new ArgumentException("Working hours must be greater than zero");
+            }
+
+            if (job.CompanyId < 1)
+            {
+                throw new ArgumentException("Invalid company");
+            }
+        }
+        private void ValidateUser(string userId)
+        {
+            if (string.IsNullOrEmpty(userId))
+            {
+                throw new ArgumentException("User ID is required");
+            }
+        }
+
     }
 }
