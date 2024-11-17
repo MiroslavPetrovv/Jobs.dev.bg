@@ -20,6 +20,11 @@ namespace JobApplications.Services
             this.companyService = companyService;
         }
 
+        public async Task<List<Job>> GetAllAsync()
+        {
+            return await this.dbContext.Jobs.Include(x => x.Company).ToListAsync();
+        }
+
         public async Task Add(JobFormDto job)
         {
 
@@ -119,5 +124,18 @@ namespace JobApplications.Services
             }
         }
 
+        public async Task<Job> GetJobByIdAsync(int id)
+        {
+            if (id == 0)
+            {
+                throw new ArgumentException("Invalid Job Id");
+            }
+            var job =await dbContext.Jobs.FindAsync(id);
+            if (job == null)
+            {
+                throw new ArgumentException("No existing Job");
+            }
+            return job;
+        }
     }
 }

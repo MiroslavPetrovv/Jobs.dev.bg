@@ -1,4 +1,5 @@
-﻿using JobApplications.DTOs;
+﻿using JobApplications.Data.Models;
+using JobApplications.DTOs;
 
 
 namespace JobApplications.Services.Interfaces
@@ -11,6 +12,10 @@ namespace JobApplications.Services.Interfaces
         Task Edit(JobFormDto job);
 
         Task Delete(int id,string userId);
+
+        Task<List<Job>> GetAllAsync();
+
+        Task<Job> GetJobByIdAsync(int id);
     
         
 

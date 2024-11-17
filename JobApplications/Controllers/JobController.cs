@@ -14,23 +14,24 @@ namespace JobApplications.Controllers
     {
         private readonly IJobService jobService;
         private readonly ICompanyService companyService; 
-        private ApplicationDbContext data;
+        
 
-        public JobController(ApplicationDbContext context,ICompanyService companyService, IJobService jobService)
+        public JobController(ICompanyService companyService, IJobService jobService)
         {
-            data = context;
+            
             this.jobService = jobService;
             this.companyService = companyService;
         }
 
         
 
-        public async Task<Job> Get()
-        {
-            return await this.data.Jobs.FirstOrDefaultAsync();
-        }
+        
 
-        public IActionResult GetAll() => View(this.data.Jobs.Include(x=> x.Company).ToList());
+        public async Task<IActionResult> GetAll()
+        {   
+            var jobs = await this.jobService.GetAllAsync();
+            return View(jobs);
+        }
 
         [HttpGet]
         public async Task<IActionResult> Add()
@@ -78,8 +79,11 @@ namespace JobApplications.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            //MAKE VALIDATION AND USE MAPPING!!!
-            Job? jobToUpdate =await data.Jobs.FirstOrDefaultAsync(x => x.Id == id);
+            if (!ModelState.IsValid)
+            {
+                TempData["ErrorInvalidCompany"] = "You should type only valid inforamtion";
+            }
+            Job? jobToUpdate =await this.jobService.GetJobByIdAsync(id);
             if (jobToUpdate == null)
             {
                 throw new InvalidOperationException("Job not founded");

@@ -15,24 +15,24 @@ namespace JobApplications.Controllers
     public class CompanyController : Controller
     {
         // REMOVE DATABASE - ADD SERVICES
-        private ApplicationDbContext data;
+        
         private IMapper mapper;
         private readonly ICompanyService companyService;
         private readonly IJobService jobService;
+        private readonly IIndustrieService industries;
 
-        public CompanyController(ApplicationDbContext context, IMapper mappingProfile, ICompanyService companyService, IJobService jobService)
+        public CompanyController( IMapper mappingProfile, ICompanyService companyService, 
+            IJobService jobService,IIndustrieService industrieService)
         {
-            data = context;
+            
             mapper = mappingProfile;
             this.companyService = companyService;
             this.jobService = jobService;
+            this.industries = industrieService;
         }
 
 
-        public async Task<Company> Get()
-        {
-            return await this.data.Companies.FirstOrDefaultAsync();
-        }
+        
 
         [HttpGet]
         public IActionResult Add()
@@ -101,7 +101,7 @@ namespace JobApplications.Controllers
         [HttpGet] 
         public async Task<IActionResult> Edit(int id)
         {
-            Company? company = await this.data.Companies.FirstOrDefaultAsync(x=> x.Id ==id);
+            Company? company = await this.companyService.GetCompanyByIdAsync(id);
             if (company == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -146,11 +146,11 @@ namespace JobApplications.Controllers
             return View(jobs);
         }
 
-        private void FilledDropdowns(CompanyFormDTO dto)
+        private async Task FilledDropdowns(CompanyFormDTO dto)
         {
-            List<Industry> industries = data.Industries.ToList();
+            List<Industry> industriesList =await industries.GetAllAsync();
 
-            dto.Industries = industries;
+            dto.Industries = industriesList;
         }
 
     }
