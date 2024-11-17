@@ -1,4 +1,5 @@
 ﻿
+using JobApplications.Data.Models;
 using JobApplications.DTOs;
 namespace JobApplications.Services.Interfaces
 {
@@ -13,5 +14,7 @@ namespace JobApplications.Services.Interfaces
         Task DeleteAsync(int id);
 
         Task<List<JobFormDto>> GetAllJobsAsync(int companyId);
+
+        Task<Company> GetCompanyByIdAsync(int id);
     }
 }
