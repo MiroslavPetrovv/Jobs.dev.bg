@@ -4,7 +4,7 @@ namespace JobApplications.DTOs
 {
     public class CompanyFormDTO
     {
-
+        public int Id { get; set; }
         public string CompanyName { get; set; } 
 
         public int IndustryId { get; set; }

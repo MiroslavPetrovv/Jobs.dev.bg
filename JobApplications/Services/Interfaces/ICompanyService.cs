@@ -6,12 +6,12 @@ namespace JobApplications.Services.Interfaces
     {
         Task<int> GetByUserID(string userId);
 
-        Task Add(CompanyFormDTO job);
+        Task AddAsync(CompanyFormDTO job);
 
-        Task Edit(CompanyFormDTO CompanyEditViewModel);
+        Task EditAsync(CompanyFormDTO CompanyEditViewModel);
 
-        Task Delete(int id);
+        Task DeleteAsync(int id);
 
-        Task<List<JobFormDto>> GetAllJobs(int companyId);
+        Task<List<JobFormDto>> GetAllJobsAsync(int companyId);
     }
 }

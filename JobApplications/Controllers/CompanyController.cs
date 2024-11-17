@@ -71,7 +71,7 @@ namespace JobApplications.Controllers
             {
                 TempData["UserLost"] = "Login again";
             }
-            await companyService.Add(companyDto);
+            await companyService.AddAsync(companyDto);
 
 
 
@@ -84,18 +84,18 @@ namespace JobApplications.Controllers
             if (id == 0)
             {
                 //TempData[""]
-                return RedirectToAction("GetAll");
+                return RedirectToAction("Index", "Home");
             }
             string userId = User.GetId();
             var comapny = companyService.GetByUserID(userId);
             if (comapny == null)
             {
                 TempData["ErrorNotAuth"] = "You are not authorized";
-                return RedirectToAction("GetAll");
+                return RedirectToAction("Index", "Home");
             }
 
-            await companyService.Delete(id);
-            return RedirectToAction("GetAll");
+            await companyService.DeleteAsync(id);
+            return RedirectToAction("Index", "Home");
         }
         [Authorize]
         [HttpGet] 
@@ -104,7 +104,7 @@ namespace JobApplications.Controllers
             Company? company = await this.data.Companies.FirstOrDefaultAsync(x=> x.Id ==id);
             if (company == null)
             {
-                return RedirectToAction("GetAll");
+                return RedirectToAction("Index", "Home");
             }
             if (company.IdentityUserId != User.GetId())
             {
@@ -123,8 +123,8 @@ namespace JobApplications.Controllers
             {
                 return View();
             }
-            await companyService.Edit(companyFormDTO);
-            return RedirectToAction("GetAll");
+            await companyService.EditAsync(companyFormDTO);
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -137,7 +137,7 @@ namespace JobApplications.Controllers
                 return BadRequest("Invalid ID. The ID must be a positive integer.");
             }
 
-               var jobs =await this.companyService.GetAllJobs(id);
+               var jobs =await this.companyService.GetAllJobsAsync(id);
             if (jobs == null)
             {
                 return NotFound($"No jobs found for ID {id}.");
