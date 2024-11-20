@@ -5,12 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using JobApplications.Data.Models;
+using JobApplications.DTOs;
 using JobApplications.Services;
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Authentication;
@@ -33,8 +35,9 @@ namespace JobApplications.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly IIndustrieService industryService;
-   private readonly RoleManager<IdentityRole> roleManager;
-        private readonly UserManager<IdentityUser> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly ICompanyService companyService;
+        
 
         public RegisterCompanyModel(
             UserManager<IdentityUser> userManager,
@@ -42,7 +45,9 @@ namespace JobApplications.Areas.Identity.Pages.Account
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
-            IIndustrieService industrieService)
+            IIndustrieService industrieService,
+            RoleManager<IdentityRole> roleManager,
+            ICompanyService companyService)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -51,6 +56,8 @@ namespace JobApplications.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
             this.industryService = industrieService;
+            this.roleManager = roleManager;
+            this.companyService = companyService;
         }
 
         /// <summary>
@@ -116,10 +123,10 @@ namespace JobApplications.Areas.Identity.Pages.Account
             public int NumbersOfEmployes { get; set; }
 
             [Display(Name = "Date Of Creation")]
-            public int DateOfCreation { get; set; }
+            public string DateOfCreation { get; set; }
 
             [Display(Name = "Industries")]
-            public List<Industry> Industries { get; set; }
+            public List<Industry> Industries { get; set; } = new List<Industry>();
 
             [Display(Name = "IndustryId")]
             public int IndustryId { get; set; }
@@ -153,13 +160,12 @@ namespace JobApplications.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
- 
+
                     var userId = await _userManager.GetUserIdAsync(user);
-                    
+
                     // add role to the company 
-                    this.SetUserRole(Input.Email);
-
-
+                    await this.SetUserRoleAsync(Input.Email);
+                    await AddCompanyAsync(userId);
                     // add company with the values for input ;)
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -192,6 +198,19 @@ namespace JobApplications.Areas.Identity.Pages.Account
             return Page();
         }
 
+        private async Task AddCompanyAsync(string userId)
+        {
+            CompanyFormDTO company = new CompanyFormDTO
+            {
+                CompanyName = Input.CompanyName,
+                NumbersOfEmployes = Input.NumbersOfEmployes,
+                DateOfCreation = Input.DateOfCreation,
+                IndustryId = Input.IndustryId,
+                IdentityUserId = userId,
+            };
+            await companyService.AddAsync(company);
+        }
+
         private IdentityUser CreateUser()
         {
             try
@@ -215,9 +234,12 @@ namespace JobApplications.Areas.Identity.Pages.Account
             return (IUserEmailStore<IdentityUser>)_userStore;
         }
 
-        private async Task SetUserRole(string email){
+        private async Task SetUserRoleAsync(string email){
             // set try catch 
-             bool x = await this.roleManager.RoleExistsAsync("Company");
+            
+            
+            bool x = await this.roleManager.RoleExistsAsync("Company");
+
             if (!x)
             {
                 IdentityRole role = new IdentityRole();
@@ -226,12 +248,22 @@ namespace JobApplications.Areas.Identity.Pages.Account
 
 
 
-                IdentityUser user = this.userManager.Users.FirstOrDefault(e => e.Email == email);
+                IdentityUser user = this._userManager.Users.FirstOrDefault(e => e.Email == email);
 
                 //Add default User to Role Admin    
                 if (user != null)
                 {
-                    IdentityResult result1 = await this.userManager.AddToRoleAsync(user, role.Name);
+                    IdentityResult result1 = await this._userManager.AddToRoleAsync(user, role.Name);
+                }
+            }
+            else
+            {
+                IdentityUser user = this._userManager.Users.FirstOrDefault(e => e.Email == email);
+
+                //Add default User to Role Admin    
+                if (user != null)
+                {
+                    IdentityResult result1 = await this._userManager.AddToRoleAsync(user, "Company");
                 }
             }
         }

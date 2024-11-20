@@ -29,7 +29,7 @@ namespace JobApplications.Services
 
 
             //finish the dataConstraits for company
-            if (IsValidCompany(companyDto, out string validateError))
+            if (!IsValidCompany(companyDto, out string validateError))
             {
                 throw new ArgumentException(validateError);
             }

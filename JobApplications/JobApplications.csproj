@@ -24,8 +24,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\Company\Controllers\" />
+    <Folder Include="Areas\Company\Models\" />
     <Folder Include="Data\Migrations\" />
     <Folder Include="Views\Application\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Company\Views\_ViewImports.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Company\Views\_ViewStart.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
