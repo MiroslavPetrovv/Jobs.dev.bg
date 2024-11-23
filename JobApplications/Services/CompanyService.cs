@@ -94,17 +94,20 @@ namespace JobApplications.Services
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<List<JobFormDto>> GetAllJobsAsync(int companyId)
+        public async Task<List<JobFormDto>> GetAllJobsAsync()
         {
-            if (companyId <= 0) throw new ArgumentException("Invalid company id");
+            
 
-            var jobs = await this.dbContext.Jobs
-                .AsNoTracking()
-                .Where(x => x.CompanyId == companyId)
-                .Include(x => x.Company)
-                .ToListAsync();
+            //var jobs = await this.dbContext.Jobs
+            //    .AsNoTracking()
+            //    .Where(x => x.CompanyId == companyId)
+            //    .Include(x => x.Company)
+            //    .ToListAsync();
 
-            return mapper.Map<List<JobFormDto>>(jobs);
+            //return mapper.Map<List<JobFormDto>>(jobs);
+
+            List<JobFormDto> jobs = new List<JobFormDto> ();
+            return jobs;
 
 
         }

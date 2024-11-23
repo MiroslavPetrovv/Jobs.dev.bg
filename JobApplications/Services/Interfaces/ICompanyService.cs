@@ -13,7 +13,7 @@ namespace JobApplications.Services.Interfaces
 
         Task DeleteAsync(int id);
 
-        Task<List<JobFormDto>> GetAllJobsAsync(int companyId);
+        Task<List<JobFormDto>> GetAllJobsAsync();
 
         Task<Company> GetCompanyByIdAsync(int id);
     }

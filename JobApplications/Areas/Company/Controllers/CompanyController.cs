@@ -1,31 +1,27 @@
 ﻿using AutoMapper;
-using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.DTOs;
 using JobApplications.Extensions;
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualStudio.Text.Editor.Commanding.Commands;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-namespace JobApplications.Controllers
+namespace JobApplications.Areas.Company.Controllers
 {
-
-    public class CompanyController : Controller
+    
+    public class CompanyController : BaseController
     {
         // REMOVE DATABASE - ADD SERVICES
-
+        
         private IMapper mapper;
         private readonly ICompanyService companyService;
         private readonly IJobService jobService;
         private readonly IIndustrieService industries;
 
-        public CompanyController(IMapper mappingProfile, ICompanyService companyService,
-            IJobService jobService, IIndustrieService industrieService)
+        public CompanyController( IMapper mappingProfile, ICompanyService companyService, 
+            IJobService jobService,IIndustrieService industrieService)
         {
-
+            
             mapper = mappingProfile;
             this.companyService = companyService;
             this.jobService = jobService;
@@ -33,7 +29,7 @@ namespace JobApplications.Controllers
         }
 
 
-
+        
 
         [HttpGet]
         public IActionResult Add()
@@ -99,23 +95,24 @@ namespace JobApplications.Controllers
             return RedirectToAction("Index", "Home");
         }
         [Authorize]
-        [HttpGet]
+        [HttpGet] 
         public async Task<IActionResult> Edit(int id)
         {
-            Company? company = await this.companyService.GetCompanyByIdAsync(id);
-            if (company == null)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-            if (company.IdentityUserId != User.GetId())
-            {
-                TempData["ErrorNotAuth"] = "You are not authorized";
-            }
+            //Company? company = await this.companyService.GetCompanyByIdAsync(id);
+            //if (company == null)
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
+            //if (company.IdentityUserId != User.GetId())
+            //{
+            //    TempData["ErrorNotAuth"] = "You are not authorized";
+            //}
 
-            CompanyFormDTO companyFormDTO = new CompanyFormDTO();
-            companyFormDTO = mapper.Map<CompanyFormDTO>(company);
-            FilledDropdowns(companyFormDTO);
-            return View(companyFormDTO);
+            //CompanyFormDTO companyFormDTO = new CompanyFormDTO();
+            //companyFormDTO = mapper.Map<CompanyFormDTO>(company);
+            //FilledDropdowns(companyFormDTO);
+            //return View(companyFormDTO);
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> Edit(CompanyFormDTO companyFormDTO)
@@ -132,11 +129,12 @@ namespace JobApplications.Controllers
         [Authorize]
         public async Task<IActionResult> GetAllJobs()
         {
+           
 
-            var jobs = await this.companyService.GetAllJobsAsync();
+               var jobs =await this.companyService.GetAllJobsAsync();
             if (jobs == null)
             {
-                return NotFound($"No jobs found for ID .");
+                return NotFound($"No jobs found for ID.");
             }
 
             return View(jobs);
@@ -144,7 +142,7 @@ namespace JobApplications.Controllers
 
         private async Task FilledDropdowns(CompanyFormDTO dto)
         {
-            List<Industry> industriesList = await industries.GetAllAsync();
+            List<Industry> industriesList =await industries.GetAllAsync();
 
             dto.Industries = industriesList;
         }
