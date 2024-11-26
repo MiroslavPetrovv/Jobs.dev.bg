@@ -24,20 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Company\Views\Company\" />
+    <Folder Include="Areas\HR\Models\" />
+    <Folder Include="Areas\HR\Views\Company\" />
     <Folder Include="Data\Migrations\" />
     <Folder Include="Views\Application\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Update="Areas\Company\Views\_ViewImports.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Areas\Company\Views\_ViewStart.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
   </ItemGroup>
 
 </Project>

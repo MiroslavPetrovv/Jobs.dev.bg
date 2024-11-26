@@ -621,4 +621,4 @@ C:\Users\LCUser\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\Jo
 C:\Users\LCUser\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\JobApplications.dll
 C:\Users\LCUser\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\refint\JobApplications.dll
 C:\Users\LCUser\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\JobApplications.pdb
-C:\Users\Miroslav\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\scopedcss\Areas\Company\Views\Shared\_CompanyLayout.cshtml.rz.scp.css
+C:\Users\Miroslav\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\scopedcss\Areas\HR\Views\Shared\_Layout.cshtml.rz.scp.css
