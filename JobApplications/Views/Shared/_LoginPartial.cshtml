@@ -1,7 +1,34 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
+<style>
+    .navbar-custom {
+        background-color: #343a40;
+    }
 
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #fff;
+        }
+
+            .navbar-custom .nav-link:hover {
+                color: #007bff;
+            }
+
+    .dropdown-menu a {
+        color: #343a40;
+    }
+
+        .dropdown-menu a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+    .footer {
+        background-color: #f8f9fa;
+        padding: 10px 0;
+    }
+</style>
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
@@ -16,11 +43,26 @@
 }
 else
 {
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
+        <div class="navbar-nav ml-auto">
+            <!-- Login Dropdown -->
+            <li class="nav-item">
+                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            </li>
+
+
+            <!-- Register Dropdown -->
+            <div class="nav-item dropdown">
+                <button class="btn btn-custom dropdown-toggle" type="button" id="registerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Register
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="registerDropdown">
+                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">User</a></li>
+                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/RegisterCompany">Company</a></li>
+                </ul>
+            </div>
+        </div>
 }
 </ul>
+
+    
+

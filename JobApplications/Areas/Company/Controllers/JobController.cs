@@ -116,10 +116,10 @@ namespace JobApplications.Areas.HR.Controllers
             await jobService.Edit(job);
             return RedirectToAction("GetAll");
         }
-        [HttpGet]
-        public IActionResult SeeAllApplicants(int id)
-        {
+        
+        //public IActionResult SeeAllApplicants(int id)
+        //{
             
-        }
+        //}
     }
 }

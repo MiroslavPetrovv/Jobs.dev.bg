@@ -3,9 +3,11 @@
 @using JobApplications.Services.Interfaces
 @inject ICompanyService companyService
 
+
 @{
     int companyForCurrentUser = await this.companyService.GetByUserID(User?.GetId());
 }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,54 +18,10 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/JobApplications.styles.css" asp-append-version="true" />
-    <style>
-        .navbar-custom {
-            background-color: #343a40;
-        }
-
-            .navbar-custom .navbar-brand,
-            .navbar-custom .nav-link {
-                color: #fff;
-            }
-
-                .navbar-custom .nav-link:hover {
-                    color: #007bff;
-                }
-
-        .btn-custom {
-            margin: 0 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            transition: background-color 0.3s;
-        }
-
-            .btn-custom:hover {
-                background-color: #0056b3;
-            }
-
-        .navbar-nav .dropdown-toggle::after {
-            display: none; /* Remove the caret */
-        }
-
-        .dropdown-menu {
-            width: 200px;
-        }
-
-        .dropdown-item {
-            padding: 10px;
-            font-size: 16px;
-        }
-
-        .footer {
-            background-color: #f8f9fa;
-            padding: 10px 0;
-        }
-    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-custom navbar-light border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">JobApplications</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -73,70 +31,52 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
                         @if (companyForCurrentUser != 0)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Job" asp-action="Add">Add Job</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="Add">Add Job</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Company" asp-action="GetAllJobs" asp-route-id="@companyForCurrentUser">Our Jobs</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="GetAllJobs" asp-route-id="@companyForCurrentUser">Our Jobs</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Company" asp-action="Edit" asp-route-id="@companyForCurrentUser">Edit My Company</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="Edit" asp-route-id="@companyForCurrentUser">Edit My Company</a>
                             </li>
+
                         }
                         else
-                        {                            
+                        {
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Job" asp-action="GetAll">All Jobs</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="Add">Become Company</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="GetAll">All Jobs</a>
+                            </li>
+                            //saved Jobs
                         }
+
                     </ul>
-
-                    <div class="navbar-nav ml-auto">
-                        <!-- Login Dropdown -->
-                        <div class="nav-item dropdown">
-                            <button class="btn btn-custom dropdown-toggle" type="button" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                Login
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="loginDropdown">
-                                <li><a class="dropdown-item" href="@Url.Action("Login", "Account")">User</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Login", "Company")">Company</a></li>
-                            </ul>
-                        </div>
-
-                        <!-- Register Dropdown -->
-                        <div class="nav-item dropdown">
-                            <button class="btn btn-custom dropdown-toggle" type="button" id="registerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                Register
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="registerDropdown">
-                                <li><a class="dropdown-item" href="@Url.Action("Register", "Account")">User</a></li>
-                                <li><a class="dropdown-item" href="@Url.Action("Register", "Company")">Company</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
     </header>
-
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="footer text-muted">
-        <div class="container text-center">
-            &copy; 2024 - JobApplications - <a href="@Url.Action("Privacy", "Home")">Privacy</a>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - JobApplications - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
