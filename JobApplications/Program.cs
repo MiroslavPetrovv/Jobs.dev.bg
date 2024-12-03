@@ -18,6 +18,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     options.Password.RequireDigit = false;
     options.Password.RequiredUniqueChars = 0;
     options.SignIn.RequireConfirmedEmail = false;
+    options.Password.RequiredUniqueChars = 0;
+    options.Password.RequireUppercase = false;
 }).AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 

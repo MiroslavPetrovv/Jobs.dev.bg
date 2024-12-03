@@ -12,6 +12,7 @@ namespace JobApplications.Services
         private readonly ApplicationDbContext dbContext;
         private readonly IMapper mapper;
         private readonly ICompanyService companyService;
+        
 
         public JobService(ApplicationDbContext dbContext, IMapper mapper, ICompanyService companyService)
         {
@@ -136,6 +137,16 @@ namespace JobApplications.Services
                 throw new ArgumentException("No existing Job");
             }
             return job;
+        }
+
+        public async Task<List<Application>> SeeAllApplicants(int id)
+        {
+            return await this.dbContext.Applications
+                .Include(x => x.IdentityUser)
+                .Include(x => x.Job)
+                .Include(x=>x.Status)
+                .Where(x => x.JobId == id)
+                .ToListAsync();
         }
     }
 }

@@ -9,131 +9,155 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = JobApplications
 build_property.RootNamespace = JobApplications
-build_property.ProjectDir = C:\Users\Miroslav\Documents\GitHub\Jobs.dev.bg\JobApplications\
+build_property.ProjectDir = C:\Users\LCUser\Documents\GitHub\Jobs.dev.bg\JobApplications\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Miroslav\Documents\GitHub\Jobs.dev.bg\JobApplications
+build_property.MSBuildProjectDirectory = C:\Users\LCUser\Documents\GitHub\Jobs.dev.bg\JobApplications
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/HR/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSFJcVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/HR/Views/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSFJcVmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/HR/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSFJcVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Company/Views/Company/GetAllJobs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tcGFueVxWaWV3c1xDb21wYW55XEdldEFsbEpvYnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/HR/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSFJcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Company/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tcGFueVxWaWV3c1xTaGFyZWRcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/HR/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSFJcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Company/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tcGFueVxWaWV3c1xTaGFyZWRcX0xvZ2luUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Company/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tcGFueVxWaWV3c1xTaGFyZWRcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Company/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tcGFueVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Company/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tcGFueVxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/Account/Logout.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/Account/RegisterCompany.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/Account/RegisterCompany.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbXBhbnkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/Add.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/User/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/User/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxBZGQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/Edit.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/GetAll.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/GetAll.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxHZXRBbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/GetAllJobs.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/GetAllJobs.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxHZXRBbGxKb2JzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/_CompanyFormPartialView.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Company/_CompanyFormPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFueVxfQ29tcGFueUZvcm1QYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Home/Index.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Job/Add.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Job/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXEFkZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Job/Edit.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Job/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Job/GetAll.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Job/GetAll.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXEdldEFsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Job/_JobFormPartialView.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Job/_JobFormPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9iXF9Kb2JGb3JtUGFydGlhbFZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Shared/Error404.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yNDA0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Shared/Error500.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yNTAwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/_ViewImports.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/_ViewStart.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/HR/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSFJcVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-ns2m9v55f6
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/Company/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQ29tcGFueVxWaWV3c1xTaGFyZWRcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-npn3tu8yyv
 
-[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Shared/_Layout.cshtml]
+[C:/Users/LCUser/Documents/GitHub/Jobs.dev.bg/JobApplications/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-m4v2g8ckpc

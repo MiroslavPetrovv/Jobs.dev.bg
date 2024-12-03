@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -24,8 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\HR\Models\" />
-    <Folder Include="Areas\HR\Views\Company\" />
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Company\Models\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Data\Migrations\" />
     <Folder Include="Views\Application\" />
   </ItemGroup>

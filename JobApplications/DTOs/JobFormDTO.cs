@@ -7,6 +7,7 @@ namespace JobApplications.DTOs
     public class JobFormDto 
     {
         public int Id { get; set; }
+
         public string Title { get; set; } = null!;
 
         public decimal Salary { get; set; }
@@ -21,7 +22,7 @@ namespace JobApplications.DTOs
 
         public bool IsAvaliable { get; set; }
         
-                public string? Banner { get; set; }
+        public string? Banner { get; set; }
 
     }
 }

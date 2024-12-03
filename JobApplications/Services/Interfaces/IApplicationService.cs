@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using JobApplications.DTOs;
+using Microsoft.AspNetCore.Identity;
 
 namespace JobApplications.Services.Interfaces
 {
     public interface IApplicationService
     {
-        Task ApplyForAJob(int jobid,IdentityUser applicant);
+        Task ApplyForAJobAsync(ApplicationFormDto applicationDto);
     }
 }

@@ -13,6 +13,9 @@ namespace JobApplications.Extensions
             this.CreateMap<Company, CompanyFormDTO>();
             this.CreateMap<Job, JobFormDto>();
             this.CreateMap<JobFormDto, Job>();
+            this.CreateMap<Application, ApplicationFormDto>();
+            this.CreateMap<ApplicationFormDto, Application>();
+
         }
     }
 }

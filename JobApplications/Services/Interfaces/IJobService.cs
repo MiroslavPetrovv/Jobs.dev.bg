@@ -1,5 +1,6 @@
 ﻿using JobApplications.Data.Models;
 using JobApplications.DTOs;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace JobApplications.Services.Interfaces
@@ -16,8 +17,11 @@ namespace JobApplications.Services.Interfaces
         Task<List<Job>> GetAllAsync();
 
         Task<Job> GetJobByIdAsync(int id);
-    
-        
+
+        Task<List<Application>> SeeAllApplicants(int id);
+
+
+
 
 
     }

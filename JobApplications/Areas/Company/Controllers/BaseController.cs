@@ -2,9 +2,10 @@
 {
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    [Area("Recruiter")]
+    [Area("Company")]
     //[Route("/Admin/[controller]/[Action]/{id?}")]
     [Authorize(Roles = "Company")]
+    
     public class BaseController : Controller
     {
     }

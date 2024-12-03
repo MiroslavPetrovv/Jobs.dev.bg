@@ -1,0 +1,28 @@
+﻿@using JobApplications.Data.Models
+@using JobApplications.Extensions
+@model List<Job>
+
+@{
+    // job ->
+    var userid = User.GetId();
+
+}
+@if (Model.Count > 0)
+{
+    <div>
+        @foreach (var item in Model)
+        {
+
+            
+            
+                <a asp-area="Company" asp-controller="Job" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-info">Delete</a>
+                <a asp-area="Company" asp-controller="Job" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
+                <a asp-area="Company" asp-controller="Job" asp-action="SeeAllApplicants" asp-route-id="@item.Id"class="btn btn-info">See All Applicants</a>
+
+        }
+    </div>
+}
+
+
+
+

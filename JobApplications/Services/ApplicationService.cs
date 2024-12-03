@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using JobApplications.Data;
 using JobApplications.Data.Models;
+using JobApplications.DTOs;
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.JSInterop.Implementation;
 
 namespace JobApplications.Services
 {
@@ -16,9 +18,9 @@ namespace JobApplications.Services
             this.dbContext = dbContext;
             this.mapper = mapper;
         }
-        public async Task ApplyForAJob(int jobid, IdentityUser applicant)
+        public async Task ApplyForAJobAsync(ApplicationFormDto applicationDto)
         {
-            var jobForApplying = await this.dbContext.Jobs.FindAsync(jobid);
+            var jobForApplying = await this.dbContext.Jobs.FindAsync(applicationDto.JobId);
             if (jobForApplying == null)
             {
                 throw new ArgumentException("Invalid Job for applying");
@@ -26,8 +28,20 @@ namespace JobApplications.Services
 
             Application application = new Application
             {
-
+                Id = applicationDto.Id,
+                JobId = jobForApplying.Id,
+                ApplyedDate = DateTime.Now,
+                IdentityUserId = applicationDto.IdentityUserId,
+                StatusId = 1
             };
+            var job = await dbContext.Jobs.FindAsync(application.JobId);
+            if(job == null)
+            {
+                throw new ArgumentException("Invalid JobId");
+            }
+            job.Applications.Add(application);
+            await this.dbContext.Applications.AddAsync(application);
+            await this.dbContext.SaveChangesAsync();
 
             
         }

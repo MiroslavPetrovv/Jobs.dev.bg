@@ -39,6 +39,17 @@ namespace JobApplications.Controllers
 
             return View(applicationDto);
         }
+        [HttpPost]
+        public async Task<IActionResult> ApplyForJob(ApplicationFormDto application)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("GetAll", "Job");
+            }
+            await applicationService.ApplyForAJobAsync(application);
+            return RedirectToAction("GetAll", "Job");
+
+        }
 
 
 
