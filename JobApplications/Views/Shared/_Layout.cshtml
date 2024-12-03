@@ -36,8 +36,9 @@
 
                         @if (companyForCurrentUser != 0)
                         {
+                            //CompanyInterface
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="Add">Add Job</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="Add" asp-route-id="@companyForCurrentUser">Create Job</a>
                             </li>
 
                             <li class="nav-item">
@@ -48,11 +49,9 @@
                             </li>
 
                         }
-                        else
+                        else 
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="Add">Become Company</a>
-                            </li>
+                            //User interface
 
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="GetAll">All Jobs</a>

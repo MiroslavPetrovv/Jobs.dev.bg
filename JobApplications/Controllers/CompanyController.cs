@@ -64,7 +64,7 @@ namespace JobApplications.Controllers
 
             if (!ModelState.IsValid)
             {
-                FilledDropdowns(companyDto);
+                await FilledDropdowns(companyDto);
                 return View();
 
             }
@@ -114,7 +114,7 @@ namespace JobApplications.Controllers
 
             CompanyFormDTO companyFormDTO = new CompanyFormDTO();
             companyFormDTO = mapper.Map<CompanyFormDTO>(company);
-            FilledDropdowns(companyFormDTO);
+            await FilledDropdowns(companyFormDTO);
             return View(companyFormDTO);
         }
         [HttpPost]
