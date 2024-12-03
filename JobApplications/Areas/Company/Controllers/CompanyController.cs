@@ -60,7 +60,7 @@ namespace JobApplications.Areas.HR.Controllers
 
             CompanyFormDTO companyFormDTO = new CompanyFormDTO();
             companyFormDTO = mapper.Map<CompanyFormDTO>(company);
-            FilledDropdowns(companyFormDTO);
+            await FilledDropdowns(companyFormDTO);
             return View(companyFormDTO);
         }
         [HttpPost]
