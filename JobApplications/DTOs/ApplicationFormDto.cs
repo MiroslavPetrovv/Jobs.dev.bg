@@ -20,6 +20,8 @@ namespace JobApplications.DTOs
 
         public Status? Status { get; set; }
 
+        public IFormFile? CvFile { get; set; }
+
 
     }
 }

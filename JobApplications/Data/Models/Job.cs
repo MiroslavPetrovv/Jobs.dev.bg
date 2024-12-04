@@ -35,6 +35,13 @@ namespace JobApplications.Data.Models
             ErrorMessage = "The field Brand must be minumum {0} length and maximum {1} length! ")]
         public string Description { get; set; } = null!;
 
+        [Required]
+        [StringLength(
+            JobTitleDescriptionMaxLength,
+            MinimumLength = JobTitleDescriptionMinLength,
+            ErrorMessage = "The field Brand must be minumum {0} length and maximum {1} length! ")]
+        public string JobTitleDescription { get; set; } = null!;
+
         public IList<Application> Applications { get; set; } = new List<Application>();
 
         [Required]
@@ -48,6 +55,8 @@ namespace JobApplications.Data.Models
 
 
         public string? Banner { get; set; }
+
+        
 
     }
 }

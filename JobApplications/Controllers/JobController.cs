@@ -13,22 +13,22 @@ namespace JobApplications.Controllers
     public class JobController : Controller
     {
         private readonly IJobService jobService;
-        private readonly ICompanyService companyService; 
-        
+        private readonly ICompanyService companyService;
+
 
         public JobController(ICompanyService companyService, IJobService jobService)
         {
-            
+
             this.jobService = jobService;
             this.companyService = companyService;
         }
 
-        
 
-        
+
+
 
         public async Task<IActionResult> GetAll()
-        {   
+        {
             var jobs = await this.jobService.GetAllAsync();
             return View(jobs);
         }
@@ -36,15 +36,15 @@ namespace JobApplications.Controllers
         [HttpGet]
         public async Task<IActionResult> Add()
         {
-          
+
             int companyId = await companyService.GetByUserID(User.GetId());
-            if(companyId == 0){
+            if (companyId == 0) {
                 TempData["ErrorNotAuth"] = "You should log in in your profile first!";
 
                 return RedirectToAction("Index", "Home"); // Login
             }
             JobFormDto job = new JobFormDto();
-            
+
 
             return View(job);
         }
@@ -58,7 +58,7 @@ namespace JobApplications.Controllers
                 //throw new ArgumentException("Invalid Data");
             }
             int companyId = await companyService.GetByUserID(User.GetId());
-            if(companyId == 0)
+            if (companyId == 0)
             {
                 throw new ArgumentException("User was lost");
             }
@@ -69,7 +69,7 @@ namespace JobApplications.Controllers
             return RedirectToAction("GetAll");
         }
         [Authorize]
-        public async Task <IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             //add if statements
             await jobService.Delete(id, User.GetId());
@@ -83,14 +83,14 @@ namespace JobApplications.Controllers
             {
                 TempData["ErrorInvalidCompany"] = "You should type only valid inforamtion";
             }
-            Job? jobToUpdate =await this.jobService.GetJobByIdAsync(id);
+            Job? jobToUpdate = await this.jobService.GetJobByIdAsync(id);
             if (jobToUpdate == null)
             {
                 throw new InvalidOperationException("Job not founded");
             }
 
             JobFormDto jobEdit = new JobFormDto()
-            { 
+            {
                 Id = jobToUpdate.Id,
                 CompanyId = jobToUpdate.CompanyId,
                 Description = jobToUpdate.Description,
@@ -99,9 +99,9 @@ namespace JobApplications.Controllers
                 Salary = jobToUpdate.Salary,
                 WorkingHours = jobToUpdate.WorkingHours,
                 Banner = jobToUpdate.Banner,
-                
+
             };
-            
+
 
 
             return View(jobEdit);
@@ -116,6 +116,8 @@ namespace JobApplications.Controllers
             await jobService.Edit(job);
             return RedirectToAction("GetAll");
         }
+
+        
 
        
     }

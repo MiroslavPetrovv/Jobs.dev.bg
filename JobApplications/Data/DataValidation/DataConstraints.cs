@@ -13,8 +13,11 @@
         //public const int MinSalaryFor4HourShift = 480;
         //public const int MaxSalary = 1000000;
 
-        public const int JobDescriptionMaxLength = 500;
-        public const int JobDescriptionMinLegnth = 100;
+        public const int JobDescriptionMaxLength = 5000;
+        public const int JobDescriptionMinLegnth = 500;
+
+        public const int JobTitleDescriptionMaxLength = 500;
+        public const int JobTitleDescriptionMinLength = 100;
      
     }
     public static class CompanyConstants
