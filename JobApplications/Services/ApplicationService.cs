@@ -3,8 +3,12 @@ using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.DTOs;
 using JobApplications.Services.Interfaces;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.JSInterop.Implementation;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobApplications.Services
 {
@@ -12,38 +16,73 @@ namespace JobApplications.Services
     {
         private readonly ApplicationDbContext dbContext;
         private readonly IMapper mapper;
+        private readonly IHostEnvironment _hostEnvironment;
 
-        public ApplicationService(ApplicationDbContext dbContext, IMapper mapper)
+        public ApplicationService(ApplicationDbContext dbContext, IMapper mapper, IHostEnvironment hostEnvironment)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
+            this._hostEnvironment = hostEnvironment;
         }
-        public async Task ApplyForAJobAsync(ApplicationFormDto applicationDto)
+
+        public async Task ApplyForAJobAsync(ApplicationFormDto applicationDto, string userId)
         {
-            var jobForApplying = await this.dbContext.Jobs.FindAsync(applicationDto.JobId);
+            // Fetch the job
+            var jobForApplying = await dbContext.Jobs.FindAsync(applicationDto.JobId);
             if (jobForApplying == null)
             {
-                throw new ArgumentException("Invalid Job for applying");
+                throw new ArgumentException("The job you are trying to apply for does not exist.");
             }
 
-            Application application = new Application
+           
+            if (applicationDto.CvFile == null || applicationDto.CvFile.Length == 0)
             {
-                Id = applicationDto.Id,
-                JobId = jobForApplying.Id,
-                ApplyedDate = DateTime.Now,
-                IdentityUserId = applicationDto.IdentityUserId,
-                StatusId = 1
-            };
-            var job = await dbContext.Jobs.FindAsync(application.JobId);
-            if(job == null)
-            {
-                throw new ArgumentException("Invalid JobId");
+                throw new ArgumentException("A CV is required to apply for this job.");
             }
-            job.Applications.Add(application);
-            await this.dbContext.Applications.AddAsync(application);
-            await this.dbContext.SaveChangesAsync();
+
+            if (applicationDto.CvFile.ContentType != "application/pdf")
+            {
+                throw new ArgumentException("Only PDF files are accepted.");
+            }
 
             
+            string cvFilePath = await UploadCvFileAsync(applicationDto.CvFile);
+
+            
+            var application = new Application
+            {
+                JobId = jobForApplying.Id,
+                ApplyedDate = DateTime.UtcNow,
+                IdentityUserId = userId,
+                StatusId = 1, //Pending
+                CvFilePath = cvFilePath
+            };
+
+            // Save the application
+            jobForApplying.Applications.Add(application);
+            await dbContext.Applications.AddAsync(application);
+            await dbContext.SaveChangesAsync();
         }
+
+        
+        private async Task<string> UploadCvFileAsync(IFormFile cvFile)
+        {
+            var uploadsFolder = Path.Combine(_hostEnvironment.ContentRootPath, "wwwroot", "uploads", "cv");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            var fileName = $"{Guid.NewGuid()}_{Path.GetFileName(cvFile.FileName)}";
+            var filePath = Path.Combine(uploadsFolder, fileName);
+
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await cvFile.CopyToAsync(fileStream);
+            }
+
+            return Path.Combine("/uploads/cv", fileName); // Relative path for serving the file
+        }
+
     }
 }

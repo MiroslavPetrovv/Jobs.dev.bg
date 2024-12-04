@@ -1,0 +1,29 @@
+﻿@model JobApplications.DTOs.ApplicationFormDto
+@using JobApplications.Extensions
+
+<div class="container mt-5">
+    <h1>Apply for Job</h1>
+
+    <div class="job-details">
+        <h3>@Model.Job.Title</h3>
+        <p>@Model.Job.Description</p>
+        <p><strong>Salary:</strong> @Model.Job.Salary</p>
+        <p><strong>Company:</strong> @Model.Job.Company.CompanyName</p>
+        <p><strong>Job Requirments</strong></>@Model.Job.JobTitleDescription</p>
+    </div>
+
+    <hr />
+
+    <form asp-action="ApplyForJob" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="JobId" />
+        <input type="hidden" asp-for="IdentityUserId" value="@Model.IdentityUserId" />
+
+        <div class="form-group">
+            <label for="CvFile">Upload your CV (PDF only):</label>
+            <input type="file" class="form-control" asp-for="CvFile" />
+            <span asp-validation-for="CvFile" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Submit Application</button>
+    </form>
+</div>

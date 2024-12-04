@@ -20,6 +20,8 @@ namespace JobApplications.Services.Interfaces
 
         Task<List<Application>> SeeAllApplicants(int id);
 
+        
+
 
 
 

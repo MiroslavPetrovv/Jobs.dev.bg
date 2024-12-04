@@ -33,6 +33,10 @@ namespace JobApplications.Migrations
                     b.Property<DateTime>("ApplyedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("CvFilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("IdentityUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -194,11 +198,16 @@ namespace JobApplications.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsAvaliable")
                         .HasColumnType("bit");
+
+                    b.Property<string>("JobTitleDescription")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<DateTime>("PostedDate")
                         .HasColumnType("datetime2");

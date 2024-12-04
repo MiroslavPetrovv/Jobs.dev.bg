@@ -5,6 +5,6 @@ namespace JobApplications.Services.Interfaces
 {
     public interface IApplicationService
     {
-        Task ApplyForAJobAsync(ApplicationFormDto applicationDto);
+        Task ApplyForAJobAsync(ApplicationFormDto applicationDto, string userId);
     }
 }

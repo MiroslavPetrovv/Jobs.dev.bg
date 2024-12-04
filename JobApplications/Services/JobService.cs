@@ -3,6 +3,7 @@ using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.DTOs;
 using JobApplications.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace JobApplications.Services
@@ -131,7 +132,7 @@ namespace JobApplications.Services
             {
                 throw new ArgumentException("Invalid Job Id");
             }
-            var job =await dbContext.Jobs.FindAsync(id);
+            var job =await dbContext.Jobs.Include(x=>x.Company).FirstOrDefaultAsync(x=>x.Id ==id);
             if (job == null)
             {
                 throw new ArgumentException("No existing Job");
@@ -148,5 +149,6 @@ namespace JobApplications.Services
                 .Where(x => x.JobId == id)
                 .ToListAsync();
         }
+        
     }
 }

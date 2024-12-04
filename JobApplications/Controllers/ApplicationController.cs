@@ -1,7 +1,9 @@
 ﻿using JobApplications.DTOs;
 using JobApplications.Extensions;
+using JobApplications.Services;
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobApplications.Controllers
 {
@@ -10,6 +12,7 @@ namespace JobApplications.Controllers
         private readonly IJobService jobService;
         private readonly ICompanyService companyService;
         private readonly IApplicationService applicationService;
+        private readonly ILogger<HomeController> _logger;
 
 
         public ApplicationController(ICompanyService companyService, IJobService jobService, IApplicationService applicationService)
@@ -20,9 +23,9 @@ namespace JobApplications.Controllers
             this.applicationService = applicationService;
         }
         [HttpGet]
-        public IActionResult ApplyForJob(int id)
+        public async Task<IActionResult> ApplyForJob(int id)
         {
-            
+            var job = await jobService.GetJobByIdAsync(id);
             if (string.IsNullOrEmpty(User.GetId()))
             {
                 //to return error
@@ -34,7 +37,9 @@ namespace JobApplications.Controllers
             var applicationDto = new ApplicationFormDto
             {
                 IdentityUserId = User.GetId(),
-                JobId = id
+                JobId = id,
+                Job = job,
+                StatusId = 1
             };
 
             return View(applicationDto);
@@ -42,12 +47,24 @@ namespace JobApplications.Controllers
         [HttpPost]
         public async Task<IActionResult> ApplyForJob(ApplicationFormDto application)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return RedirectToAction("GetAll", "Job");
+                var userId = User.GetId(); // Assuming GetId() retrieves the logged-in user's ID
+                await applicationService.ApplyForAJobAsync(application, userId);
+
+                TempData["SuccessMessage"] = "Your application has been submitted successfully!";
+                return RedirectToAction("JobDetails", new { id = application.JobId });
             }
-            await applicationService.ApplyForAJobAsync(application);
-            return RedirectToAction("GetAll", "Job");
+            catch (ArgumentException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(application);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while applying for the job.");
+                return StatusCode(500, "An error occurred while processing your application.");
+            }
 
         }
 
