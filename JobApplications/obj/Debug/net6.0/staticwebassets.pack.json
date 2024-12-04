@@ -245,6 +245,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\wwwroot\\uploads\\cv\\87768e9b-ca19-4030-b6a0-ff31246d65f9_04.ASP-NET-Core-MVC-Introduction.pdf",
+      "PackagePath": "staticwebassets\\uploads\\cv\\87768e9b-ca19-4030-b6a0-ff31246d65f9_04.ASP-NET-Core-MVC-Introduction.pdf"
+    },
+    {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.JobApplications.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

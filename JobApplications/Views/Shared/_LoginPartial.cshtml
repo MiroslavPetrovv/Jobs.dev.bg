@@ -1,20 +1,23 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
+
 <style>
-    .navbar-custom {
-        background-color: #343a40;
+    /* Style for Register button */
+    .navbar-nav .dropdown-toggle {
+        color: #343a40; /* Dark text color to match Login */
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-        .navbar-custom .navbar-brand,
-        .navbar-custom .nav-link {
-            color: #fff;
+        .navbar-nav .dropdown-toggle:hover {
+            background-color: #007bff; /* Blue background on hover */
+            color: white; /* White text on hover */
         }
 
-            .navbar-custom .nav-link:hover {
-                color: #007bff;
-            }
-
+    /* Dropdown menu links */
     .dropdown-menu a {
         color: #343a40;
     }
@@ -23,46 +26,38 @@
             background-color: #007bff;
             color: white;
         }
-
-    .footer {
-        background-color: #f8f9fa;
-        padding: 10px 0;
-    }
 </style>
+
 <ul class="navbar-nav">
-@if (SignInManager.IsSignedIn(User))
-{
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
-}
-else
-{
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
         <div class="navbar-nav ml-auto">
-            <!-- Login Dropdown -->
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
-            </li>
+            <!-- Login Button -->
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
 
-
-            <!-- Register Dropdown -->
-            <div class="nav-item dropdown">
-                <button class="btn btn-custom dropdown-toggle" type="button" id="registerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    Register
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="registerDropdown">
-                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">User</a></li>
-                    <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/RegisterCompany">Company</a></li>
-                </ul>
-            </div>
+        <!-- Register Dropdown -->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="registerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Register
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="registerDropdown">
+                <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">User</a></li>
+                <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/RegisterCompany">Company</a></li>
+            </ul>
+        </li>
         </div>
-}
+    }
 </ul>
-
-    
-

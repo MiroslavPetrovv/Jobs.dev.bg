@@ -44,16 +44,15 @@ namespace JobApplications.Controllers
 
             return View(applicationDto);
         }
-        [HttpPost]
         public async Task<IActionResult> ApplyForJob(ApplicationFormDto application)
         {
             try
             {
-                var userId = User.GetId(); // Assuming GetId() retrieves the logged-in user's ID
+                var userId = User.GetId();
                 await applicationService.ApplyForAJobAsync(application, userId);
 
                 TempData["SuccessMessage"] = "Your application has been submitted successfully!";
-                return RedirectToAction("JobDetails", new { id = application.JobId });
+                return RedirectToAction("GetAll", "Job");
             }
             catch (ArgumentException ex)
             {

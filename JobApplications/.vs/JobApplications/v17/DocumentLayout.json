@@ -3,24 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\application\\applyforjob.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\application\\applyforjob.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\areas\\company\\controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:areas\\company\\controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\job\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\job\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\areas\\company\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:areas\\company\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\data\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:data\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\dtos\\applicationformdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:dtos\\applicationformdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\data\\models\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:data\\models\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\areas\\identity\\pages\\account\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:areas\\identity\\pages\\account\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\company\\getall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\company\\getall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\application\\applyforjob.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\application\\applyforjob.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\data\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:data\\models\\job.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\services\\jobservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,18 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\services\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:services\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\dtos\\applicationformdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:dtos\\applicationformdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\company\\getall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\company\\getall.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\data\\models\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:data\\models\\application.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\company\\getalljobs.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -65,10 +97,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\services\\interfaces\\ijobservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:services\\interfaces\\ijobservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\job\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -99,18 +127,6 @@
       "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\services\\companyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:services\\companyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -131,24 +147,8 @@
       "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\areas\\identity\\pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:areas\\identity\\pages\\account\\logout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\areas\\company\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:areas\\company\\controllers\\companycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\areas\\company\\controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|solutionrelative:areas\\company\\controllers\\jobcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7F3B4104-15BF-448E-9D79-6C66E26F71A5}|JobApplications.csproj|c:\\users\\miroslav\\documents\\github\\jobs.dev.bg\\jobapplications\\dtos\\jobformdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -210,11 +210,35 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAABhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-03T14:37:07.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-03T14:47:20.751Z"
             },
             {
               "$type": "Document",
@@ -224,37 +248,196 @@
               "RelativeDocumentMoniker": "Controllers\\ApplicationController.cs",
               "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Controllers\\ApplicationController.cs",
               "RelativeToolTip": "Controllers\\ApplicationController.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAkwC0AAAAIAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAkwDYAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-02T10:42:52.541Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA5AAAA",
+              "DocumentIndex": 6,
+              "Title": "JobController.cs",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Controllers\\JobController.cs",
+              "RelativeDocumentMoniker": "Controllers\\JobController.cs",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Controllers\\JobController.cs",
+              "RelativeToolTip": "Controllers\\JobController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAqwCoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T09:33:46.956Z"
+              "WhenOpened": "2024-11-17T10:57:09.982Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Company\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Views\\Company\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Company\\Edit.cshtml",
-              "RelativeToolTip": "Views\\Company\\Edit.cshtml",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAwwB4AAAAAAAAA",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAADUAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T12:18:37.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Application.cs",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Data\\Models\\Application.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Application.cs",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Data\\Models\\Application.cs",
+              "RelativeToolTip": "Data\\Models\\Application.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAcwBsAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T10:55:46.086Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ApplicationFormDto.cs",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\DTOs\\ApplicationFormDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\ApplicationFormDto.cs",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\DTOs\\ApplicationFormDto.cs",
+              "RelativeToolTip": "DTOs\\ApplicationFormDto.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAQwBQAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T11:18:34.706Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "GetAll.cshtml",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Company\\GetAll.cshtml",
+              "RelativeDocumentMoniker": "Views\\Company\\GetAll.cshtml",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Company\\GetAll.cshtml",
+              "RelativeToolTip": "Views\\Company\\GetAll.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-03T14:59:14.062Z"
+              "WhenOpened": "2024-12-03T20:57:21.871Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CompanyController.cs",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Company\\Controllers\\CompanyController.cs",
+              "RelativeDocumentMoniker": "Areas\\Company\\Controllers\\CompanyController.cs",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Company\\Controllers\\CompanyController.cs",
+              "RelativeToolTip": "Areas\\Company\\Controllers\\CompanyController.cs",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAAAEQAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-03T13:55:18.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JobController.cs",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Company\\Controllers\\JobController.cs",
+              "RelativeDocumentMoniker": "Areas\\Company\\Controllers\\JobController.cs",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Company\\Controllers\\JobController.cs",
+              "RelativeToolTip": "Areas\\Company\\Controllers\\JobController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAHMAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-02T09:17:55.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_Layout.cshtml.css",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml.css",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-03T16:22:06.789Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAYwFYAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-03T14:02:58.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-04T12:38:52.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ApplyForJob.cshtml",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Application\\ApplyForJob.cshtml",
+              "RelativeDocumentMoniker": "Views\\Application\\ApplyForJob.cshtml",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Application\\ApplyForJob.cshtml",
+              "RelativeToolTip": "Views\\Application\\ApplyForJob.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAABQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-03T16:21:55.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ApplicationService.cs",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\ApplicationService.cs",
+              "RelativeDocumentMoniker": "Services\\ApplicationService.cs",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\ApplicationService.cs",
+              "RelativeToolTip": "Services\\ApplicationService.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAiwDgAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T10:58:58.684Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Job.cs",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Data\\Models\\Job.cs",
+              "RelativeDocumentMoniker": "Data\\Models\\Job.cs",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Data\\Models\\Job.cs",
+              "RelativeToolTip": "Data\\Models\\Job.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAIwCwAAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T11:00:03.166Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "JobService.cs",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\JobService.cs",
+              "RelativeDocumentMoniker": "Services\\JobService.cs",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\JobService.cs",
+              "RelativeToolTip": "Services\\JobService.cs",
+              "ViewState": "AQIAAHAAAAAAAAAAAAAmwH4AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T11:15:47.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-03T14:02:37.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "GetAllJobs.cshtml",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Company\\GetAllJobs.cshtml",
               "RelativeDocumentMoniker": "Views\\Company\\GetAllJobs.cshtml",
@@ -267,116 +450,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAACgAAAAAAAAAAAAswEYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T12:18:37.855Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Application.cs",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Data\\Models\\Application.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\Application.cs",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Data\\Models\\Application.cs",
-              "RelativeToolTip": "Data\\Models\\Application.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAcwBsAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T10:55:46.086Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "JobService.cs",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\JobService.cs",
-              "RelativeDocumentMoniker": "Services\\JobService.cs",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\JobService.cs",
-              "RelativeToolTip": "Services\\JobService.cs",
-              "ViewState": "AQIAAHAAAAAAAAAAAAAmwH4AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T11:15:47.988Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ApplyForJob.cshtml",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Application\\ApplyForJob.cshtml",
-              "RelativeDocumentMoniker": "Views\\Application\\ApplyForJob.cshtml",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Application\\ApplyForJob.cshtml",
-              "RelativeToolTip": "Views\\Application\\ApplyForJob.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAOAAAA",
+              "DocumentIndex": 19,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Company\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Company\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Company\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Company\\Edit.cshtml",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAwwB4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-03T16:21:55.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-03T14:59:14.062Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Job.cs",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Data\\Models\\Job.cs",
-              "RelativeDocumentMoniker": "Data\\Models\\Job.cs",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Data\\Models\\Job.cs",
-              "RelativeToolTip": "Data\\Models\\Job.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAIwCwAAABXAAAA",
+              "DocumentIndex": 21,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T11:00:03.166Z"
+              "WhenOpened": "2024-12-02T09:33:46.956Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Job\\Details.cshtml",
-              "RelativeDocumentMoniker": "Views\\Job\\Details.cshtml",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Job\\Details.cshtml",
-              "RelativeToolTip": "Views\\Job\\Details.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-03T20:18:51.586Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ApplicationFormDto.cs",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\DTOs\\ApplicationFormDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\ApplicationFormDto.cs",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\DTOs\\ApplicationFormDto.cs",
-              "RelativeToolTip": "DTOs\\ApplicationFormDto.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAgwA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T11:18:34.706Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ApplicationService.cs",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\ApplicationService.cs",
-              "RelativeDocumentMoniker": "Services\\ApplicationService.cs",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\ApplicationService.cs",
-              "RelativeToolTip": "Services\\ApplicationService.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAiwDgAAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T10:58:58.684Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "GetAll.cshtml",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Company\\GetAll.cshtml",
-              "RelativeDocumentMoniker": "Views\\Company\\GetAll.cshtml",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Company\\GetAll.cshtml",
-              "RelativeToolTip": "Views\\Company\\GetAll.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-03T20:57:21.871Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 22,
               "Title": "IApplicationService.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\Interfaces\\IApplicationService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IApplicationService.cs",
@@ -388,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "GetAll.cshtml",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Job\\GetAll.cshtml",
               "RelativeDocumentMoniker": "Views\\Job\\GetAll.cshtml",
@@ -400,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
               "Title": "IJobService.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\Interfaces\\IJobService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\IJobService.cs",
@@ -412,19 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "JobController.cs",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Controllers\\JobController.cs",
-              "RelativeDocumentMoniker": "Controllers\\JobController.cs",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Controllers\\JobController.cs",
-              "RelativeToolTip": "Controllers\\JobController.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAIAwwHcAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T10:57:09.982Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 24,
               "Title": "Add.cshtml",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Job\\Add.cshtml",
               "RelativeDocumentMoniker": "Views\\Job\\Add.cshtml",
@@ -436,7 +522,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 25,
               "Title": "20241203165216_JobTitleDescription.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Migrations\\20241203165216_JobTitleDescription.cs",
               "RelativeDocumentMoniker": "Migrations\\20241203165216_JobTitleDescription.cs",
@@ -460,31 +546,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFMAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-03T14:02:58.297Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "_Layout.cshtml.css",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_Layout.cshtml.css",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml.css",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_Layout.cshtml.css",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-12-03T16:22:06.789Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 30,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
@@ -496,7 +558,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 27,
               "Title": "DataConstraints.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Data\\DataValidation\\DataConstraints.cs",
               "RelativeDocumentMoniker": "Data\\DataValidation\\DataConstraints.cs",
@@ -508,7 +570,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 26,
               "Title": "20241203165115_JobTitleDescription.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Migrations\\20241203165115_JobTitleDescription.cs",
               "RelativeDocumentMoniker": "Migrations\\20241203165115_JobTitleDescription.cs",
@@ -520,7 +582,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 29,
               "Title": "Register.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
@@ -532,7 +594,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 28,
               "Title": "Status.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Data\\Models\\Status.cs",
               "RelativeDocumentMoniker": "Data\\Models\\Status.cs",
@@ -544,7 +606,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 34,
               "Title": "RegisterCompany.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\RegisterCompany.cshtml.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\RegisterCompany.cshtml.cs",
@@ -553,18 +615,6 @@
               "ViewState": "AQIAAJYAAAAAAAAAAIAwwKYAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T21:37:29.141Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "_LoginPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Shared\\_LoginPartial.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADwAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-03T14:37:07.471Z"
             },
             {
               "$type": "Document",
@@ -580,7 +630,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 32,
               "Title": "CompanyController.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Controllers\\CompanyController.cs",
               "RelativeDocumentMoniker": "Controllers\\CompanyController.cs",
@@ -592,7 +642,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 33,
               "Title": "ICompanyService.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\Interfaces\\ICompanyService.cs",
               "RelativeDocumentMoniker": "Services\\Interfaces\\ICompanyService.cs",
@@ -604,7 +654,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "CompanyService.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Services\\CompanyService.cs",
               "RelativeDocumentMoniker": "Services\\CompanyService.cs",
@@ -629,30 +679,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 35,
-              "Title": "CompanyController.cs",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Company\\Controllers\\CompanyController.cs",
-              "RelativeDocumentMoniker": "Areas\\Company\\Controllers\\CompanyController.cs",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Company\\Controllers\\CompanyController.cs",
-              "RelativeToolTip": "Areas\\Company\\Controllers\\CompanyController.cs",
-              "ViewState": "AQIAACkAAAAAAAAAAAAqwEQAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-03T13:55:18.063Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-03T14:02:37.867Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
@@ -664,7 +690,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 36,
               "Title": "Logout.cshtml",
               "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\Logout.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Logout.cshtml",
@@ -673,30 +699,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-03T14:47:04.864Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-03T14:47:20.751Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "JobController.cs",
-              "DocumentMoniker": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Company\\Controllers\\JobController.cs",
-              "RelativeDocumentMoniker": "Areas\\Company\\Controllers\\JobController.cs",
-              "ToolTip": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\Areas\\Company\\Controllers\\JobController.cs",
-              "RelativeToolTip": "Areas\\Company\\Controllers\\JobController.cs",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAmwHsAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-02T09:17:55.742Z"
             },
             {
               "$type": "Document",

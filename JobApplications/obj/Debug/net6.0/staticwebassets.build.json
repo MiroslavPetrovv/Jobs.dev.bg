@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "35dWJxIeUBsuwEX1IJtrYTt7M8cBGrbGCBs+cjkeaiI=",
+  "Hash": "Sa9o/ZQkjFyPrjssz2kC13Ib0kr3J0OzSh9QjGab+5Y=",
   "Source": "JobApplications",
   "BasePath": "_content/JobApplications",
   "Mode": "Default",
@@ -2333,6 +2333,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\wwwroot\\uploads\\cv\\87768e9b-ca19-4030-b6a0-ff31246d65f9_04.ASP-NET-Core-MVC-Introduction.pdf",
+      "SourceId": "JobApplications",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\wwwroot\\",
+      "BasePath": "_content/JobApplications",
+      "RelativePath": "uploads/cv/87768e9b-ca19-4030-b6a0-ff31246d65f9_04.ASP-NET-Core-MVC-Introduction.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\cv\\87768e9b-ca19-4030-b6a0-ff31246d65f9_04.ASP-NET-Core-MVC-Introduction.pdf"
     }
   ]
 }

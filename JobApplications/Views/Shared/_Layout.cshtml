@@ -18,47 +18,64 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/JobApplications.styles.css" asp-append-version="true" />
+    <style>
+        /* General Nav Link Styling */
+        nav.navbar .nav-link {
+            color: #ffffff !important; /* White text for visibility */
+            font-weight: bold; /* Bold text */
+            font-size: 1.1rem; /* Slightly larger font */
+            padding: 10px 15px; /* Padding for better spacing */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
+            transition: color 0.3s ease, background-color 0.3s ease; /* Smooth hover effects */
+        }
+
+            /* Hover Effect for Nav Links */
+            nav.navbar .nav-link:hover {
+                color: #007bff !important; /* Bright blue text on hover */
+                background-color: rgba(255, 255, 255, 0.2); /* Light overlay effect */
+                border-radius: 5px; /* Rounded hover effect */
+            }
+
+            /* Active Link Styling */
+            nav.navbar .nav-link.active {
+                color: #007bff !important; /* Highlight the active link */
+                border-bottom: 2px solid #007bff; /* Underline for active link */
+            }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">JobApplications</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Work.bg</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
+                        
 
                         @if (companyForCurrentUser != 0)
                         {
-                            //CompanyInterface
+                            <!-- Company Interface -->
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="Add" asp-route-id="@companyForCurrentUser">Create Job</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="GetAllJobs" asp-route-id="@companyForCurrentUser">Our Jobs</a>
+                                <a class="nav-link" asp-area="" asp-controller="Job" asp-action="Add" asp-route-id="@companyForCurrentUser">Create Job</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Company" asp-action="Edit" asp-route-id="@companyForCurrentUser">Edit My Company</a>
+                                <a class="nav-link" asp-area="" asp-controller="Company" asp-action="GetAllJobs" asp-route-id="@companyForCurrentUser">Our Jobs</a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Company" asp-action="Edit" asp-route-id="@companyForCurrentUser">Edit My Company</a>
+                            </li>
                         }
-                        else 
+                        else
                         {
-                            //User interface
-
+                            <!-- User Interface -->
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="GetAll">All Jobs</a>
+                                <a class="nav-link" asp-area="" asp-controller="Job" asp-action="GetAll">All Jobs</a>
                             </li>
-                            //saved Jobs
                         }
-
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -71,7 +88,7 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer">
         <div class="container">
             &copy; 2024 - JobApplications - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

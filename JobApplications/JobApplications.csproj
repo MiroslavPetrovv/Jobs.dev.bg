@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Job\Details.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.30" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.33" />
@@ -34,18 +30,6 @@
     <Folder Include="Areas\User\Models\" />
     <Folder Include="Areas\User\Controllers\" />
     <Folder Include="Data\Migrations\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Job\Details.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <_ContentIncludedByDefault Remove="Views\Job\Details.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Views\Job\Details.cshtml" />
   </ItemGroup>
 
 </Project>

@@ -25,14 +25,14 @@ namespace JobApplications.Controllers
 
 
 
-
-
+        [Authorize]
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var jobs = await this.jobService.GetAllAsync();
             return View(jobs);
         }
-
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Add()
         {
