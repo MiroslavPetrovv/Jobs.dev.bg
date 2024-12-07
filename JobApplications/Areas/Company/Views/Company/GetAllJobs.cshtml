@@ -12,7 +12,7 @@
     <div>
         @foreach (var item in Model)
         {
-                <p class="bg-info"> @item.Title - for salary: @item.Salary</p>
+            <img src="@item.Banner" alt="@item.Company.CompanyName - @item.Title">
                 <a asp-area="Company" asp-controller="Job" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-info">Delete</a>
                 <a asp-area="Company" asp-controller="Job" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
                 <a asp-area="Company" asp-controller="Application" asp-action="GetAllApplicationsForAJob" asp-route-id="@item.Id"  class="btn btn-info">See All Applicants</a>
