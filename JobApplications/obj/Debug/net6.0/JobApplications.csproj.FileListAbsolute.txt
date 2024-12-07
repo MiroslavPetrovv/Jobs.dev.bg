@@ -935,4 +935,3 @@ C:\Users\LCUser\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\sc
 C:\Users\LCUser\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\JobAppli.0019C0AA.Up2Date
 C:\Users\LCUser\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\JobApplications.genruntimeconfig.cache
 C:\Users\LCUser\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\ref\JobApplications.dll
-C:\Users\Miroslav\Documents\GitHub\Jobs.dev.bg\JobApplications\obj\Debug\net6.0\scopedcss\Areas\Company\Views\Shared\_Layout.cshtml.rz.scp.css

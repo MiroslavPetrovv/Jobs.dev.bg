@@ -94,25 +94,9 @@ namespace JobApplications.Services
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task<List<JobFormDto>> GetAllJobsAsync()
-        {
-            
+       
 
-            //var jobs = await this.dbContext.Jobs
-            //    .AsNoTracking()
-            //    .Where(x => x.CompanyId == companyId)
-            //    .Include(x => x.Company)
-            //    .ToListAsync();
-
-            //return mapper.Map<List<JobFormDto>>(jobs);
-
-            List<JobFormDto> jobs = new List<JobFormDto> ();
-            return jobs;
-
-
-        }
-
-        public async Task<int> GetByUserID(string userId)
+        public async Task<int> GetCompanyIdByUserIdAsync(string userId)
         {
             try
             {

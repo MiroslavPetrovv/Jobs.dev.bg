@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Sa9o/ZQkjFyPrjssz2kC13Ib0kr3J0OzSh9QjGab+5Y=",
+  "Hash": "FVYVLLmHX13IGWX9anrNtcy5GGJ7x9mMfT8pwGUinc0=",
   "Source": "JobApplications",
   "BasePath": "_content/JobApplications",
   "Mode": "Default",
@@ -2352,6 +2352,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\cv\\87768e9b-ca19-4030-b6a0-ff31246d65f9_04.ASP-NET-Core-MVC-Introduction.pdf"
+    },
+    {
+      "Identity": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\wwwroot\\uploads\\cv\\c32379e0-fd08-4152-bd27-8ddfa59021b1_48844.pdf",
+      "SourceId": "JobApplications",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Miroslav\\Documents\\GitHub\\Jobs.dev.bg\\JobApplications\\wwwroot\\",
+      "BasePath": "_content/JobApplications",
+      "RelativePath": "uploads/cv/c32379e0-fd08-4152-bd27-8ddfa59021b1_48844.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\cv\\c32379e0-fd08-4152-bd27-8ddfa59021b1_48844.pdf"
     }
   ]
 }

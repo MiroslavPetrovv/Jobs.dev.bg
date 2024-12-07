@@ -34,7 +34,7 @@ namespace JobApplications.Areas.HR.Controllers
                 return RedirectToAction("Index", "Home");
             }
             string userId = User.GetId();
-            var comapny = companyService.GetByUserID(userId);
+            var comapny = companyService.GetCompanyIdByUserIdAsync(userId);
             if (comapny == null)
             {
                 TempData["ErrorNotAuth"] = "You are not authorized";
@@ -48,7 +48,7 @@ namespace JobApplications.Areas.HR.Controllers
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            Company? company = await this.companyService.GetCompanyByIdAsync(id);
+            var company = await this.companyService.GetCompanyByIdAsync(id);
             if (company == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -76,13 +76,14 @@ namespace JobApplications.Areas.HR.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetAllJobs()
+        public async Task<IActionResult> GetAllJobsAsync(int id)
         {
-
-            var jobs = await this.companyService.GetAllJobsAsync();
+            int comapnyId = await companyService.GetCompanyIdByUserIdAsync(User.GetId());
+            var jobs = await this.jobService.GetAllJobsForCompanyAsync(id);
             if (jobs == null)
             {
-                return NotFound($"No jobs found for ID .");
+                //To Do temp data
+                return NotFound($"No jobs found for ID.");
             }
 
             return View(jobs);

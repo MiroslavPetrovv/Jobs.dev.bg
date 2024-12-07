@@ -54,7 +54,7 @@ namespace JobApplications.Data.Models
         public DateTime PostedDate { get; set; }
 
 
-        public string? Banner { get; set; }
+        public string? Banner { get; set; } //url for its logo
 
         
 

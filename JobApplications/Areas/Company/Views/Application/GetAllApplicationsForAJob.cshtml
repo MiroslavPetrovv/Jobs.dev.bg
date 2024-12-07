@@ -1,0 +1,111 @@
+﻿@model IEnumerable<JobApplications.DTOs.ApplicationDisplayingFormDto>
+
+
+<head>
+    <style>
+        
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+            border-collapse: collapse;
+        }
+
+            .table th, .table td {
+                padding: 8px;
+                vertical-align: middle;
+                border: 1px solid #ddd;
+            }
+
+            .table th {
+                background-color: #f4f4f4;
+                text-align: left;
+            }
+
+            .table td {
+                text-align: left;
+            }
+
+        
+        .form-control {
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fafafa;
+            transition: border 0.3s ease;
+        }
+
+            .form-control:focus {
+                border-color: #007bff;
+                background-color: #fff;
+            }
+
+        /
+        .btn {
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .btn-success {
+            background-color: #28a745;
+            color: white;
+        }
+
+            .btn-success:hover {
+                background-color: #218838;
+            }
+    </style>
+</head>
+
+<h2>Applications for Job: @Model.FirstOrDefault()?.JobTitle</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Applicant Name</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var application in Model)
+        {
+            <tr>
+                <td>@application.UserName</td>
+                <td>
+                    <form asp-area="Company" asp-controller="Application" asp-action="UpdateApplicationStatus" 
+                    method="post" asp-route-id="@application.Id" asp-route-statusId="@application.StatusId" asp-route-jobId="@application.JobId">
+                        <input type="hidden" name="applicationId" value="@application.Id"/>
+                        @* Make default status the actual status of the application *@
+                        <select name="statusName" class="form-control">
+                            <option selected="@(application.StatusName == "Pending" ? "selected" : "")" value="Pending">Pending</option>
+                            <option selected="@(application.StatusName == "Approved" ? "selected" : "")" value="Approved">Approved</option>
+                            <option selected="@(application.StatusName == "Rejected" ? "selected" : "")" value="Rejected">Rejected</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary">Update Status</button>
+                    </form>
+                </td>
+                <td>
+
+                    <a asp-area="Company" asp-controller="Application" asp-action="DownloadCv" asp-route-applicationId="@application.Id" class="btn btn-success">
+                        Download CV
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -8,9 +8,9 @@ namespace JobApplications.Services.Interfaces
 {
     public interface IJobService
     {
-        Task Add(JobFormDto job);
+        Task AddAsync(JobFormDto job);
 
-        Task Edit(JobFormDto job);
+        Task EditAsync(JobFormDto job);
 
         Task Delete(int id,string userId);
 
@@ -20,7 +20,9 @@ namespace JobApplications.Services.Interfaces
 
         Task<List<Application>> SeeAllApplicants(int id);
 
-        
+        Task<List<JobFormDto>> GetAllJobsForCompanyAsync(int companyId);
+
+
 
 
 

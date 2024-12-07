@@ -18,6 +18,8 @@ namespace JobApplications.DTOs
 
         public string Description { get; set; } = null!;
 
+        public string JobTitleDescription { get; set; } = null!;
+
         public int WorkingHours { get; set; }
 
         public bool IsAvaliable { get; set; }

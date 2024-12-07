@@ -36,7 +36,7 @@ namespace JobApplications.Controllers
 
 
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
             if (string.IsNullOrEmpty(User.GetId()))
             {
@@ -52,7 +52,7 @@ namespace JobApplications.Controllers
             };
 
 
-            FilledDropdowns(companyDto);
+            await FilledDropdowns(companyDto);
 
             return View(companyDto);
         }
@@ -88,7 +88,8 @@ namespace JobApplications.Controllers
                 return RedirectToAction("Index", "Home");
             }
             string userId = User.GetId();
-            var comapny = companyService.GetByUserID(userId);
+            var comapnyId =await companyService.GetCompanyIdByUserIdAsync(userId);
+            var comapny = await companyService.GetCompanyByIdAsync(comapnyId);
             if (comapny == null)
             {
                 TempData["ErrorNotAuth"] = "You are not authorized";
@@ -132,8 +133,8 @@ namespace JobApplications.Controllers
         [Authorize]
         public async Task<IActionResult> GetAllJobs()
         {
-
-            var jobs = await this.companyService.GetAllJobsAsync();
+            var comapnyId = await companyService.GetCompanyIdByUserIdAsync(User.GetId());
+            var jobs = await this.jobService.GetAllJobsForCompanyAsync(comapnyId);
             if (jobs == null)
             {
                 return NotFound($"No jobs found for ID .");

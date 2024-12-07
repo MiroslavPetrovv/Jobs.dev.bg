@@ -1,30 +1,30 @@
 ﻿/* Navbar Styling */
 .navbar-dark {
-    background-color: #000;
+    background-color:black;
 }
 
 
 nav.navbar .nav-link {
-    color: #ffffff !important; 
-    font-weight: bold; 
-    font-size: 1.1rem; 
-    padding: 10px 15px; 
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); 
-    transition: color 0.3s ease, background-color 0.3s ease; 
+    color: #ffffff ;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 
-nav.navbar .nav-link:hover {
-    color: #007bff !important; 
-    background-color: rgba(255, 255, 255, 0.2); 
-    border-radius: 5px; 
-}
+    nav.navbar .nav-link:hover {
+        color: #007bff ;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+    }
 
 
-nav.navbar .nav-link.active {
-    color: #007bff !important; 
-    border-bottom: 2px solid #007bff; 
-}
+    nav.navbar .nav-link.active {
+        color: #007bff ;
+        border-bottom: 2px solid #007bff;
+    }
 
 
 .footer {

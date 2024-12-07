@@ -37,9 +37,9 @@ namespace JobApplications.Controllers
         public async Task<IActionResult> Add()
         {
 
-            int companyId = await companyService.GetByUserID(User.GetId());
+            int companyId = await companyService.GetCompanyIdByUserIdAsync(User.GetId());
             if (companyId == 0) {
-                TempData["ErrorNotAuth"] = "You should log in in your profile first!";
+                TempData["ErrorNotAuth"] = "You should log in with your company first!";
 
                 return RedirectToAction("Index", "Home"); // Login
             }
@@ -57,14 +57,14 @@ namespace JobApplications.Controllers
                 return BadRequest(ModelState);
                 //throw new ArgumentException("Invalid Data");
             }
-            int companyId = await companyService.GetByUserID(User.GetId());
+            int companyId = await companyService.GetCompanyIdByUserIdAsync(User.GetId());
             if (companyId == 0)
             {
                 throw new ArgumentException("User was lost");
             }
             job.CompanyId = companyId;
 
-            await jobService.Add(job);
+            await jobService.AddAsync(job);
 
             return RedirectToAction("GetAll");
         }
@@ -113,12 +113,12 @@ namespace JobApplications.Controllers
             {
                 return View();
             }
-            await jobService.Edit(job);
+            await jobService.EditAsync(job);
             return RedirectToAction("GetAll");
         }
 
         
 
-       
+
     }
 }

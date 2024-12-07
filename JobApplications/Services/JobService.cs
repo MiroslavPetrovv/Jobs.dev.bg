@@ -27,7 +27,7 @@ namespace JobApplications.Services
             return await this.dbContext.Jobs.Include(x => x.Company).ToListAsync();
         }
 
-        public async Task Add(JobFormDto job)
+        public async Task AddAsync(JobFormDto job)
         {
 
             ValidateJob(job);
@@ -49,7 +49,7 @@ namespace JobApplications.Services
                 throw new InvalidOperationException("Job not found");
             }
 
-            var compId = await companyService.GetByUserID(userId);
+            var compId = await companyService.GetCompanyIdByUserIdAsync(userId);
             if (compId == 0)
             {
                 throw new InvalidOperationException("Company associated with the user not found");
@@ -61,7 +61,7 @@ namespace JobApplications.Services
 
         }
 
-        public async Task Edit(JobFormDto job)
+        public async Task EditAsync(JobFormDto job)
         {
             ValidateJob(job);
 
@@ -85,9 +85,27 @@ namespace JobApplications.Services
 
         }
 
-        public async Task<List<Job>> GetAllForCompany(int companyId)
+        public async Task<List<JobFormDto>> GetAllJobsForCompanyAsync(int companyId)
         {
-            return await this.dbContext.Jobs.Where(x => x.CompanyId == companyId).ToListAsync();
+            if (companyId == 0)
+            {
+                throw new ArgumentException("There is no company mathcing this id");
+            }
+            return await this.dbContext.Jobs
+                    .Where(x => x.CompanyId == companyId)
+                    .Select(x=> new JobFormDto
+                    {
+                        Id = x.Id,
+                        CompanyId = companyId,
+                        Description = x.Description,
+                        Title = x.Title,
+                        WorkingHours = x.WorkingHours,
+                        Salary = x.Salary,
+                        IsAvaliable = x.IsAvaliable,
+                        Banner = x.Banner,
+
+                    })
+                    .ToListAsync();
         }
         public void ValidateJob(JobFormDto job)
         {

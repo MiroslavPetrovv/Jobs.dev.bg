@@ -1,80 +1,31 @@
-/* _content/JobApplications/Areas/Company/Views/Shared/_Layout.cshtml.rz.scp.css */
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand[b-npn3tu8yyv] {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-a[b-npn3tu8yyv] {
-  color: #0077cc;
-}
-
-.btn-primary[b-npn3tu8yyv] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active[b-npn3tu8yyv], .nav-pills .show > .nav-link[b-npn3tu8yyv] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.border-top[b-npn3tu8yyv] {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom[b-npn3tu8yyv] {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow[b-npn3tu8yyv] {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy[b-npn3tu8yyv] {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-.footer[b-npn3tu8yyv] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
-}
 /* _content/JobApplications/Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Navbar Styling */
 .navbar-dark[b-m4v2g8ckpc] {
-    background-color: #000;
+    background-color:black;
 }
 
 
 nav.navbar .nav-link[b-m4v2g8ckpc] {
-    color: #ffffff !important; 
-    font-weight: bold; 
-    font-size: 1.1rem; 
-    padding: 10px 15px; 
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); 
-    transition: color 0.3s ease, background-color 0.3s ease; 
+    color: #ffffff ;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 
-nav.navbar .nav-link:hover[b-m4v2g8ckpc] {
-    color: #007bff !important; 
-    background-color: rgba(255, 255, 255, 0.2); 
-    border-radius: 5px; 
-}
+    nav.navbar .nav-link:hover[b-m4v2g8ckpc] {
+        color: #007bff ;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+    }
 
 
-nav.navbar .nav-link.active[b-m4v2g8ckpc] {
-    color: #007bff !important; 
-    border-bottom: 2px solid #007bff; 
-}
+    nav.navbar .nav-link.active[b-m4v2g8ckpc] {
+        color: #007bff ;
+        border-bottom: 2px solid #007bff;
+    }
 
 
 .footer[b-m4v2g8ckpc] {

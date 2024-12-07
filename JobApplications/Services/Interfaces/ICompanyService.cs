@@ -5,15 +5,13 @@ namespace JobApplications.Services.Interfaces
 {
     public interface ICompanyService
     {
-        Task<int> GetByUserID(string userId);
+        Task<int> GetCompanyIdByUserIdAsync(string userId);
 
         Task AddAsync(CompanyFormDTO job);
 
         Task EditAsync(CompanyFormDTO CompanyEditViewModel);
 
         Task DeleteAsync(int id);
-
-        Task<List<JobFormDto>> GetAllJobsAsync();
 
         Task<Company> GetCompanyByIdAsync(int id);
     }

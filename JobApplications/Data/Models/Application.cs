@@ -31,7 +31,7 @@ namespace JobApplications.Data.Models
         [ForeignKey(nameof(StatusId))]
         public Status Status { get; set; }
 
-        public string CvFilePath { get; set; } = null!;
+        public byte[] CvFilePath { get; set; } = null!;
 
     }
 }

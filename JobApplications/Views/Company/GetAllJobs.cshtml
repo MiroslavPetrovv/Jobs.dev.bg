@@ -30,14 +30,14 @@
 		var userId = User.GetId();
 		var userIsDealer = Dealers.IsDealer(userId); -->
 
-		@foreach (var car in Model)
+		@foreach (var job in Model)
 		{
 			<div class="col-md-4">
 				<div class="card mb-3">
-					<img src="@car.Banner" alt="@car.Company.CompanyName - @car.Title">
+					<img src="@job.Banner" alt="@job.Company.CompanyName - @job.Title">
 					<div class="card-body text-center">
-						<h5 class="card-title text-center">@car.Company.CompanyName - @car.Title - for salary: @car.Salary</h5>
-						<a asp-controller="Cars" asp-action="Details" asp-route-id="@car.Id class="btn btn-primary">View</a>
+						<h5 class="card-title text-center">@job.Company.CompanyName - @job.Title - for salary: @job.Salary</h5>
+						<a asp-controller="Cars" asp-action="Details" asp-route-id="@job.Id class="btn btn-primary">View</a>
 						
 					</div>
 				</div>

@@ -13,7 +13,7 @@
         @foreach (var item in Model)
         {
             
-            <p class="bg-info">@item.Company.CompanyName - @item.Title - for salary: @item.Salary</p>
+            <p class="bg-info">@item.Company - @item.Title - for salary: @item.Salary</p>
             @if (userid == item.Company.IdentityUserId)
             {
                 <a asp-controller="Job" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-info">Delete</a>

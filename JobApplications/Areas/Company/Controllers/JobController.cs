@@ -6,6 +6,7 @@ using JobApplications.Services;
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace JobApplications.Areas.HR.Controllers
 {
@@ -13,13 +14,15 @@ namespace JobApplications.Areas.HR.Controllers
     {
         private readonly IJobService jobService;
         private readonly ICompanyService companyService;
+        private readonly IApplicationService applicationService;
 
 
-        public JobController(ICompanyService companyService, IJobService jobService)
+        public JobController(ICompanyService companyService, IJobService jobService, IApplicationService applicationService)
         {
 
             this.jobService = jobService;
             this.companyService = companyService;
+            this.applicationService = applicationService;
         }
 
 
@@ -36,7 +39,7 @@ namespace JobApplications.Areas.HR.Controllers
         public async Task<IActionResult> Add()
         {
 
-            int companyId = await companyService.GetByUserID(User.GetId());
+            int companyId = await companyService.GetCompanyIdByUserIdAsync(User.GetId());
             if (companyId == 0)
             {
                 TempData["ErrorNotAuth"] = "You should log in in your profile first!";
@@ -57,14 +60,14 @@ namespace JobApplications.Areas.HR.Controllers
                 return BadRequest(ModelState);
                 //throw new ArgumentException("Invalid Data");
             }
-            int companyId = await companyService.GetByUserID(User.GetId());
+            int companyId = await companyService.GetCompanyIdByUserIdAsync(User.GetId());
             if (companyId == 0)
             {
                 throw new ArgumentException("User was lost");
             }
             job.CompanyId = companyId;
 
-            await jobService.Add(job);
+            await jobService.AddAsync(job);
 
             return RedirectToAction("GetAll");
         }
@@ -113,13 +116,11 @@ namespace JobApplications.Areas.HR.Controllers
             {
                 return View();
             }
-            await jobService.Edit(job);
+            await jobService.EditAsync(job);
             return RedirectToAction("GetAll");
         }
+
         
-        //public IActionResult SeeAllApplicants(int id)
-        //{
-            
-        //}
+        
     }
 }
