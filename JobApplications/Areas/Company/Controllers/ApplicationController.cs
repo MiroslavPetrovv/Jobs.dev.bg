@@ -23,10 +23,10 @@ namespace JobApplications.Areas.Company.Controllers
         {
             await applicationService.UpdateApplicationStatusAsync(id, statusName,statusId);
 
-            return RedirectToAction(nameof(GetAllApplicationsForAJobAsync), new { id = jobId });
+            return RedirectToAction("GetAllApplicationsForAJob", new {id=jobId});
         }
         [HttpGet]
-        public async Task<IActionResult> GetAllApplicationsForAJobAsync(int id)
+        public async Task<IActionResult> GetAllApplicationsForAJobAsync(int id)//you give job id here
         {
             var applications = await applicationService.SeeAllApplicationsForAJobAsync(id);
 

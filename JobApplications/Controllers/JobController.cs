@@ -7,6 +7,7 @@ using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.Design;
 
 namespace JobApplications.Controllers
 {
@@ -25,10 +26,16 @@ namespace JobApplications.Controllers
 
 
 
-        [Authorize]
+        
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+            if (User.GetId() == null)
+            {
+                TempData["ErrorNotAuth"] = "You should log in with your company first!";
+
+                return RedirectToAction("Index", "Home"); // Login
+            }
             var jobs = await this.jobService.GetAllAsync();
             return View(jobs);
         }

@@ -13,7 +13,7 @@ namespace JobApplications.Services
         private readonly ApplicationDbContext dbContext;
         private readonly IMapper mapper;
         private readonly ICompanyService companyService;
-        
+
 
         public JobService(ApplicationDbContext dbContext, IMapper mapper, ICompanyService companyService)
         {
@@ -24,7 +24,7 @@ namespace JobApplications.Services
 
         public async Task<List<Job>> GetAllAsync()
         {
-            return await this.dbContext.Jobs.Include(x => x.Company).ToListAsync();
+            return await this.dbContext.Jobs.Include(x => x.Company).Where(x => x.IsAvaliable == true).ToListAsync();
         }
 
         public async Task AddAsync(JobFormDto job)
@@ -33,6 +33,7 @@ namespace JobApplications.Services
             ValidateJob(job);
 
             Job data = mapper.Map<Job>(job);
+            data.PostedDate = DateTime.Now.Date;
             data.IsAvaliable = true;
             await dbContext.AddAsync(data);
             await dbContext.SaveChangesAsync();
@@ -91,9 +92,10 @@ namespace JobApplications.Services
             {
                 throw new ArgumentException("There is no company mathcing this id");
             }
-            return await this.dbContext.Jobs
+            var companyJobs = await this.dbContext.Jobs
+                    .Include(j => j.Company)
                     .Where(x => x.CompanyId == companyId)
-                    .Select(x=> new JobFormDto
+                    .Select(x => new JobFormDto
                     {
                         Id = x.Id,
                         CompanyId = companyId,
@@ -103,9 +105,62 @@ namespace JobApplications.Services
                         Salary = x.Salary,
                         IsAvaliable = x.IsAvaliable,
                         Banner = x.Banner,
+                        JobTitleDescription = x.JobTitleDescription,
 
                     })
                     .ToListAsync();
+            return companyJobs;
+        }
+
+
+        public async Task<Job> GetJobByIdAsync(int id)
+        {
+            if (id == 0)
+            {
+                throw new ArgumentException("Invalid Job Id");
+            }
+            var job = await dbContext.Jobs.Include(x => x.Company).FirstOrDefaultAsync(x => x.Id == id);
+            if (job == null)
+            {
+                throw new ArgumentException("No existing Job");
+            }
+            return job;
+        }
+
+        public async Task<List<Application>> SeeAllApplicants(int id)
+        {
+            return await this.dbContext.Applications
+                .Include(x => x.IdentityUser)
+                .Include(x => x.Job)
+                .Include(x => x.Status)
+                .Where(x => x.JobId == id)
+                .ToListAsync();
+        }
+
+        public async Task<List<JobFormDto>> GetAllAvailableJobs()
+        {
+            var jobs = await this.dbContext.Jobs
+                .AsNoTracking()
+                .Include(j => j.Company)
+                .Where(j => j.IsAvaliable == true)
+                .Select(j => new JobFormDto
+                {
+                    Id = j.Id,
+                    IsAvaliable = j.IsAvaliable,
+                    Banner = j.Banner,
+                    CompanyId = j.CompanyId,
+                    CompanyName = j.Company.CompanyName, // Map the Company name
+                    Description = j.Description,
+                    JobTitleDescription = j.JobTitleDescription,
+                    Salary = j.Salary,
+                    Title = j.Title,
+                    WorkingHours = j.WorkingHours,
+                    PostedDate = j.PostedDate,
+                })
+                .OrderBy(j => j.PostedDate)
+                .ToListAsync();
+
+            return jobs;
         }
         public void ValidateJob(JobFormDto job)
         {
@@ -143,30 +198,5 @@ namespace JobApplications.Services
                 throw new ArgumentException("User ID is required");
             }
         }
-
-        public async Task<Job> GetJobByIdAsync(int id)
-        {
-            if (id == 0)
-            {
-                throw new ArgumentException("Invalid Job Id");
-            }
-            var job =await dbContext.Jobs.Include(x=>x.Company).FirstOrDefaultAsync(x=>x.Id ==id);
-            if (job == null)
-            {
-                throw new ArgumentException("No existing Job");
-            }
-            return job;
-        }
-
-        public async Task<List<Application>> SeeAllApplicants(int id)
-        {
-            return await this.dbContext.Applications
-                .Include(x => x.IdentityUser)
-                .Include(x => x.Job)
-                .Include(x=>x.Status)
-                .Where(x => x.JobId == id)
-                .ToListAsync();
-        }
-        
     }
 }

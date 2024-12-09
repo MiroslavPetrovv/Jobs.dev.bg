@@ -5,6 +5,7 @@
 
 @{
     int companyForCurrentUser = await this.companyService.GetCompanyIdByUserIdAsync(User?.GetId());
+    string userId = User.GetId();
 }
 
 
@@ -49,10 +50,12 @@
                         }
                         else
                         {
-                            
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Job" asp-action="GetAll">All Jobs</a>
+                                <a class="nav-link text-dark" asp-area="User" asp-controller="Application" asp-action="SeeAllApplicationByUserId" asp-route-userId="@userId">My Applied Jobs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="User" asp-controller="Job" asp-action="GetAll">All Jobs</a>
                             </li>
                             //saved Jobs
                         }

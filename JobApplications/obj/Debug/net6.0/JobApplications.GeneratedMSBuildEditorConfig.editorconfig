@@ -102,6 +102,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/User/Views/Application/ApplyForJob.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xBcHBsaWNhdGlvblxBcHBseUZvckpvYi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/User/Views/Application/SeeAllApplicationByUserId.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xBcHBsaWNhdGlvblxTZWVBbGxBcHBsaWNhdGlvbkJ5VXNlcklkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/User/Views/Job/GetAll.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xKb2JcR2V0QWxsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Miroslav/Documents/GitHub/Jobs.dev.bg/JobApplications/Areas/User/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

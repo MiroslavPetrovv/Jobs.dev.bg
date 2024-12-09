@@ -16,6 +16,8 @@ namespace JobApplications.Services.Interfaces
 
         Task<List<Job>> GetAllAsync();
 
+        Task<List<JobFormDto>> GetAllAvailableJobs();
+
         Task<Job> GetJobByIdAsync(int id);
 
         Task<List<Application>> SeeAllApplicants(int id);

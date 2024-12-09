@@ -87,6 +87,8 @@ namespace JobApplications.Services
             return applicationDto;
         }
 
+        
+
         public Task<List<ApplicationFormDto>> SeeAllApplications(int jobId)
         {
             //To Do for the Admin functionalitty
@@ -119,6 +121,31 @@ namespace JobApplications.Services
         public async Task<bool> UpdateApplicationStatusAsync(int applicationId, string statusName,int statusId)
         {
             return await statusService.UpdateApplicationStatusAsync(applicationId, statusName, statusId);
+        }
+
+        public async Task<List<ApplicationDisplayingFormDto>> SeeAllApplicationByUserId(string userId)
+        {
+            var applications = await this.dbContext.Applications
+                .AsNoTracking()
+                .Include(a => a.Job)
+                .Include(a => a.IdentityUser)
+                .Include(a => a.Status)
+                .Where(a => a.IdentityUserId == userId)
+                .Select(a => new ApplicationDisplayingFormDto
+                {
+                    Id = a.Id,
+                    ApplyedDate = a.ApplyedDate,
+                    StatusId = a.StatusId,
+                    StatusName = a.Status.ApplicationStatus,
+                    IdentityUserId = a.IdentityUserId,
+                    JobTitle = a.Job.Title,
+                    JobId = a.Job.Id,
+                    UserName = a.IdentityUser.UserName,
+                })
+                .OrderBy(x => x.ApplyedDate)
+                .ToListAsync();
+
+            return applications;
         }
 
 

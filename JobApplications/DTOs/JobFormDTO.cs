@@ -16,6 +16,8 @@ namespace JobApplications.DTOs
 
         public Company? Company { get; set; }
 
+        public string CompanyName { get; set; }
+
         public string Description { get; set; } = null!;
 
         public string JobTitleDescription { get; set; } = null!;
@@ -25,6 +27,8 @@ namespace JobApplications.DTOs
         public bool IsAvaliable { get; set; }
         
         public string? Banner { get; set; }
+
+        public DateTime? PostedDate { get; set; } // Used only for listing
 
     }
 }

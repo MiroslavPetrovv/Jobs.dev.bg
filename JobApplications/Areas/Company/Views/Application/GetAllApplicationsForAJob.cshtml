@@ -3,7 +3,7 @@
 
 <head>
     <style>
-        
+
         .table {
             width: 100%;
             margin-bottom: 1rem;
@@ -26,7 +26,7 @@
                 text-align: left;
             }
 
-        
+
         .form-control {
             width: 200px;
             padding: 10px;
@@ -69,9 +69,13 @@
                 background-color: #218838;
             }
     </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <h2>Applications for Job: @Model.FirstOrDefault()?.JobTitle</h2>
+
 
 <table class="table">
     <thead>
@@ -87,17 +91,23 @@
             <tr>
                 <td>@application.UserName</td>
                 <td>
-                    <form asp-area="Company" asp-controller="Application" asp-action="UpdateApplicationStatus" 
-                    method="post" asp-route-id="@application.Id" asp-route-statusId="@application.StatusId" asp-route-jobId="@application.JobId">
-                        <input type="hidden" name="applicationId" value="@application.Id"/>
-                        @* Make default status the actual status of the application *@
-                        <select name="statusName" class="form-control">
-                            <option selected="@(application.StatusName == "Pending" ? "selected" : "")" value="Pending">Pending</option>
-                            <option selected="@(application.StatusName == "Approved" ? "selected" : "")" value="Approved">Approved</option>
-                            <option selected="@(application.StatusName == "Rejected" ? "selected" : "")" value="Rejected">Rejected</option>
-                        </select>
-                        <button type="submit" class="btn btn-primary">Update Status</button>
-                    </form>
+                    @* Make default status the actual status of the application *@
+                    <select name="statusName"
+                            class="form-control status-select"
+                            data-application-id="@application.Id">
+                        @foreach (var status in new[] { "Pending", "Approved", "Rejected" })
+                        {
+                            var isSelected = (status == application.StatusName) ? "selected=\"selected\"" : "";
+                            <!option value="@Array.IndexOf(new[] { "Pending", "Approved", "Rejected" }, status) + 1" @Html.Raw(isSelected)>
+                                @status
+                            </!option>
+                        }
+                    </select>
+
+
+
+
+
                 </td>
                 <td>
 
@@ -109,3 +119,30 @@
         }
     </tbody>
 </table>
+
+<script>
+    $(document).ready(function () {
+        $(".status-select").on("change", function () {
+            const applicationId = $(this).data("application-id");
+            const statusId = $(this).val();
+            const statusName = $(this).find(":selected").text();
+
+            $.ajax({
+                url: '/company/api/application',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    ApplicationId: applicationId,
+                    StatusId: parseInt(statusId),
+                    StatusName: statusName
+                }),
+                success: function (resp) {
+                    alert('aide nashte')
+                },
+                error: function (xhr) {
+                    alert(' ni stana')
+                }
+            })
+        })
+    })
+</script>

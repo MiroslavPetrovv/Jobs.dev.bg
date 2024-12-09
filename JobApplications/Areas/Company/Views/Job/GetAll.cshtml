@@ -1,6 +1,7 @@
 ﻿@using JobApplications.Data.Models
 @using JobApplications.Extensions
 @model List<Job>
+<!--make it work with dto-->
 
 @{
     // job ->
@@ -26,6 +27,7 @@
             {
                 
                 <a asp-controller="Application" asp-action="ApplyForJob" asp-route-id="@item.Id" class="btn btn-info">Apply</a>
+                //Make then An able to apply but able to see the job offer(Description)
             }
 
             

@@ -85,7 +85,7 @@ namespace JobApplications.Areas.HR.Controllers
                 //To Do temp data
                 return NotFound($"No jobs found for ID.");
             }
-
+            
             return View(jobs);
         }
 

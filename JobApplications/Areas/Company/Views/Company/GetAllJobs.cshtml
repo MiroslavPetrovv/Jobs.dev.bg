@@ -3,24 +3,60 @@
 @model List<JobFormDto>
 
 @{
-    // job ->
     var userid = User.GetId();
-
+    
 }
+
+<style>
+    .small-logo {
+        max-width: 100px; /* Adjust as needed */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 8px; /* Optional: Add rounded corners */
+    }
+
+    .job-container {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #f9f9f9; /* Optional: Light background for better visibility */
+    }
+
+    .job-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+
+    .btn-container a {
+        margin: 5px 0;
+        display: inline-block;
+    }
+</style>
+
 @if (Model.Count > 0)
 {
-    <div>
+    <div class="container">
         @foreach (var item in Model)
         {
-            <img src="@item.Banner" alt="@item.Company.CompanyName - @item.Title">
-                <a asp-area="Company" asp-controller="Job" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-info">Delete</a>
-                <a asp-area="Company" asp-controller="Job" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
-                <a asp-area="Company" asp-controller="Application" asp-action="GetAllApplicationsForAJob" asp-route-id="@item.Id"  class="btn btn-info">See All Applicants</a>
+            <div class="row align-items-center job-container">
+                <!-- Job Info Section -->
+                <div class="col-md-8">
+                    <h4 class="job-title">@item.Title</h4>
+                    <p><strong>Salary:</strong> @item.Salary</p>
+                    <p>@item.JobTitleDescription</p>
+                </div>
 
+                <!-- Logo and Buttons Section -->
+                <!-- To do the name of the firm-->
+                <div class="col-md-4 text-center">
+                    <img src="@item.Banner" alt="@item.CompanyName - @item.Title" class="img-fluid small-logo mb-3">
+                    <div class="btn-container">
+                        <a asp-area="Company" asp-controller="Job" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm mb-1">Delete</a>
+                        <a asp-area="Company" asp-controller="Job" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm mb-1">Edit</a>
+                        <a asp-area="Company" asp-controller="Application" asp-action="GetAllApplicationsForAJob" asp-route-id="@item.Id" class="btn btn-info btn-sm">See All Applicants</a>
+                    </div>
+                </div>
+            </div>
         }
     </div>
 }
-
-
-
-
