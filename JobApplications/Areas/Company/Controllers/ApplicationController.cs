@@ -2,7 +2,6 @@
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Hosting;
 
 namespace JobApplications.Areas.Company.Controllers
 {
@@ -63,7 +62,7 @@ namespace JobApplications.Areas.Company.Controllers
             {
                 return NotFound("CV not found for the given application.");
             }
-
+            
             
             byte[] fileData = application.CvFileData; // You might need to read it from a file if it's a path
             return File(fileData, "application/pdf", $"CV_{applicationId}.pdf");

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using JobApplications.Data.Models;
 using JobApplications.DTOs;
 using JobApplications.Extensions;
+using JobApplications.Services;
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,90 +10,120 @@ namespace JobApplications.Areas.HR.Controllers
 {
     public class CompanyController : BaseController
     {
-        private IMapper mapper;
+        private readonly IMapper mapper;
         private readonly ICompanyService companyService;
         private readonly IJobService jobService;
         private readonly IIndustrieService industries;
+        
 
-        public CompanyController(IMapper mappingProfile, ICompanyService companyService,
+        public CompanyController(IMapper mapper, ICompanyService companyService,
             IJobService jobService, IIndustrieService industrieService)
         {
-
-            mapper = mappingProfile;
+            this.mapper = mapper;
             this.companyService = companyService;
             this.jobService = jobService;
-            this.industries = industrieService;
+            industries = industrieService;
+        
         }
+
         [Authorize]
         [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
-            if (id == 0)
+            if (id <= 0)
             {
-                //TempData[""]
-                return RedirectToAction("Index", "Home");
-            }
-            string userId = User.GetId();
-            var comapny = companyService.GetCompanyIdByUserIdAsync(userId);
-            if (comapny == null)
-            {
-                TempData["ErrorNotAuth"] = "You are not authorized";
+                TempData["ErrorMessage"] = "Invalid company ID.";
                 return RedirectToAction("Index", "Home");
             }
 
-            await companyService.DeleteAsync(id);
+            try
+            {
+                string userId = User.GetId();
+                await companyService.DeleteAsync(id, userId);
+                TempData["SuccessMessage"] = "Company deleted successfully.";
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                TempData["ErrorMessage"] = ex.Message;
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "An error occurred while deleting the company.";
+                // Optionally log the exception: Logger.LogError(ex);
+                
+            }
+
             return RedirectToAction("Index", "Home");
         }
+
         [Authorize]
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
-            var company = await this.companyService.GetCompanyByIdAsync(id);
-            if (company == null)
+            try
             {
+                var company = await companyService.GetCompanyByIdAsync(id);
+                if (company.IdentityUserId != User.GetId())
+                {
+                    TempData["ErrorMessage"] = "You are not authorized to edit this company.";
+                    return RedirectToAction("Index", "Home");
+                }
+
+                var companyFormDTO = mapper.Map<CompanyFormDTO>(company);
+                await PopulateDropdowns(companyFormDTO);
+                return View(companyFormDTO);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "An error occurred while fetching company details.";
                 return RedirectToAction("Index", "Home");
             }
-            if (company.IdentityUserId != User.GetId())
-            {
-                TempData["ErrorNotAuth"] = "You are not authorized";
-            }
-
-            CompanyFormDTO companyFormDTO = new CompanyFormDTO();
-            companyFormDTO = mapper.Map<CompanyFormDTO>(company);
-            await FilledDropdowns(companyFormDTO);
-            return View(companyFormDTO);
         }
+
         [HttpPost]
         public async Task<IActionResult> Edit(CompanyFormDTO companyFormDTO)
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                await PopulateDropdowns(companyFormDTO);
+                return View(companyFormDTO);
             }
-            await companyService.EditAsync(companyFormDTO);
-            return RedirectToAction("Index", "Home");
-        }
 
+            try
+            {
+                await companyService.EditAsync(companyFormDTO);
+                TempData["SuccessMessage"] = "Company updated successfully.";
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = "An error occurred while updating the company.";
+                return View(companyFormDTO);
+            }
+        }
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetAllJobsAsync(int id)
         {
+
+
             int comapnyId = await companyService.GetCompanyIdByUserIdAsync(User.GetId());
             var jobs = await this.jobService.GetAllJobsForCompanyAsync(id);
             if (jobs == null)
             {
-                //To Do temp data
-                return NotFound($"No jobs found for ID.");
+                return NotFound($"No jobs found for ID .");
+                
             }
-            
-            return View(jobs);
+            var jobsDto = mapper.Map<List<JobFormDto>>(jobs);
+
+            return View(jobsDto);
         }
 
-        private async Task FilledDropdowns(CompanyFormDTO dto)
+
+            private async Task PopulateDropdowns(CompanyFormDTO dto)
         {
-            List<Industry> industriesList = await industries.GetAllAsync();
-
-            dto.Industries = industriesList;
+            dto.Industries = await industries.GetAllAsync();
         }
+        //To Do add getAllJobs
     }
 }

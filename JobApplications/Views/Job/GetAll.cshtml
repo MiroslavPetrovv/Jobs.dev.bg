@@ -1,39 +1,110 @@
-﻿@* @using JobApplications.Data.Models
-@using JobApplications.Extensions
-@model List<Job>
+﻿@model List<JobApplications.DTOs.JobFormDto>
 
 @{
-    // job ->
-    var userid = User.GetId();
-
+    ViewData["Title"] = "Job Listings";
 }
-@if (Model.Count > 0)
-{
-    <div>
-        @foreach (var item in Model)
-        {
-            
-            <p class="bg-info">@item.Company.CompanyName - @item.Title - for salary: @item.Salary</p>
-            @if (userid == item.Company.IdentityUserId)
-            {
-                <a asp-controller="Job" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-info">Delete</a>
-                <a asp-controller="Job" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info">Edit</a>
-            }
-            
-            
-        else
 
-            {
-                
-                <a asp-controller="Application" asp-action="ApplyForJob" asp-route-id="@item.Id" class="btn btn-info">Apply</a>
-            }
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Job Listings</h1>
 
-            
+    <!-- Filter Form -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5>Filter Jobs</h5>
+        </div>
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-4">
+                    <label for="Title" class="form-label">Title</label>
+                    <input type="text"
+                           class="form-control"
+                           id="Title"
+                           name="Title"
+                           value="@Context.Request.Query["Title"]"
+                           placeholder="Job title..." />
+                </div>
 
-        }
+                <div class="col-md-4">
+                    <label for="MinSalary" class="form-label">Min Salary</label>
+                    <input type="number"
+                           class="form-control"
+                           id="MinSalary"
+                           name="MinSalary"
+                           value="@Context.Request.Query["MinSalary"]"
+                           placeholder="e.g., 1000" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="MaxSalary" class="form-label">Max Salary</label>
+                    <input type="number"
+                           class="form-control"
+                           id="MaxSalary"
+                           name="MaxSalary"
+                           value="@Context.Request.Query["MaxSalary"]"
+                           placeholder="e.g., 5000" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="MinWorkingHours" class="form-label">Min Working Hours</label>
+                    <input type="number"
+                           class="form-control"
+                           id="MinWorkingHours"
+                           name="MinWorkingHours"
+                           value="@Context.Request.Query["MinWorkingHours"]" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="MaxWorkingHours" class="form-label">Max Working Hours</label>
+                    <input type="number"
+                           class="form-control"
+                           id="MaxWorkingHours"
+                           name="MaxWorkingHours"
+                           value="@Context.Request.Query["MaxWorkingHours"]" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="PostedAfter" class="form-label">Posted After</label>
+                    <input type="date"
+                           class="form-control"
+                           id="PostedAfter"
+                           name="PostedAfter"
+                           value="@Context.Request.Query["PostedAfter"]" />
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                </div>
+            </form>
+        </div>
     </div>
-} *@
 
-
-
-
+    <!-- Job Listings -->
+    @if (Model.Any())
+    {
+        <div class="row">
+            @foreach (var job in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">@job.Title</h5>
+                            <p class="card-text"><strong>Salary:</strong> @job.Salary BGN</p>
+                            <p class="card-text"><strong>Working Hours:</strong> @job.WorkingHours</p>
+                            <p class="card-text"><strong>Company:</strong> @job.CompanyName</p>
+                            <p class="card-text"><strong>Description:</strong> @job.Description</p>
+                            <p class="card-text"><strong>Posted:</strong> @job.PostedDate?.ToString("dd MMM yyyy")</p>
+                            <p class="card-text"><strong>Available:</strong> @(job.IsAvaliable ? "Yes" : "No")</p>
+                            <a href="@Url.Action("Edit", "Job", new { id = job.Id })" class="btn btn-primary">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center">
+            No jobs found matching your criteria.
+        </div>
+    }
+</div>

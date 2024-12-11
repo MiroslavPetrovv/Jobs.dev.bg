@@ -3,8 +3,10 @@ using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.DTOs;
 using JobApplications.Services.Interfaces;
+using LinqKit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace JobApplications.Services
 {
@@ -14,7 +16,7 @@ namespace JobApplications.Services
         private readonly IMapper mapper;
         private readonly ICompanyService companyService;
 
-
+        
         public JobService(ApplicationDbContext dbContext, IMapper mapper, ICompanyService companyService)
         {
             this.dbContext = dbContext;
@@ -22,11 +24,48 @@ namespace JobApplications.Services
             this.companyService = companyService;
         }
 
+
+
         public async Task<List<Job>> GetAllAsync()
         {
             return await this.dbContext.Jobs.Include(x => x.Company).Where(x => x.IsAvaliable == true).ToListAsync();
         }
+        public async Task<List<Job>> FilterJobsAsync(JobFilterParams filterParams)
+        {
+            // Use the filter method to return filtered jobs
+            var jobsQuery = dbContext.Jobs.Include(x=>x.Company).ToList();
 
+            // Apply filtering
+            var filteredJobs = FilterJobs(jobsQuery, filterParams);
+
+            return  filteredJobs.ToList();
+        }
+
+        public IEnumerable<Job> FilterJobs(List<Job> jobs, JobFilterParams filterParams)
+        {
+            // Initialize the base predicate, which always returns true.
+            var predicate = PredicateBuilder.New<Job>(x => true);
+
+            // Dictionary of filter conditions
+            var filters = new Dictionary<string, Expression<Func<Job, bool>>>
+            {
+                { "Title", j => string.IsNullOrEmpty(filterParams.Title) || j.Title.Contains(filterParams.Title) },
+                { "MinSalary", j => !filterParams.MinSalary.HasValue || j.Salary >= filterParams.MinSalary.Value },
+                { "MaxSalary", j => !filterParams.MaxSalary.HasValue || j.Salary <= filterParams.MaxSalary.Value },
+                { "MinWorkingHours", j => !filterParams.MinWorkingHours.HasValue || j.WorkingHours >= filterParams.MinWorkingHours.Value },
+                { "MaxWorkingHours", j => !filterParams.MaxWorkingHours.HasValue || j.WorkingHours <= filterParams.MaxWorkingHours.Value },
+                { "IsAvailable", j => !filterParams.IsAvailable.HasValue || j.IsAvaliable == filterParams.IsAvailable.Value },
+                { "PostedAfter", j => !filterParams.PostedAfter.HasValue || j.PostedDate >= filterParams.PostedAfter.Value }
+            };
+
+            // Loop through the dictionary and apply filters
+            foreach (var filter in filters)
+            {
+                predicate = predicate.And(filter.Value);
+            }
+
+            return jobs.Where(predicate);
+        }
         public async Task AddAsync(JobFormDto job)
         {
 
@@ -38,6 +77,7 @@ namespace JobApplications.Services
             await dbContext.AddAsync(data);
             await dbContext.SaveChangesAsync();
         }
+
 
         public async Task Delete(int id, string userId)
         {
@@ -198,5 +238,7 @@ namespace JobApplications.Services
                 throw new ArgumentException("User ID is required");
             }
         }
+
+        
     }
 }

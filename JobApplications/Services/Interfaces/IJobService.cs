@@ -24,7 +24,9 @@ namespace JobApplications.Services.Interfaces
 
         Task<List<JobFormDto>> GetAllJobsForCompanyAsync(int companyId);
 
+        Task<List<Job>> FilterJobsAsync(JobFilterParams filterParams);
 
+        IEnumerable<Job> FilterJobs(List<Job> jobs, JobFilterParams filterParams);
 
 
 

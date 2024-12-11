@@ -96,7 +96,7 @@ namespace JobApplications.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            await companyService.DeleteAsync(id);
+            await companyService.DeleteAsync(id,userId);
             return RedirectToAction("Index", "Home");
         }
         [Authorize]

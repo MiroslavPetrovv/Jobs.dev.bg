@@ -11,7 +11,7 @@ namespace JobApplications.Services.Interfaces
 
         Task EditAsync(CompanyFormDTO CompanyEditViewModel);
 
-        Task DeleteAsync(int id);
+        Task DeleteAsync(int id,string userId);
 
         Task<Company> GetCompanyByIdAsync(int id);
     }

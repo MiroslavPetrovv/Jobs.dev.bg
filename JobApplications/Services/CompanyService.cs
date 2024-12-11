@@ -45,44 +45,24 @@ namespace JobApplications.Services
             await this.dbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id, string userId)
         {
+            var company = await dbContext.Companies.FindAsync(id);
+            if (company == null)
+                throw new ArgumentException("Company not found.");
 
+            if (company.IdentityUserId != userId)
+                throw new UnauthorizedAccessException("You are not authorized to delete this company.");
 
-            // Validate company for deletion
-            var (isValid, validationError) = await IsValidCompanyForDeletion(id);
-            if (!isValid)
-            {
-                throw new ArgumentException(validationError);
-            }
-
-
-            var company = await this.dbContext.Companies.FindAsync(id);
-            if (company != null)
-            {
-                dbContext.Companies.Remove(company);
-                await dbContext.SaveChangesAsync();
-            }
-
-
-
+            dbContext.Companies.Remove(company);
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task EditAsync(CompanyFormDTO companyDto)
         {
-            if (!IsValidCompany(companyDto, out string validationError))
-            {
-                throw new ArgumentException(validationError);
-            }
-
-
-            var company = await this.dbContext.Companies
-                                              .FindAsync(companyDto.Id);
+            var company = await dbContext.Companies.FindAsync(companyDto.Id);
             if (company == null)
-            {
                 throw new ArgumentException("Company not found.");
-            }
-
 
             company.CompanyName = companyDto.CompanyName;
             company.DateOfCreation = companyDto.DateOfCreation;
@@ -90,11 +70,25 @@ namespace JobApplications.Services
             company.NumbersOfEmployes = companyDto.NumbersOfEmployes;
             company.IdentityUserId = companyDto.IdentityUserId;
 
-            this.dbContext.Update(company);
-            await this.dbContext.SaveChangesAsync();
+            dbContext.Update(company);
+            await dbContext.SaveChangesAsync();
         }
 
-       
+        public async Task<Company> GetCompanyByIdAsync(int id)
+        {
+            if (id == 0)
+            {
+                throw new ArgumentException("Invalid Job Id");
+            }
+            var company = await dbContext.Companies.FindAsync(id);
+            if (company == null)
+            {
+                throw new ArgumentException("No existing Job");
+            }
+            return company;
+        }
+
+
 
         public async Task<int> GetCompanyIdByUserIdAsync(string userId)
         {
@@ -119,19 +113,7 @@ namespace JobApplications.Services
             
         }
 
-        public async Task<Company> GetCompanyByIdAsync(int id)
-        {
-            if (id == 0)
-            {
-                throw new ArgumentException("Invalid Job Id");
-            }
-            var company = await dbContext.Companies.FindAsync(id);
-            if (company == null)
-            {
-                throw new ArgumentException("No existing Job");
-            }
-            return company;
-        }
+       
 
         private bool IsValidCompany(CompanyFormDTO companyDto, out string errorMessage)
         {
