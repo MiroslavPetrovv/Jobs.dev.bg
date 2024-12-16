@@ -53,20 +53,20 @@ namespace JobApplications.Areas.Company.Controllers
         //    return File(fileBytes, contentType, Path.GetFileName(fullPath));
         //}
 
-        //[HttpGet("DownloadCv/{applicationId}")]
-        //[Authorize]
-        //public async Task<IActionResult> DownloadCv(int applicationId)
-        //{
-        //    var application = await this.applicationService.GetApplicationByIdForDownloadingCv(applicationId);
+        [HttpGet("DownloadCv/{applicationId}")]
+        [Authorize]
+        public async Task<IActionResult> DownloadCv(int applicationId)
+        {
+            var application = await this.applicationService.GetApplicationByIdForDownloadingCv(applicationId);
 
-        //    if (application == null || application.CvFileData == null)
-        //    {
-        //        return NotFound("CV not found for the given application.");
-        //    }
-            
-            
-        //    byte[] fileData = application.CvFileData; // You might need to read it from a file if it's a path
-        //    return File(fileData, "application/pdf", $"CV_{applicationId}.pdf");
-        //}
+            if (application == null || application.CvFileData == null)
+            {
+                return NotFound("CV not found for the given application.");
+            }
+
+
+            byte[] fileData = application.CvFileData; // You might need to read it from a file if it's a path
+            return File(fileData, "application/pdf", $"CV_{applicationId}.pdf");
+        }
     }
 }

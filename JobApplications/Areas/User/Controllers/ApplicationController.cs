@@ -3,6 +3,7 @@ using JobApplications.DTOs;
 using JobApplications.Extensions;
 using JobApplications.Services;
 using JobApplications.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobApplications.Areas.User.Controllers
@@ -84,6 +85,21 @@ namespace JobApplications.Areas.User.Controllers
 
             var applications = await this.applicationService.SeeAllApplicationByUserId(userId);
             return View(applications);
+        }
+        [HttpGet("UserDownloadCv/{applicationId}")]
+        [Authorize]
+        public async Task<IActionResult> UserDownloadCv(int applicationId)
+        {
+            var application = await this.applicationService.GetApplicationByIdForDownloadingCv(applicationId);
+
+            if (application == null || application.CvFileData == null)
+            {
+                return NotFound("CV not found for the given application.");
+            }
+
+
+            byte[] fileData = application.CvFileData; // You might need to read it from a file if it's a path
+            return File(fileData, "application/pdf", $"CV_{applicationId}.pdf");
         }
     }
 }

@@ -74,21 +74,21 @@ namespace JobApplications.Controllers
 
         }
 
-        //[HttpGet]
-        //[Authorize]
-        //public IActionResult GetCv(string relativePath)
-        //{
-        //    var fullPath = Path.Combine(_hostEnvironment.ContentRootPath, relativePath.TrimStart('/'));
+        [HttpGet]
+        [Authorize]
+        public IActionResult GetCv(string relativePath)
+        {
+            var fullPath = Path.Combine(_hostEnvironment.ContentRootPath, relativePath.TrimStart('/'));
 
-        //    if (!System.IO.File.Exists(fullPath))
-        //    {
-        //        return NotFound("File not found.");
-        //    }
+            if (!System.IO.File.Exists(fullPath))
+            {
+                return NotFound("File not found.");
+            }
 
-        //    var fileBytes = System.IO.File.ReadAllBytes(fullPath);
-        //    var contentType = "application/pdf";
-        //    return File(fileBytes, contentType, Path.GetFileName(fullPath));
-        //}
+            var fileBytes = System.IO.File.ReadAllBytes(fullPath);
+            var contentType = "application/pdf";
+            return File(fileBytes, contentType, Path.GetFileName(fullPath));
+        }
 
         //[HttpGet("DownloadCv/{applicationId}")]
         //[Authorize]
@@ -101,7 +101,7 @@ namespace JobApplications.Controllers
         //        return NotFound("CV not found for the given application.");
         //    }
 
-        //    // Assuming CvFilePath is a byte array
+        //    Assuming CvFilePath is a byte array
         //    byte[] fileData = application.CvFileData; // You might need to read it from a file if it's a path
         //    return File(fileData, "application/pdf", $"CV_{applicationId}.pdf");
         //}

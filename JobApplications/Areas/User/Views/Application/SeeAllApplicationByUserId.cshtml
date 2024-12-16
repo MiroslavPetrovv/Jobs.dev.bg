@@ -72,7 +72,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Applicant Name</th>
+            <th>Job Title</th>
             <th>Status</th>
             <th>Actions</th>
         </tr>
@@ -81,14 +81,14 @@
         @foreach (var application in Model)
         {
             <tr>
-                <td>@application.UserName</td>
+                <td>@application.JobTitle</td>
                 <td>
                     <span class="badge @(application.StatusName == "Pending" ? "bg-warning" : (application.StatusName == "Approved" ? "bg-success" : "bg-danger"))">
                         @application.StatusName
                     </span>
                 </td>
                 <td>
-                    <a asp-area="Company" asp-controller="Application" asp-action="DownloadCv" asp-route-applicationId="@application.Id" class="btn btn-success">
+                    <a asp-area="User" asp-controller="Application" asp-action="UserDownloadCv" asp-route-applicationId="@application.Id" class="btn btn-success">
                         See your Cv
                     </a>
                 </td>

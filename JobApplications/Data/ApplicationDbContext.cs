@@ -29,11 +29,11 @@ namespace JobApplications.Data
             //    new Industry { Id = 10, Name = "Agriculture", Description = "Industry related to farming and food production" },
             //    new Industry { Id = 30, Name = "Environmental Services", Description = "Industry focused on sustainability and environmental protection" });
 
-                builder.Entity<Status>().HasData(
-                    new Status { Id = 1, ApplicationStatus = "Pending" },
-                    new Status { Id = 2, ApplicationStatus = "Reviewed" },
-                    new Status { Id = 3, ApplicationStatus = "Accepted" },
-                    new Status { Id = 4, ApplicationStatus = "Rejected" });
+                //builder.Entity<Status>().HasData(
+                //    new Status { Id = 1, ApplicationStatus = "Pending" },
+                //    new Status { Id = 2, ApplicationStatus = "Reviewed" },
+                //    new Status { Id = 3, ApplicationStatus = "Accepted" },
+                //    new Status { Id = 4, ApplicationStatus = "Rejected" });
             base.OnModelCreating(builder);
         }
         public DbSet<Job> Jobs { get; set; }
