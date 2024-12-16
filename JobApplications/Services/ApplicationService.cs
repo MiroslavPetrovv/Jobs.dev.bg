@@ -20,11 +20,10 @@ namespace JobApplications.Services
         private readonly IHostEnvironment _hostEnvironment;
         private readonly IStatusService statusService;
 
-        public ApplicationService(ApplicationDbContext dbContext, IMapper mapper, IHostEnvironment hostEnvironment, IStatusService statusService)
+        public ApplicationService(ApplicationDbContext dbContext, IMapper mapper, IStatusService statusService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
-            this._hostEnvironment = hostEnvironment;
             this.statusService = statusService;
         }
 

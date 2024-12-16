@@ -9,17 +9,18 @@ namespace JobApplications.Areas.Company.Controllers
     {
         private readonly IApplicationService applicationService;
         private readonly IStatusService statusService;
-        private readonly IHostEnvironment _hostEnvironment;
-        public ApplicationController(IApplicationService applicationService, IStatusService statusService , IHostEnvironment hostEnvironment)
+        
+        public ApplicationController(IApplicationService applicationService, IStatusService statusService)
         {
             this.applicationService = applicationService;
             this.statusService = statusService;
-            this._hostEnvironment = hostEnvironment;
+            
         }
 
         [HttpPost]
         public async Task<IActionResult> UpdateApplicationStatusAsync(int id,string statusName,int statusId,int jobId)
         {
+
             await applicationService.UpdateApplicationStatusAsync(id, statusName,statusId);
 
             return RedirectToAction("GetAllApplicationsForAJob", new {id=jobId});
@@ -36,36 +37,36 @@ namespace JobApplications.Areas.Company.Controllers
 
             return View(applications);
         }
-        [HttpGet]
-        [Authorize]
-        public IActionResult GetCv(string relativePath)
-        {
-            var fullPath = Path.Combine(_hostEnvironment.ContentRootPath, relativePath.TrimStart('/'));
+        //[HttpGet]
+        //[Authorize]
+        //public IActionResult GetCv(string relativePath)
+        //{
+        //    var fullPath = Path.Combine(_hostEnvironment.ContentRootPath, relativePath.TrimStart('/'));
 
-            if (!System.IO.File.Exists(fullPath))
-            {
-                return NotFound("File not found.");
-            }
+        //    if (!System.IO.File.Exists(fullPath))
+        //    {
+        //        return NotFound("File not found.");
+        //    }
 
-            var fileBytes = System.IO.File.ReadAllBytes(fullPath);
-            var contentType = "application/pdf";
-            return File(fileBytes, contentType, Path.GetFileName(fullPath));
-        }
+        //    var fileBytes = System.IO.File.ReadAllBytes(fullPath);
+        //    var contentType = "application/pdf";
+        //    return File(fileBytes, contentType, Path.GetFileName(fullPath));
+        //}
 
-        [HttpGet("DownloadCv/{applicationId}")]
-        [Authorize]
-        public async Task<IActionResult> DownloadCv(int applicationId)
-        {
-            var application = await this.applicationService.GetApplicationByIdForDownloadingCv(applicationId);
+        //[HttpGet("DownloadCv/{applicationId}")]
+        //[Authorize]
+        //public async Task<IActionResult> DownloadCv(int applicationId)
+        //{
+        //    var application = await this.applicationService.GetApplicationByIdForDownloadingCv(applicationId);
 
-            if (application == null || application.CvFileData == null)
-            {
-                return NotFound("CV not found for the given application.");
-            }
+        //    if (application == null || application.CvFileData == null)
+        //    {
+        //        return NotFound("CV not found for the given application.");
+        //    }
             
             
-            byte[] fileData = application.CvFileData; // You might need to read it from a file if it's a path
-            return File(fileData, "application/pdf", $"CV_{applicationId}.pdf");
-        }
+        //    byte[] fileData = application.CvFileData; // You might need to read it from a file if it's a path
+        //    return File(fileData, "application/pdf", $"CV_{applicationId}.pdf");
+        //}
     }
 }

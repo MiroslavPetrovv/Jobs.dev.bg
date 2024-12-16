@@ -120,10 +120,10 @@ namespace JobApplications.Areas.HR.Controllers
         }
 
 
-            private async Task PopulateDropdowns(CompanyFormDTO dto)
-        {
-            dto.Industries = await industries.GetAllAsync();
-        }
+         private async Task PopulateDropdowns(CompanyFormDTO dto)
+         {
+             dto.Industries = await industries.GetAllAsync();
+         }
         //To Do add getAllJobs
     }
 }
