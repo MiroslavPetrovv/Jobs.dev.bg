@@ -92,15 +92,18 @@
                 <td>@application.UserName</td>
                 <td>
                     @* Make default status the actual status of the application *@
-                    <select name="statusName"
-                            class="form-control status-select"
+                    <select name="@application.StatusName"
+                            class="form-control @application.StatusName"
                             data-application-id="@application.Id">
-                        @foreach (var status in new[] { "Pending", "Approved", "Rejected" })
+                        @foreach (var status in new[] { "Pending","Approved", "Rejected" })
                         {
-                            var isSelected = (status == application.StatusName) ? "selected=\"selected\"" : "";
+                            var isSelected = string.Equals(status, application.StatusName.Trim(), StringComparison.OrdinalIgnoreCase)
+                            ? "selected=\"selected\""
+                            : "";
                             <!option value="@Array.IndexOf(new[] { "Pending", "Approved", "Rejected" }, status) + 1" @Html.Raw(isSelected)>
                                 @status
                             </!option>
+                            
                         }
                     </select>
 
