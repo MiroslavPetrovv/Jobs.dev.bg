@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace JobApplications.Areas.User.Controllers
 {
-    public class JobController: UserController
+    public class JobController : UserController
     {
         private readonly IJobService jobService;
         private readonly ICompanyService companyService;
@@ -42,19 +42,19 @@ namespace JobApplications.Areas.User.Controllers
         //    var jobs = await this.jobService.GetAllAvailableJobs();
         //    return View(jobs);
         //}
-        [HttpGet]
-        public async Task<IActionResult> GetAllAsync([FromQuery] JobFilterParams filterParams)
-        {
-            // Get the filtered list of jobs
-            
-            var filteredJobs = await jobService.FilterJobsAsync(filterParams);
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllAsync([FromQuery] JobFilterParams filterParams)
+        //{
+        //    Get the filtered list of jobs
 
-            // Return the filtered jobs to the view
-           var mappedJobs = mapper.Map<List<JobFormDto>>(filteredJobs);
-            return View(mappedJobs);
-        }
+        //    var filteredJobs = await jobService.FilterJobsAsync(filterParams);
+
+        //    Return the filtered jobs to the view
+        //   var mappedJobs = mapper.Map<List<JobFormDto>>(filteredJobs);
+        //    return View(mappedJobs);
+        //}
         [HttpPost]
-        [Authorize] 
+        [Authorize]
         public async Task<IActionResult> SaveJobAsync(int jobId)
         {
             var userId = User.GetId();
@@ -67,7 +67,7 @@ namespace JobApplications.Areas.User.Controllers
 
             try
             {
-                await savedJobService.SaveJobAsync(userId, jobId); 
+                await savedJobService.SaveJobAsync(userId, jobId);
                 TempData["SuccessMessage"] = "Job saved successfully!";
             }
             catch (Exception ex)
@@ -79,7 +79,7 @@ namespace JobApplications.Areas.User.Controllers
             return RedirectToAction("GetAll");
         }
         [HttpGet]
-        public async Task<IActionResult> GetAllSavedJobsAsync()
+        public IActionResult GetAllSavedJobs()
         {
             var userId = User.GetId(); // Assuming you have a method to get the logged-in user's ID
             if (string.IsNullOrEmpty(userId))
@@ -88,8 +88,25 @@ namespace JobApplications.Areas.User.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var savedJobs = await savedJobService.GetSavedJobsAsync(userId);
+            var savedJobs = savedJobService.GetSavedJobs(userId);
             return View(savedJobs);
         }
+
+        [HttpPost]
+        [Authorize] 
+        public async Task<IActionResult> RemoveSavedJob(int jobId)
+        {
+            string userId = User.GetId(); 
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return BadRequest("User  is not authenticated.");
+            }
+
+            await savedJobService.RemoveSavedJobAsync(userId, jobId); 
+
+            return RedirectToAction("GetAllSavedJobs"); 
+        }
+
     }
 }

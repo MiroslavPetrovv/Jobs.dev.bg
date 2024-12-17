@@ -48,6 +48,19 @@
                             </li>
 
                         }
+                        else if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Job" asp-action="GetAll">All Jobs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Company" asp-action="GetAll">All Companies</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Application" asp-action="GetAll">All Applications</a>
+                            </li>
+
+                        }
                         else
                         {
 

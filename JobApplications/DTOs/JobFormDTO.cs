@@ -16,7 +16,7 @@ namespace JobApplications.DTOs
 
         public Company? Company { get; set; }
 
-        public string CompanyName { get; set; }
+        
 
         public string Description { get; set; } = null!;
 

@@ -28,6 +28,7 @@ namespace JobApplications.Services.Interfaces
 
         IEnumerable<Job> FilterJobs(List<Job> jobs, JobFilterParams filterParams);
 
+        Task DeleteAllJobsForACompany(int companyId);
 
 
 

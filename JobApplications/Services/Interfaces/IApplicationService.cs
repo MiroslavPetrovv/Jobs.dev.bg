@@ -9,7 +9,7 @@ namespace JobApplications.Services.Interfaces
     {
         Task ApplyForAJobAsync(ApplicationFormDto applicationDto, string userId,List<IFormFile> CvFile);
 
-        Task<List<ApplicationFormDto>> SeeAllApplications(int jobId);
+        Task<List<ApplicationDisplayingFormDto>> SeeAllApplications();
 
         Task<ApplicationDownloadDto> GetApplicationByIdForDownloadingCv(int id);
 
@@ -18,5 +18,9 @@ namespace JobApplications.Services.Interfaces
         Task<List<ApplicationDisplayingFormDto>> SeeAllApplicationsForAJobAsync(int jobId);
 
         Task<List<ApplicationDisplayingFormDto>> SeeAllApplicationByUserId(string userId);
+
+        Task DeleteApplicationForAllJobsFromACompany(int companyId);
+
+        Task<bool> RemoveApplicationAsync(int applicationId);
     }
 }

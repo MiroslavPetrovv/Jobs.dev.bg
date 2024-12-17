@@ -14,13 +14,17 @@ namespace JobApplications.Services
         private readonly ApplicationDbContext dbContext;
         private readonly IMapper mapper;
         private readonly ICompanyService companyService;
+        private readonly ISavedJobService savedJobService;
+        private readonly IApplicationService applicationService;
 
         
-        public JobService(ApplicationDbContext dbContext, IMapper mapper, ICompanyService companyService)
+        public JobService(ApplicationDbContext dbContext, IMapper mapper, ICompanyService companyService, ISavedJobService savedJobService, IApplicationService applicationService)
         {
             this.dbContext = dbContext;
             this.mapper = mapper;
             this.companyService = companyService;
+            this.savedJobService = savedJobService;
+            this.applicationService = applicationService;
         }
 
 
@@ -188,7 +192,7 @@ namespace JobApplications.Services
                     IsAvaliable = j.IsAvaliable,
                     Banner = j.Banner,
                     CompanyId = j.CompanyId,
-                    CompanyName = j.Company.CompanyName, // Map the Company name
+                    /*CompanyName = j.Company.CompanyName,*/ // Map the Company name
                     Description = j.Description,
                     JobTitleDescription = j.JobTitleDescription,
                     Salary = j.Salary,
@@ -238,6 +242,31 @@ namespace JobApplications.Services
             }
         }
 
-        
+        public async Task DeleteAllJobsForACompany(int companyId)
+        {
+            if (companyId <= 0)
+            {
+                throw new ArgumentException("Invalid company ID.");
+            }
+
+            // Retrieve all jobs for the given companyId
+            var jobs = await dbContext.Jobs
+                .Where(j => j.CompanyId == companyId)
+                .ToListAsync();
+
+            // If no jobs found, return or throw an exception
+            if (!jobs.Any())
+            {
+                return;
+            }
+            foreach (var job in jobs)
+            {
+                await savedJobService.RemoveAllSavedJobsForAJob(job.Id);
+                await applicationService.DeleteApplicationForAllJobsFromACompany(job.CompanyId);
+            }
+            // Delete the jobs
+            dbContext.Jobs.RemoveRange(jobs);
+            await dbContext.SaveChangesAsync();
+        }
     }
 }

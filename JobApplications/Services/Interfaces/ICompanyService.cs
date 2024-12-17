@@ -14,5 +14,7 @@ namespace JobApplications.Services.Interfaces
         Task DeleteAsync(int id,string userId);
 
         Task<Company> GetCompanyByIdAsync(int id);
+
+        Task<List<CompanyFormDTO>> GetAllCompaniesAsync();
     }
 }

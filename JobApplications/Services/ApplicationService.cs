@@ -10,6 +10,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 
 namespace JobApplications.Services
 {
@@ -27,7 +28,7 @@ namespace JobApplications.Services
             this.statusService = statusService;
         }
 
-        public async Task ApplyForAJobAsync(ApplicationFormDto applicationDto, string userId,List<IFormFile> CvFile)
+        public async Task ApplyForAJobAsync(ApplicationFormDto applicationDto, string userId, List<IFormFile> CvFile)
         {
             byte[] cv = new byte[8000];
             foreach (var item in CvFile)
@@ -46,7 +47,7 @@ namespace JobApplications.Services
             {
                 throw new InvalidOperationException("Cant apply for a job without Cv");
             }
-            
+
             var jobForApplying = await dbContext.Jobs
                 .FirstOrDefaultAsync(j => j.Id == applicationDto.JobId);
 
@@ -65,7 +66,7 @@ namespace JobApplications.Services
                 CvFilePath = cv
             };
 
-            
+
             await dbContext.Applications.AddAsync(application);
             await dbContext.SaveChangesAsync();
         }
@@ -86,12 +87,29 @@ namespace JobApplications.Services
             return applicationDto;
         }
 
-        
 
-        public Task<List<ApplicationFormDto>> SeeAllApplications(int jobId)
+
+        public async Task<List<ApplicationDisplayingFormDto>> SeeAllApplications()
         {
-            //To Do for the Admin functionalitty
-            throw new NotImplementedException();
+            var applications = await dbContext.Applications
+            .Include(a => a.Job) // Include the Job entity
+            .Include(a => a.Status) // Include the Status entity
+            .Include(a => a.IdentityUser) // Include the User entity
+            .Select(a => new ApplicationDisplayingFormDto
+            {
+                Id = a.Id,
+                JobId = a.JobId,
+                JobTitle = a.Job.Title, // Assuming Job has a Title property
+                IdentityUserId = a.IdentityUserId,
+                UserName = a.IdentityUser.UserName,
+                ApplyedDate = a.ApplyedDate,
+                StatusId = a.StatusId,
+                StatusName = a.Status.ApplicationStatus,
+            })
+            .OrderBy(a => a.JobTitle) // Order by Job Title
+            .ToListAsync();
+
+            return applications;
         }
 
         public async Task<List<ApplicationDisplayingFormDto>> SeeAllApplicationsForAJobAsync(int jobId)
@@ -105,9 +123,9 @@ namespace JobApplications.Services
                 {
                     Id = a.Id,
                     JobId = a.JobId,
-                    JobTitle = a.Job.Title, 
+                    JobTitle = a.Job.Title,
                     IdentityUserId = a.IdentityUserId,
-                    UserName = a.IdentityUser.UserName, 
+                    UserName = a.IdentityUser.UserName,
                     ApplyedDate = a.ApplyedDate,
                     StatusId = a.StatusId,
                     StatusName = a.Status.ApplicationStatus,
@@ -117,7 +135,7 @@ namespace JobApplications.Services
 
             return applications;
         }
-        public async Task<bool> UpdateApplicationStatusAsync(int applicationId, string statusName,int statusId)
+        public async Task<bool> UpdateApplicationStatusAsync(int applicationId, string statusName, int statusId)
         {
             return await statusService.UpdateApplicationStatusAsync(applicationId, statusName, statusId);
         }
@@ -147,8 +165,45 @@ namespace JobApplications.Services
             return applications;
         }
 
+        public async Task DeleteApplicationForAllJobsFromACompany(int companyId)
+        {
+            if (companyId <= 0)
+            {
+                throw new ArgumentException("Invalid company ID.");
+            }
 
+            // Retrieve all jobs for the given companyId
+            var jobs = await dbContext.Jobs
+                .Where(j => j.CompanyId == companyId)
+                .ToListAsync();
 
+            // If no jobs found, return or throw an exception
+            if (!jobs.Any())
+            {
+                return;
+            }
 
+            // Retrieve all applications for the jobs
+            var jobIds = jobs.Select(j => j.Id).ToList();
+            var applicationsToDelete = await dbContext.Applications
+                .Where(a => jobIds.Contains(a.JobId))
+                .ToListAsync();
+
+            // Delete the applications
+            dbContext.Applications.RemoveRange(applicationsToDelete);
+            await dbContext.SaveChangesAsync();
+        }
+        public async Task<bool> RemoveApplicationAsync(int applicationId)
+        {
+            var application = await dbContext.Applications.FindAsync(applicationId);
+            if (application == null)
+            {
+                return false; // Application not found
+            }
+
+            dbContext.Applications.Remove(application);
+            await dbContext.SaveChangesAsync();
+            return true; // Successfully removed
+        }
     }
 }

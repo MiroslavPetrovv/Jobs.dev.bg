@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="col-md-4 text-center">
-                        <img src="@job.Banner" alt="@job.CompanyName - @job.Title" class="img-fluid small-logo mb-3" style="max-width: 100px; height: auto;" />
+                        <img src="@job.Banner" alt=" @job.Title" class="img-fluid small-logo mb-3" style="max-width: 100px; height: auto;" />
                         <div class="btn-container">
                             <a asp-controller="Application" asp-action="ApplyForJob" asp-route-id="@job.Id" class="btn btn-info btn-sm">Apply</a>
                             <form asp-controller="Job" asp-action="RemoveSavedJob" method="post" style="display:inline;">

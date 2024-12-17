@@ -11,6 +11,7 @@ namespace JobApplications.Services
     using System.Collections.Generic;
     using System.Globalization;
     using System.Reflection.Metadata.Ecma335;
+    using Microsoft.AspNetCore.Identity;
 
     public class CompanyService : ICompanyService
     {
@@ -23,7 +24,20 @@ namespace JobApplications.Services
             this.dbContext = dbContext;
             this.mapper = mapper;
         }
-
+        public async Task<List<CompanyFormDTO>> GetAllCompaniesAsync()
+        {
+            return await dbContext.Companies
+                .Select(c => new CompanyFormDTO
+                {
+                    Id = c.Id,
+                    CompanyName = c.CompanyName,
+                    IndustryId = c.IndustryId, // Assuming you have an IndustryId property
+                    NumbersOfEmployes = c.NumbersOfEmployes,
+                    DateOfCreation = c.DateOfCreation,
+                    IdentityUserId = c.IdentityUserId // If applicable
+                })
+                .ToListAsync();
+        }
         public async Task AddAsync(CompanyFormDTO companyDto)
         {
 
@@ -47,11 +61,12 @@ namespace JobApplications.Services
 
         public async Task DeleteAsync(int id, string userId)
         {
+            var admin = await dbContext.Users.FirstOrDefaultAsync(x => x.Email == "Admin1@abv.bg");
             var company = await dbContext.Companies.FindAsync(id);
             if (company == null)
                 throw new ArgumentException("Company not found.");
 
-            if (company.IdentityUserId != userId)
+            if (company.IdentityUserId != userId && userId !=admin.Id)
                 throw new UnauthorizedAccessException("You are not authorized to delete this company.");
 
             dbContext.Companies.Remove(company);

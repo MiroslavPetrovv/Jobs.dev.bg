@@ -6,8 +6,10 @@ namespace JobApplications.Services.Interfaces
     public interface ISavedJobService
     {
         Task SaveJobAsync(string userId, int jobId);
-        Task<List<JobFormDto>> GetSavedJobsAsync(string userId);
+        List<JobFormDto> GetSavedJobs(string userId);
 
         Task RemoveSavedJobAsync(string userId, int jobId);
+
+        Task RemoveAllSavedJobsForAJob(int jobId);
     }
 }

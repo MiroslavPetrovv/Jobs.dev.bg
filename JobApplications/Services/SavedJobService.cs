@@ -16,14 +16,14 @@ namespace JobApplications.Services
             this.dbContext = dbContext;
         }
 
-    public async Task SaveJobAsync(string userId, int jobId)
-    {
-            var existingSavedJob = await dbContext.SavedJobs.FirstOrDefaultAsync(sj=>sj.JobId==jobId && sj.IdentityUserId ==userId);
-           
+        public async Task SaveJobAsync(string userId, int jobId)
+        {
+            var existingSavedJob = dbContext.SavedJobs.FirstOrDefault(sj => sj.JobId == jobId && sj.IdentityUserId == userId);
+
 
             if (existingSavedJob != null)
             {
-                return;
+                throw new InvalidOperationException("Job already saved for this user");
             }
             var newSavedJob = new SavedJob
             {
@@ -34,19 +34,18 @@ namespace JobApplications.Services
             await dbContext.SaveChangesAsync();
         }
 
-    public async Task<List<JobFormDto>> GetSavedJobsAsync(string userId)
-    {
-            var jobFormDtos = await dbContext.SavedJobs
-            .AsNoTracking() 
-            .Where(sj => sj.IdentityUserId == userId) 
-            .Include(sj => sj.Job) 
+        public List<JobFormDto> GetSavedJobs(string userId)
+        {
+            var jobFormDtos = dbContext.SavedJobs
+            .Include(sj => sj.Job)
+            .Where(sj => sj.IdentityUserId == userId)
             .Select(sj => new JobFormDto
             {
                 Id = sj.Job.Id,
                 Title = sj.Job.Title,
                 Salary = sj.Job.Salary,
                 CompanyId = sj.Job.CompanyId,
-                CompanyName = sj.Job.Company.CompanyName,
+                //CompanyName = sj.Job.Company.CompanyName,
                 Description = sj.Job.Description,
                 JobTitleDescription = sj.Job.JobTitleDescription,
                 WorkingHours = sj.Job.WorkingHours,
@@ -54,21 +53,37 @@ namespace JobApplications.Services
                 Banner = sj.Job.Banner,
                 PostedDate = sj.Job.PostedDate
             })
-            .ToListAsync();
+            .ToList();
 
             return jobFormDtos;
         }
 
-    public async Task RemoveSavedJobAsync(string userId, int jobId)
-    {
-        var savedJob = await dbContext.SavedJobs
-            .FirstOrDefaultAsync(sj => sj.IdentityUserId == userId && sj.JobId == jobId);
-
-        if (savedJob != null)
+        public async Task RemoveSavedJobAsync(string userId, int jobId)
         {
-            dbContext.SavedJobs.Remove(savedJob);
-            await dbContext.SaveChangesAsync();
+            var savedJob = dbContext.SavedJobs
+                .FirstOrDefault(sj => sj.IdentityUserId == userId && sj.JobId == jobId);
+
+            if (savedJob != null)
+            {
+                dbContext.SavedJobs.Remove(savedJob);
+                await dbContext.SaveChangesAsync();
+            }
         }
-    }
+
+        public async Task RemoveAllSavedJobsForAJob(int jobId)
+        {
+            var savedJobs = dbContext.SavedJobs
+                 .FirstOrDefault(sj => sj.JobId == jobId);
+
+            if(savedJobs!= null)
+            {
+                dbContext.RemoveRange(savedJobs);
+                await dbContext.SaveChangesAsync();
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

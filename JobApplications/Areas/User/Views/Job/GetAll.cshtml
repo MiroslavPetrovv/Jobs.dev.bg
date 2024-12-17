@@ -26,6 +26,75 @@
 </style>
 <div class="container mt-5">
     <h1 class="text-center mb-4">Job Listings</h1>
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            <h5>Filter Jobs</h5>
+        </div>
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-4">
+                    <label for="Title" class="form-label">Title</label>
+                    <input type="text"
+                           class="form-control"
+                           id="Title"
+                           name="Title"
+                           value="@Context.Request.Query["Title"]"
+                           placeholder="Job title..." />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="MinSalary" class="form-label">Min Salary</label>
+                    <input type="number"
+                           class="form-control"
+                           id="MinSalary"
+                           name="MinSalary"
+                           value="@Context.Request.Query["MinSalary"]"
+                           placeholder="e.g., 1000" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="MaxSalary" class="form-label">Max Salary</label>
+                    <input type="number"
+                           class="form-control"
+                           id="MaxSalary"
+                           name="MaxSalary"
+                           value="@Context.Request.Query["MaxSalary"]"
+                           placeholder="e.g., 5000" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="MinWorkingHours" class="form-label">Min Working Hours</label>
+                    <input type="number"
+                           class="form-control"
+                           id="MinWorkingHours"
+                           name="MinWorkingHours"
+                           value="@Context.Request.Query["MinWorkingHours"]" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="MaxWorkingHours" class="form-label">Max Working Hours</label>
+                    <input type="number"
+                           class="form-control"
+                           id="MaxWorkingHours"
+                           name="MaxWorkingHours"
+                           value="@Context.Request.Query["MaxWorkingHours"]" />
+                </div>
+
+                <div class="col-md-4">
+                    <label for="PostedAfter" class="form-label">Posted After</label>
+                    <input type="date"
+                           class="form-control"
+                           id="PostedAfter"
+                           name="PostedAfter"
+                           value="@Context.Request.Query["PostedAfter"]" />
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     @if (Model != null && Model.Count > 0)
     {
@@ -40,7 +109,7 @@
                     </div>
 
                     <div class="col-md-4 text-center">
-                        <img src="@item.Banner" alt="@item.CompanyName - @item.Title" class="img-fluid small-logo mb-3" />
+                        <img src="@item.Banner" alt=" @item.Title" class="img-fluid small-logo mb-3" />
                         <div class="btn-container">
                             <a asp-controller="Application" asp-action="ApplyForJob" asp-route-id="@item.Id" class="btn btn-info">Apply</a>
                             <form asp-controller="Job" asp-action="SaveJob" method="post" style="display:inline;">

@@ -2,6 +2,7 @@ using JobApplications.Data;
 using JobApplications.Data.Models;
 using JobApplications.Services;
 using JobApplications.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

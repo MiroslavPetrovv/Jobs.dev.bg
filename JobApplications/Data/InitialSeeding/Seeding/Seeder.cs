@@ -4,20 +4,21 @@
     {
         public void Seed(ApplicationDbContext data, IServiceProvider serviceProvider)
         {
-            //var seeders = new List<ISeeder>()
-            //{
-            //    new RoleSeeder(),
-            //    new UsersSeeder(),
-            //    new AdminSeeder(),
-            //    new DealerSeeder(),
-            //    new CategorySeeder(),
-            //    new CarsSeeder()
-            //};
+            var seeders = new List<ISeeder>()
+            {
+                new RoleSeeder(),
+                new UsersSeeder(),
+                new AdminSeeder(),
+                new CompanyOwnerSeeder(),
+                new CompanySeeder(),
+                new IndustrySeeder(),
+                new ApplicantSeeder(),
+            };
 
-            //foreach (var seeder in seeders)
-            //{
-            //    seeder.Seed(data, serviceProvider);
-            //}
+            foreach (var seeder in seeders)
+            {
+                seeder.Seed(data, serviceProvider);
+            }
         }
     }
 }
