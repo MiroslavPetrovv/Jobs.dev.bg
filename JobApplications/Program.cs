@@ -1,4 +1,5 @@
 using JobApplications.Data;
+using JobApplications.Data.Models;
 using JobApplications.Services;
 using JobApplications.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
@@ -30,6 +31,7 @@ builder.Services.AddScoped<ICompanyService, CompanyService>();
 builder.Services.AddScoped<IIndustrieService, IndustryService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
 builder.Services.AddScoped<IStatusService, StatusService>();
+builder.Services.AddScoped<ISavedJobService, SavedJobService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();

@@ -4,7 +4,6 @@ using JobApplications.Data.Models;
 using JobApplications.DTOs;
 using JobApplications.Services.Interfaces;
 using LinqKit;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
