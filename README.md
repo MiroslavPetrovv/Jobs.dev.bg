@@ -1,4 +1,5 @@
 Job Application Web Application
+
 📖 Information Source - How It Works
 The Job Application Web Application is designed to streamline the job application process for both applicants and employers. It provides a user-friendly interface for job seekers to find and apply for jobs, while allowing employers to post job listings and manage applications efficiently.
 
